@@ -1,0 +1,51 @@
+name: Update World Cup results
+
+# Runs automatically on a schedule and refreshes data/results.json from the API.
+# You can also trigger it by hand from the GitHub "Actions" tab (Run workflow).
+on:
+  schedule:
+    # Every 2 hours. During match days this keeps the board fresh without
+    # burning through a free API tier. (Times are UTC.)
+    - cron: "0 */2 * * *"
+  workflow_dispatch: {}
+
+# Allow the action to commit the updated results file back to the repo.
+permissions:
+  contents: write
+
+# Never run two updates at once.
+concurrency:
+  group: update-results
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run unit tests (transform logic)
+        run: node scripts/test/transform.test.mjs
+
+      - name: Fetch latest results
+        env:
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
+        run: node scripts/update-results.mjs
+
+      - name: Commit updated results (if changed)
+        run: |
+          if git diff --quiet -- data/results.json; then
+            echo "No changes to results.json — nothing to commit."
+            exit 0
+          fi
+          git config user.name  "wc-leaderboard-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/results.json
+          git commit -m "Auto-update World Cup results [skip ci]"
+          git push

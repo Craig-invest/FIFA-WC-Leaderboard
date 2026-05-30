@@ -1,0 +1,49 @@
+{
+  "_comment": "Hand-built mock shaped like API-Football v3 /fixtures response. Used only by transform.test.mjs. Covers a full group (Brazil's group C) plus a semi/final bracket so we can verify group maths, stage progression, elimination and champion logic.",
+  "response": [
+    { "fixture": { "id": 1, "date": "2026-06-15", "status": { "short": "FT" } },
+      "league": { "round": "Group Stage - 1" },
+      "teams": { "home": { "name": "Brazil", "winner": true }, "away": { "name": "Scotland", "winner": false } },
+      "goals": { "home": 3, "away": 0 } },
+
+    { "fixture": { "id": 2, "date": "2026-06-15", "status": { "short": "FT" } },
+      "league": { "round": "Group Stage - 2" },
+      "teams": { "home": { "name": "Brazil", "winner": null }, "away": { "name": "Morocco", "winner": null } },
+      "goals": { "home": 1, "away": 1 } },
+
+    { "fixture": { "id": 3, "date": "2026-06-16", "status": { "short": "FT" } },
+      "league": { "round": "Group Stage - 3" },
+      "teams": { "home": { "name": "Brazil", "winner": true }, "away": { "name": "Haiti", "winner": false } },
+      "goals": { "home": 2, "away": 0 } },
+
+    { "fixture": { "id": 4, "date": "2026-06-16", "status": { "short": "FT" } },
+      "league": { "round": "Group Stage - 1" },
+      "teams": { "home": { "name": "Morocco", "winner": true }, "away": { "name": "Scotland", "winner": false } },
+      "goals": { "home": 1, "away": 0 } },
+
+    { "fixture": { "id": 5, "date": "2026-06-17", "status": { "short": "FT" } },
+      "league": { "round": "Group Stage - 2" },
+      "teams": { "home": { "name": "Morocco", "winner": true }, "away": { "name": "Haiti", "winner": false } },
+      "goals": { "home": 2, "away": 0 } },
+
+    { "fixture": { "id": 6, "date": "2026-06-17", "status": { "short": "FT" } },
+      "league": { "round": "Group Stage - 3" },
+      "teams": { "home": { "name": "Scotland", "winner": true }, "away": { "name": "Haiti", "winner": false } },
+      "goals": { "home": 1, "away": 0 } },
+
+    { "fixture": { "id": 50, "date": "2026-07-14", "status": { "short": "FT" } },
+      "league": { "round": "Semi-finals" },
+      "teams": { "home": { "name": "Argentina", "winner": true }, "away": { "name": "Spain", "winner": false } },
+      "goals": { "home": 2, "away": 0 } },
+
+    { "fixture": { "id": 51, "date": "2026-07-15", "status": { "short": "FT" } },
+      "league": { "round": "Semi-finals" },
+      "teams": { "home": { "name": "France", "winner": true }, "away": { "name": "Brazil", "winner": false } },
+      "goals": { "home": 1, "away": 0 } },
+
+    { "fixture": { "id": 60, "date": "2026-07-19", "status": { "short": "FT" } },
+      "league": { "round": "Final" },
+      "teams": { "home": { "name": "Argentina", "winner": true }, "away": { "name": "France", "winner": false } },
+      "goals": { "home": 3, "away": 1 } }
+  ]
+}

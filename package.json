@@ -1,0 +1,13 @@
+{
+  "name": "fifa-wc-leaderboard",
+  "version": "1.0.0",
+  "description": "Live World Cup 2026 pool leaderboard — ranks 12 people by their best of 4 allocated teams.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node scripts/test/transform.test.mjs",
+    "update": "node scripts/update-results.mjs",
+    "serve": "python3 -m http.server 8099"
+  },
+  "license": "MIT"
+}
