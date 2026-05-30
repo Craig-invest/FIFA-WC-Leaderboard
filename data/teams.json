@@ -1,0 +1,64 @@
+{
+  "_comment": "The real 48 teams of the 2026 World Cup in their actual drawn groups (Final Draw, 5 Dec 2025). id = 3-letter code used everywhere else. Safe to edit names/flags by hand if anything changes (e.g. play-off spots).",
+  "teams": {
+    "MEX": { "name": "Mexico", "flag": "🇲🇽", "group": "A" },
+    "RSA": { "name": "South Africa", "flag": "🇿🇦", "group": "A" },
+    "KOR": { "name": "South Korea", "flag": "🇰🇷", "group": "A" },
+    "CZE": { "name": "Czech Republic", "flag": "🇨🇿", "group": "A" },
+
+    "CAN": { "name": "Canada", "flag": "🇨🇦", "group": "B" },
+    "BIH": { "name": "Bosnia & Herzegovina", "flag": "🇧🇦", "group": "B" },
+    "QAT": { "name": "Qatar", "flag": "🇶🇦", "group": "B" },
+    "SUI": { "name": "Switzerland", "flag": "🇨🇭", "group": "B" },
+
+    "BRA": { "name": "Brazil", "flag": "🇧🇷", "group": "C" },
+    "MAR": { "name": "Morocco", "flag": "🇲🇦", "group": "C" },
+    "HAI": { "name": "Haiti", "flag": "🇭🇹", "group": "C" },
+    "SCO": { "name": "Scotland", "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "group": "C" },
+
+    "USA": { "name": "United States", "flag": "🇺🇸", "group": "D" },
+    "PAR": { "name": "Paraguay", "flag": "🇵🇾", "group": "D" },
+    "AUS": { "name": "Australia", "flag": "🇦🇺", "group": "D" },
+    "TUR": { "name": "Turkey", "flag": "🇹🇷", "group": "D" },
+
+    "GER": { "name": "Germany", "flag": "🇩🇪", "group": "E" },
+    "CUW": { "name": "Curaçao", "flag": "🇨🇼", "group": "E" },
+    "CIV": { "name": "Ivory Coast", "flag": "🇨🇮", "group": "E" },
+    "ECU": { "name": "Ecuador", "flag": "🇪🇨", "group": "E" },
+
+    "NED": { "name": "Netherlands", "flag": "🇳🇱", "group": "F" },
+    "JPN": { "name": "Japan", "flag": "🇯🇵", "group": "F" },
+    "SWE": { "name": "Sweden", "flag": "🇸🇪", "group": "F" },
+    "TUN": { "name": "Tunisia", "flag": "🇹🇳", "group": "F" },
+
+    "BEL": { "name": "Belgium", "flag": "🇧🇪", "group": "G" },
+    "EGY": { "name": "Egypt", "flag": "🇪🇬", "group": "G" },
+    "IRN": { "name": "Iran", "flag": "🇮🇷", "group": "G" },
+    "NZL": { "name": "New Zealand", "flag": "🇳🇿", "group": "G" },
+
+    "ESP": { "name": "Spain", "flag": "🇪🇸", "group": "H" },
+    "CPV": { "name": "Cape Verde", "flag": "🇨🇻", "group": "H" },
+    "KSA": { "name": "Saudi Arabia", "flag": "🇸🇦", "group": "H" },
+    "URU": { "name": "Uruguay", "flag": "🇺🇾", "group": "H" },
+
+    "FRA": { "name": "France", "flag": "🇫🇷", "group": "I" },
+    "SEN": { "name": "Senegal", "flag": "🇸🇳", "group": "I" },
+    "IRQ": { "name": "Iraq", "flag": "🇮🇶", "group": "I" },
+    "NOR": { "name": "Norway", "flag": "🇳🇴", "group": "I" },
+
+    "ARG": { "name": "Argentina", "flag": "🇦🇷", "group": "J" },
+    "ALG": { "name": "Algeria", "flag": "🇩🇿", "group": "J" },
+    "AUT": { "name": "Austria", "flag": "🇦🇹", "group": "J" },
+    "JOR": { "name": "Jordan", "flag": "🇯🇴", "group": "J" },
+
+    "POR": { "name": "Portugal", "flag": "🇵🇹", "group": "K" },
+    "COD": { "name": "DR Congo", "flag": "🇨🇩", "group": "K" },
+    "UZB": { "name": "Uzbekistan", "flag": "🇺🇿", "group": "K" },
+    "COL": { "name": "Colombia", "flag": "🇨🇴", "group": "K" },
+
+    "ENG": { "name": "England", "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "group": "L" },
+    "CRO": { "name": "Croatia", "flag": "🇭🇷", "group": "L" },
+    "GHA": { "name": "Ghana", "flag": "🇬🇭", "group": "L" },
+    "PAN": { "name": "Panama", "flag": "🇵🇦", "group": "L" }
+  }
+}

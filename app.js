@@ -1,0 +1,178 @@
+/* World Cup 2026 Pool Leaderboard
+ * Loads teams + players + results, computes the ranking, renders the board.
+ * The ranking rule: each person is ranked by their single BEST team.
+ *   1) furthest stage reached   2) group points   3) goal difference   4) goals for
+ * Your other three teams do not affect your position (they're shown for interest).
+ */
+
+const STAGE = {
+  champion: { order: 6, label: "Champions",      cls: "st-champion" },
+  final:    { order: 5, label: "Final",          cls: "st-final" },
+  sf:       { order: 4, label: "Semi-final",     cls: "st-sf" },
+  qf:       { order: 3, label: "Quarter-final",  cls: "st-qf" },
+  r16:      { order: 2, label: "Round of 16",    cls: "st-r16" },
+  r32:      { order: 1, label: "Round of 32",    cls: "st-r32" },
+  group:    { order: 0, label: "Group stage",    cls: "st-group" },
+};
+
+const REFRESH_MS = 60 * 1000;
+
+function gd(t) { return (t.gf || 0) - (t.ga || 0); }
+function stageOrder(t) { return (STAGE[t.stage] || STAGE.group).order; }
+
+// Compare two team result objects: returns >0 if a is stronger than b.
+function compareTeams(a, b) {
+  return (stageOrder(a) - stageOrder(b))
+      || ((a.pts || 0) - (b.pts || 0))
+      || (gd(a) - gd(b))
+      || ((a.gf || 0) - (b.gf || 0));
+}
+
+async function loadJSON(path) {
+  const res = await fetch(`${path}?v=${Date.now()}`, { cache: "no-store" });
+  if (!res.ok) throw new Error(`Could not load ${path} (${res.status})`);
+  return res.json();
+}
+
+function fmtUpdated(iso) {
+  if (!iso) return "";
+  const d = new Date(iso);
+  if (isNaN(d)) return "";
+  return "Updated " + d.toLocaleString(undefined, {
+    day: "numeric", month: "short", hour: "2-digit", minute: "2-digit",
+  });
+}
+
+function buildPlayer(player, teamsMeta, results) {
+  // Attach result + meta to each of the player's teams.
+  const teams = player.teams.map((id) => {
+    const meta = teamsMeta[id] || { name: id, flag: "🏳️", group: "?" };
+    const res = results[id] || { p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0, stage: "group", eliminated: false };
+    return { id, ...meta, ...res };
+  });
+
+  // Best team = strongest by the comparator.
+  const best = teams.reduce((a, b) => (compareTeams(b, a) > 0 ? b : a));
+
+  // Still "alive" if the best team has not been eliminated.
+  const alive = !best.eliminated || best.stage === "champion";
+
+  return { name: player.name, teams, best, alive };
+}
+
+function rankPlayers(players) {
+  return [...players].sort((A, B) => {
+    const c = compareTeams(B.best, A.best);
+    if (c !== 0) return c;
+    return A.name.localeCompare(B.name); // stable, keeps a clean 1..12
+  });
+}
+
+function stageBadge(t, isLiveGroup) {
+  const meta = STAGE[t.stage] || STAGE.group;
+  let cls = meta.cls;
+  let label = meta.label;
+  if (t.stage === "group") {
+    // During the live group stage (not yet eliminated) show points; otherwise "out".
+    cls = isLiveGroup ? "st-group-live" : "st-group";
+    label = isLiveGroup ? "Group stage" : "Out — groups";
+  }
+  const showPts = stageOrder(t) <= 1; // group / r32: points still the interesting number
+  const pts = showPts ? `<span class="pts">${t.pts} pts · GD ${gd(t) >= 0 ? "+" : ""}${gd(t)}</span>` : "";
+  return `<div class="stage-badge ${cls}">${label}${pts}</div>`;
+}
+
+function teamLine(t, isBest) {
+  const meta = STAGE[t.stage] || STAGE.group;
+  const out = t.eliminated && t.stage !== "champion";
+  const stageLabel = t.stage === "group"
+    ? (out ? "Out in groups" : "Group stage")
+    : (out ? `Out — ${meta.label}` : meta.label);
+  return `
+    <div class="team-line ${isBest ? "is-best" : ""} ${out ? "out" : ""}">
+      <span class="tflag">${t.flag}</span>
+      <span class="tname">${t.name}${isBest ? " ⭐" : ""}</span>
+      <span class="tstage">${stageLabel}</span>
+      <span class="tpts">${t.pts} pts · GD ${gd(t) >= 0 ? "+" : ""}${gd(t)}</span>
+    </div>`;
+}
+
+function render(ranked) {
+  const board = document.getElementById("leaderboard");
+  board.innerHTML = "";
+
+  ranked.forEach((p, i) => {
+    const rank = i + 1;
+    const medal = rank === 1 ? "🥇" : rank === 2 ? "🥈" : rank === 3 ? "🥉" : "";
+    const isLiveGroup = p.best.stage === "group" && !p.best.eliminated;
+
+    const row = document.createElement("div");
+    row.className = `row rank-${rank}`;
+    row.innerHTML = `
+      <div class="rank">${medal ? `<span class="medal">${medal}</span>` : rank}</div>
+      <div class="player-main">
+        <div class="player-name">${p.name}${p.alive ? '<span class="alive-dot" title="Still alive"></span>' : ""}</div>
+        <div class="best-line">
+          <span class="bigflag">${p.best.flag}</span>
+          <span class="bname">${p.best.name}</span>
+          <span>· top team</span>
+        </div>
+      </div>
+      ${stageBadge(p.best, isLiveGroup)}
+      <div class="teams-detail">
+        ${[...p.teams].sort((a, b) => compareTeams(b, a)).map((t) => teamLine(t, t.id === p.best.id)).join("")}
+      </div>`;
+    row.addEventListener("click", () => row.classList.toggle("open"));
+    board.appendChild(row);
+  });
+}
+
+function showSkeleton() {
+  const board = document.getElementById("leaderboard");
+  board.innerHTML = Array.from({ length: 12 }, () => '<div class="skeleton"></div>').join("");
+}
+
+async function refresh() {
+  try {
+    const [teamsFile, playersFile, resultsFile] = await Promise.all([
+      loadJSON("data/teams.json"),
+      loadJSON("data/players.json"),
+      loadJSON("data/results.json"),
+    ]);
+
+    const teamsMeta = teamsFile.teams || {};
+    const results = resultsFile.teams || {};
+    const players = (playersFile.players || []).map((p) => buildPlayer(p, teamsMeta, results));
+    render(rankPlayers(players));
+
+    // Status pills
+    const statusPill = document.getElementById("status-pill");
+    if (resultsFile.demo) {
+      statusPill.textContent = "Demo data";
+      statusPill.className = "pill demo";
+    } else {
+      statusPill.textContent = "Live";
+      statusPill.className = "pill";
+    }
+    document.getElementById("updated").textContent = fmtUpdated(resultsFile.lastUpdated);
+    document.getElementById("error").hidden = true;
+  } catch (err) {
+    const e = document.getElementById("error");
+    e.hidden = false;
+    e.textContent = `⚠️ ${err.message}. If you're opening this file directly, use the live link (GitHub Pages) instead — browsers block loading data files from the local filesystem.`;
+    console.error(err);
+  }
+}
+
+// "How it works" toggle
+document.getElementById("how-toggle").addEventListener("click", (e) => {
+  const body = document.getElementById("how-body");
+  const open = body.hidden;
+  body.hidden = !open;
+  e.target.setAttribute("aria-expanded", String(open));
+  e.target.textContent = open ? "How the ranking works ▴" : "How the ranking works ▾";
+});
+
+showSkeleton();
+refresh();
+setInterval(refresh, REFRESH_MS);

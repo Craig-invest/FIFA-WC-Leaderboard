@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>World Cup 2026 — Pool Leaderboard</title>
+  <meta name="description" content="Live leaderboard for our World Cup 2026 sweepstake." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-decoration"></div>
+
+  <header class="site-header">
+    <div class="trophy">🏆</div>
+    <h1>World Cup 2026<span class="accent">Pool</span></h1>
+    <p class="subtitle">Live leaderboard — your best team carries you</p>
+    <div class="meta-row">
+      <span id="status-pill" class="pill">Loading…</span>
+      <span id="updated" class="updated"></span>
+    </div>
+  </header>
+
+  <main>
+    <div id="leaderboard" class="leaderboard" aria-live="polite"></div>
+    <p id="error" class="error" hidden></p>
+  </main>
+
+  <section class="how-it-works">
+    <button id="how-toggle" class="how-toggle" aria-expanded="false">How the ranking works ▾</button>
+    <div id="how-body" class="how-body" hidden>
+      <ul>
+        <li><strong>Your best team carries you.</strong> Each person is ranked by their single strongest team — your other three don't count toward your position.</li>
+        <li><strong>How far you go is everything.</strong> Champions → Final → Semi-final → Quarter-final → Round of 16 → Round of 32 → Group stage. As teams get knocked out, their owners slide down the board.</li>
+        <li><strong>During the group stage</strong>, your best team's points decide it (3 for a win, 1 for a draw).</li>
+        <li><strong>Tie-breakers</strong> (when best teams are level): goal difference, then goals scored.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <span>Auto-refreshes every minute · built for the crew</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

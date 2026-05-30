@@ -1,0 +1,17 @@
+{
+  "_comment": "The 12 people in the pool and the 4 teams each was allocated. These are PLACEHOLDER names + a sample snake-draft allocation so the page works now. After your real draft, just change the 'name' values and the 4 team codes (codes must match ids in teams.json). Every team should be owned by exactly one person.",
+  "players": [
+    { "name": "Craig",  "teams": ["ARG", "SWE", "CIV", "CUW"] },
+    { "name": "Alex",   "teams": ["FRA", "NOR", "EGY", "HAI"] },
+    { "name": "Sam",    "teams": ["ESP", "AUT", "IRN", "JOR"] },
+    { "name": "Riley",  "teams": ["BRA", "AUS", "PAR", "NZL"] },
+    { "name": "Taylor", "teams": ["ENG", "ECU", "SCO", "CPV"] },
+    { "name": "Morgan", "teams": ["POR", "SEN", "TUN", "COD"] },
+    { "name": "Jamie",  "teams": ["GER", "USA", "QAT", "KSA"] },
+    { "name": "Chris",  "teams": ["NED", "MEX", "CAN", "IRQ"] },
+    { "name": "Pat",    "teams": ["BEL", "KOR", "ALG", "BIH"] },
+    { "name": "Robin",  "teams": ["CRO", "JPN", "GHA", "CZE"] },
+    { "name": "Lee",    "teams": ["URU", "SUI", "PAN", "UZB"] },
+    { "name": "Drew",   "teams": ["COL", "MAR", "TUR", "RSA"] }
+  ]
+}
