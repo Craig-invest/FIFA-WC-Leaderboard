@@ -4,9 +4,9 @@ A one-page live leaderboard for our 12-person World Cup sweepstake. Each person 
 allocated 4 teams; you're ranked by your **single best-performing team**. As teams get
 knocked out, their owners slide down the board.
 
-**This is Phase 1:** a fully working page running on *demo data* (a made-up finished
-tournament) so you can see exactly how it looks and behaves. Phase 2 adds automatic
-live updates from a free football API.
+- **Phase 1 ✅** — the working, good-looking page (currently showing *demo data*).
+- **Phase 2 ✅** — the robot that auto-fetches real results from a free football API.
+- **Phase 3 ⏳** — go live on GitHub Pages + plug in the API key (your steps below).
 
 ---
 
@@ -19,11 +19,13 @@ live updates from a free football API.
 | `app.js` | The brain: loads data, ranks everyone | No |
 | `data/teams.json` | The 48 World Cup teams + their groups | Rarely |
 | **`data/players.json`** | **The 12 people + their 4 teams each** | **YES — after your draft** |
-| `data/results.json` | Match results (the robot fills this in Phase 2) | Auto |
+| `data/results.json` | Match results (the robot fills this automatically) | Auto |
+| `scripts/` | The robot + its tests | No |
+| `.github/workflows/` | The schedule that runs the robot | No |
 
 ---
 
-## ✏️ After your draft: entering the 12 people and their teams
+## ✏️ Step 1 — After your draft: enter the 12 people and their teams
 
 Open **`data/players.json`**. You'll see 12 lines like this:
 
@@ -39,24 +41,59 @@ Open **`data/players.json`**. You'll see 12 lines like this:
 **Rules:** every person needs exactly 4 teams, and all 48 teams should be used
 exactly once across the group (no team owned by two people).
 
-> Don't worry about getting it perfect by hand — once you've done your draft, just
-> paste the names + teams to me and I'll fill this file in for you and double-check it.
+> Don't worry about doing this perfectly by hand — once you've done your draft, just
+> paste the names + teams to me and I'll fill this file in and double-check it.
 
 ---
 
-## 🌐 Seeing it live (GitHub Pages)
+## 🌐 Step 2 — Go live (free hosting on GitHub Pages)
 
-Once this is pushed to GitHub, turn on free hosting:
-
-1. On GitHub, go to the repo → **Settings** → **Pages** (left sidebar).
+1. On GitHub, open the repo → **Settings** → **Pages** (left sidebar).
 2. Under **Source**, choose **Deploy from a branch**.
-3. Pick branch **`main`** (or whichever you've merged into) and folder **`/ (root)`**, then **Save**.
+3. Pick your branch and folder **`/ (root)`**, then **Save**.
 4. Wait ~1 minute, refresh, and GitHub shows your live link at the top
-   (looks like `https://YOURNAME.github.io/fifa-wc-leaderboard/`).
+   (like `https://YOURNAME.github.io/fifa-wc-leaderboard/`).
 5. That's the link you send your 12 friends. 🎉
 
-> ⚠️ Opening `index.html` by double-clicking it on your computer won't fully work —
-> browsers block local file loading. Always use the GitHub Pages link.
+> ⚠️ Double-clicking `index.html` on your computer won't fully work — browsers block
+> local file loading. Always use the GitHub Pages link (or run `npm run serve` locally).
+
+---
+
+## 🤖 Step 3 — Turn on automatic live updates
+
+The robot is already built. It just needs a free API key to fetch real results.
+
+### 3a. Get a free API key (5 minutes)
+1. Go to **https://www.api-football.com/** and create a free account.
+2. On your dashboard, copy your **API key** (a long string of letters/numbers).
+   - The free plan = **100 requests/day**. We use ~12/day, so you'll never hit the limit.
+
+### 3b. Give the key to GitHub (kept secret, never in the code)
+1. On GitHub: repo → **Settings** → **Secrets and variables** → **Actions**.
+2. Click **New repository secret**.
+3. Name it exactly: `API_FOOTBALL_KEY`
+4. Paste your key into the value box → **Add secret**.
+
+### 3c. Switch it on
+- Go to the **Actions** tab → enable workflows if prompted.
+- Open **"Update World Cup results"** → **Run workflow** to test it immediately.
+- After that it runs **every 2 hours automatically** and commits fresh results.
+  GitHub Pages then shows the update within a minute. Set-and-forget. ✅
+
+---
+
+## 🛟 Manual override (if the API is ever wrong or late)
+
+You're never stuck waiting on the API. To take manual control:
+
+1. Open `data/results.json` and add `"manual": true` near the top.
+2. Edit any team's line by hand, e.g. mark a team out:
+   `"stage": "qf", "eliminated": true`.
+3. While `"manual": true` is set, the robot **won't overwrite your edits**.
+   Remove that line to hand control back to the robot.
+
+`stage` can be: `group`, `r32`, `r16`, `qf`, `sf`, `final`, or `champion`.
 
 ---
 
@@ -69,4 +106,16 @@ Once this is pushed to GitHub, turn on free hosting:
 
 ---
 
-*Phase 2 (auto-updates) and the live API wiring come next.*
+## 🧑‍💻 For the technically curious (optional)
+
+```bash
+npm test          # run the unit tests for the results-transform logic
+npm run serve     # serve the page locally at http://localhost:8099
+npm run update    # fetch results now (needs API_FOOTBALL_KEY in your environment)
+```
+
+- The robot fetches `fixtures?league=1&season=2026` from API-Football and derives the
+  whole table (group points, stage reached, eliminations, champion) in
+  `scripts/lib/transform.mjs`. That logic is covered by unit tests in `scripts/test/`.
+- Safety: the robot **won't** overwrite good data if the API errors or returns nothing,
+  and it respects the `"manual": true` override.
