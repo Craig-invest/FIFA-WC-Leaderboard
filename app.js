@@ -88,9 +88,12 @@ function stageBadge(t, isLiveGroup) {
     cls = isLiveGroup ? "st-group-live" : "st-group";
     label = isLiveGroup ? "Group stage" : "Out — groups";
   }
+  const grp = t.group ? `Grp ${t.group}` : "";
   const showPts = stageOrder(t) <= 1; // group / r32: points still the interesting number
-  const pts = showPts ? `<span class="pts">${t.pts} pts · GD ${gd(t) >= 0 ? "+" : ""}${gd(t)}</span>` : "";
-  return `<div class="stage-badge ${cls}">${label}${pts}</div>`;
+  const stats = showPts
+    ? `<span class="pts">${grp} · ${t.pts} pts · GD ${gd(t) >= 0 ? "+" : ""}${gd(t)}</span>`
+    : (grp ? `<span class="pts">${grp}</span>` : "");
+  return `<div class="stage-badge ${cls}">${label}${stats}</div>`;
 }
 
 function teamLine(t, isBest) {
@@ -122,11 +125,10 @@ function render(ranked) {
     row.innerHTML = `
       <div class="rank">${medal ? `<span class="medal">${medal}</span>` : rank}</div>
       <div class="player-main">
-        <div class="player-name">${p.name}${p.alive ? '<span class="alive-dot" title="Still alive"></span>' : ""}</div>
+        <div class="player-name">${p.name}</div>
         <div class="best-line">
           <span class="bigflag">${p.best.flag}</span>
           <span class="bname">${p.best.name}</span>
-          <span>· top team</span>
         </div>
       </div>
       ${stageBadge(p.best, isLiveGroup)}
