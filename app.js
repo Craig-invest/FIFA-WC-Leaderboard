@@ -43,6 +43,17 @@ function fmtUpdated(iso) {
   });
 }
 
+// First match of the 2026 World Cup: 11 June 2026 (Mexico City opener).
+const KICKOFF = new Date("2026-06-11T19:00:00Z");
+function countdownToKickoff() {
+  const ms = KICKOFF - new Date();
+  if (ms <= 0) return "Tournament under way ⚽";
+  const days = Math.floor(ms / 86400000);
+  const hours = Math.floor((ms % 86400000) / 3600000);
+  if (days > 0) return `Kicks off in ${days} day${days === 1 ? "" : "s"}`;
+  return `Kicks off in ${hours} hour${hours === 1 ? "" : "s"}`;
+}
+
 function buildPlayer(player, teamsMeta, results) {
   // Attach result + meta to each of the player's teams.
   const teams = player.teams.map((id) => {
@@ -147,14 +158,20 @@ async function refresh() {
 
     // Status pills
     const statusPill = document.getElementById("status-pill");
-    if (resultsFile.demo) {
+    const updatedEl = document.getElementById("updated");
+    if (resultsFile.notStarted) {
+      statusPill.textContent = "Not started";
+      statusPill.className = "pill demo";
+      updatedEl.textContent = countdownToKickoff();
+    } else if (resultsFile.demo) {
       statusPill.textContent = "Demo data";
       statusPill.className = "pill demo";
+      updatedEl.textContent = fmtUpdated(resultsFile.lastUpdated);
     } else {
       statusPill.textContent = "Live";
       statusPill.className = "pill";
+      updatedEl.textContent = fmtUpdated(resultsFile.lastUpdated);
     }
-    document.getElementById("updated").textContent = fmtUpdated(resultsFile.lastUpdated);
     document.getElementById("error").hidden = true;
   } catch (err) {
     const e = document.getElementById("error");
