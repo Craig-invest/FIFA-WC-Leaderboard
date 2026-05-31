@@ -1,17 +1,17 @@
 {
-  "_comment": "The 12 people in the pool and the 4 teams each was allocated. These are PLACEHOLDER names + a sample snake-draft allocation so the page works now. After your real draft, just change the 'name' values and the 4 team codes (codes must match ids in teams.json). Every team should be owned by exactly one person.",
+  "_comment": "The 12 people in the pool and the 4 teams each was allocated (real draft). Listed alphabetically by name. Codes must match ids in teams.json; every team is owned by exactly one person.",
   "players": [
-    { "name": "Craig",  "teams": ["ARG", "SWE", "CIV", "CUW"] },
-    { "name": "Alex",   "teams": ["FRA", "NOR", "EGY", "HAI"] },
-    { "name": "Sam",    "teams": ["ESP", "AUT", "IRN", "JOR"] },
-    { "name": "Riley",  "teams": ["BRA", "AUS", "PAR", "NZL"] },
-    { "name": "Taylor", "teams": ["ENG", "ECU", "SCO", "CPV"] },
-    { "name": "Morgan", "teams": ["POR", "SEN", "TUN", "COD"] },
-    { "name": "Jamie",  "teams": ["GER", "USA", "QAT", "KSA"] },
-    { "name": "Chris",  "teams": ["NED", "MEX", "CAN", "IRQ"] },
-    { "name": "Pat",    "teams": ["BEL", "KOR", "ALG", "BIH"] },
-    { "name": "Robin",  "teams": ["CRO", "JPN", "GHA", "CZE"] },
-    { "name": "Lee",    "teams": ["URU", "SUI", "PAN", "UZB"] },
-    { "name": "Drew",   "teams": ["COL", "MAR", "TUR", "RSA"] }
+    { "name": "Bates",       "teams": ["POR", "ECU", "KSA", "BIH"] },
+    { "name": "de Villiers", "teams": ["ENG", "SEN", "EGY", "TUN"] },
+    { "name": "Deighton",     "teams": ["GER", "MAR", "AUS", "CPV"] },
+    { "name": "Hawke",        "teams": ["SUI", "JPN", "CIV", "HAI"] },
+    { "name": "Holtes",       "teams": ["NED", "CRO", "ALG", "CUW"] },
+    { "name": "Kelly",        "teams": ["ARG", "KOR", "QAT", "GHA"] },
+    { "name": "Keyser",       "teams": ["FRA", "COL", "PAN", "RSA"] },
+    { "name": "Kirsten",      "teams": ["MEX", "TUR", "SWE", "JOR"] },
+    { "name": "Lockie",       "teams": ["BEL", "URU", "NOR", "UZB"] },
+    { "name": "Mitchell",     "teams": ["BRA", "AUT", "COD", "NZL"] },
+    { "name": "Parker",       "teams": ["USA", "IRN", "CZE", "IRQ"] },
+    { "name": "Snyman",       "teams": ["ESP", "CAN", "SCO", "PAR"] }
   ]
 }
