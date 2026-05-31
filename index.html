@@ -14,10 +14,13 @@
   <div class="bg-decoration"></div>
 
   <header class="site-header">
-    <img class="banner" src="assets/fifa-banner.png" alt="FIFA World Cup 2026"
-         onerror="this.style.display='none'; document.getElementById('trophy-fallback').style.display='block';" />
-    <div class="trophy" id="trophy-fallback" style="display:none;">🏆</div>
-    <h1>World Cup 2026<span class="accent">Pool</span></h1>
+    <div class="banner-wrap">
+      <img class="banner" src="assets/fifa-banner.png" alt="FIFA World Cup 2026"
+           onerror="this.closest('.banner-wrap').classList.add('no-img');" />
+      <div class="banner-overlay">
+        <h1>World Cup 2026<span class="accent">Pool</span></h1>
+      </div>
+    </div>
     <p class="subtitle">Live leaderboard — your best team carries you</p>
     <div class="meta-row">
       <span id="status-pill" class="pill">Loading…</span>
