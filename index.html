@@ -14,7 +14,9 @@
   <div class="bg-decoration"></div>
 
   <header class="site-header">
-    <div class="trophy">🏆</div>
+    <img class="banner" src="assets/fifa-banner.png" alt="FIFA World Cup 2026"
+         onerror="this.style.display='none'; document.getElementById('trophy-fallback').style.display='block';" />
+    <div class="trophy" id="trophy-fallback" style="display:none;">🏆</div>
     <h1>World Cup 2026<span class="accent">Pool</span></h1>
     <p class="subtitle">Live leaderboard — your best team carries you</p>
     <div class="meta-row">
