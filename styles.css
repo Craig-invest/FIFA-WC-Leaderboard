@@ -1,20 +1,35 @@
 :root {
-  --bg: #0a0e1a;
-  --bg-2: #111827;
-  --card: #161d2e;
-  --card-hover: #1b2336;
-  --line: #232c42;
-  --text: #f1f5f9;
-  --muted: #94a3b8;
-  --faint: #64748b;
-  --accent: #00d4a0;
-  --accent-2: #6366f1;
-  --gold: #fbbf24;
-  --silver: #cbd5e1;
-  --bronze: #d97706;
-  --danger: #ef4444;
+  /* FIFA 26 palette: bold red hero, rainbow-stripe motif, gold trophy */
+  --bg: #11061a;            /* deep aubergine-black, picks up the purple in the artwork */
+  --bg-2: #1c0c26;
+  --card: #220e2e;
+  --card-hover: #2c1339;
+  --line: #3a1c49;
+  --text: #fdf2f8;
+  --muted: #c4a7d4;
+  --faint: #8b6c9c;
+  --accent: #e8112d;        /* FIFA 26 red */
+  --accent-2: #7c3aed;      /* violet from the stripes */
+  --gold: #f6c544;          /* trophy gold */
+  --silver: #d9d2e0;
+  --bronze: #e08a3c;
+  --danger: #e8112d;
+  /* the FIFA rainbow, used for the top bar + title underline */
+  --rainbow: linear-gradient(90deg,
+    #e8112d 0%, #ff6b00 16%, #ffd400 32%, #5bd15b 48%,
+    #2ec5c5 62%, #2b6bff 76%, #7c3aed 88%, #e8112d 100%);
   --radius: 16px;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* FIFA rainbow stripe across the very top of the page */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: var(--rainbow);
+  z-index: 10;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -34,8 +49,9 @@ body {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(900px 500px at 15% -10%, rgba(99, 102, 241, 0.18), transparent),
-    radial-gradient(900px 500px at 110% 10%, rgba(0, 212, 160, 0.14), transparent),
+    radial-gradient(900px 520px at 12% -12%, rgba(232, 17, 45, 0.22), transparent),
+    radial-gradient(820px 480px at 108% 6%, rgba(124, 58, 237, 0.20), transparent),
+    radial-gradient(700px 460px at 50% 120%, rgba(46, 197, 197, 0.12), transparent),
     var(--bg);
 }
 
@@ -56,7 +72,10 @@ body {
 .site-header h1 .accent {
   display: inline-block;
   margin-left: 10px;
-  color: var(--accent);
+  background: var(--rainbow);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 .subtitle { color: var(--muted); margin-top: 6px; font-size: 15px; }
 .meta-row {
@@ -64,9 +83,9 @@ body {
   margin-top: 16px; flex-wrap: wrap;
 }
 .pill {
-  background: rgba(0, 212, 160, 0.12);
-  color: var(--accent);
-  border: 1px solid rgba(0, 212, 160, 0.3);
+  background: rgba(232, 17, 45, 0.14);
+  color: #ff5066;
+  border: 1px solid rgba(232, 17, 45, 0.4);
   padding: 5px 14px;
   border-radius: 999px;
   font-size: 13px;
@@ -129,8 +148,8 @@ body {
 }
 .alive-dot {
   width: 8px; height: 8px; border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 3px rgba(0, 212, 160, 0.2);
+  background: #5bd15b;
+  box-shadow: 0 0 0 3px rgba(91, 209, 91, 0.25);
   flex: none;
 }
 .best-line {
@@ -160,7 +179,7 @@ body {
 .st-r16      { background: rgba(45, 212, 191, 0.13); color: #5eead4; border-color: rgba(45,212,191,0.3); }
 .st-r32      { background: rgba(148, 163, 184, 0.13); color: var(--muted); border-color: rgba(148,163,184,0.25); }
 .st-group    { background: rgba(148, 163, 184, 0.08); color: var(--faint); border-color: rgba(148,163,184,0.18); }
-.st-group-live { background: rgba(0, 212, 160, 0.12); color: var(--accent); border-color: rgba(0,212,160,0.3); }
+.st-group-live { background: rgba(91, 209, 91, 0.13); color: #7bdd7b; border-color: rgba(91,209,91,0.3); }
 
 /* ---------- Expandable team detail ---------- */
 .teams-detail {
