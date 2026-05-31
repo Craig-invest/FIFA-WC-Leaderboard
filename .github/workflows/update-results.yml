@@ -1,13 +1,15 @@
 name: Update World Cup results
 
-# Runs automatically on a schedule and refreshes data/results.json from the API.
-# You can also trigger it by hand from the GitHub "Actions" tab (Run workflow).
+# MANUAL ONLY for now. This workflow will NOT run on its own.
+# It only runs when you click "Run workflow" on the GitHub Actions tab.
+#
+# When the tournament starts and you're ready for hands-off auto-updates,
+# uncomment the "schedule" block below to have it refresh every 2 hours.
 on:
-  schedule:
-    # Every 2 hours. During match days this keeps the board fresh without
-    # burning through a free API tier. (Times are UTC.)
-    - cron: "0 */2 * * *"
   workflow_dispatch: {}
+  # schedule:
+  #   # Every 2 hours (UTC). Uncomment to enable automatic updates.
+  #   - cron: "0 */2 * * *"
 
 # Allow the action to commit the updated results file back to the repo.
 permissions:
