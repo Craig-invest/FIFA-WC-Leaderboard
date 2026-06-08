@@ -42,8 +42,19 @@ async function fetchFixtures() {
   return json.response;
 }
 
+// The robot stays asleep until the tournament's first whistle: Mexico v South
+// Africa, 11 June 2026, 19:00 UTC. Before then it does nothing (so the clean
+// pre-tournament board + countdown stays in place), even though it's scheduled.
+// Override with WC_KICKOFF if a time ever shifts.
+const KICKOFF = new Date(process.env.WC_KICKOFF || "2026-06-11T19:00:00Z");
+
 async function main() {
   if (!API_KEY) die("API_FOOTBALL_KEY is not set. Add it as a GitHub Actions secret (see README Phase 2).");
+
+  if (new Date() < KICKOFF) {
+    log(`Tournament hasn't kicked off yet (starts ${KICKOFF.toISOString()}). Sleeping — no update.`);
+    return;
+  }
 
   // Respect a manual override: if someone set "manual": true, don't auto-overwrite.
   try {

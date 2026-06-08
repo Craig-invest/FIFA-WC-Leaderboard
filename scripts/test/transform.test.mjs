@@ -63,6 +63,28 @@ ok(results.demo === false, "live build marks demo=false");
 eq(results.teams.ARG.stage, "champion", "built ARG champion");
 eq(results.teams.SCO.eliminated, true, "SCO eliminated at group (no knockout appearance)");
 ok(typeof results.teams.PAN?.pts === "number", "PAN has numeric stats even with no matches");
+ok(results.anyLive === false, "no live matches in the finished mock");
+ok(results.teams.ARG.live === false, "ARG not flagged live in finished mock");
+
+// --- LIVE behaviour: an in-progress group match counts provisionally + flags live ---
+const liveFixtures = [
+  { fixture: { id: 900, date: "2026-06-11", status: { short: "1H" } },
+    league: { round: "Group Stage - 1" },
+    teams: { home: { name: "Spain", winner: null }, away: { name: "Uruguay", winner: null } },
+    goals: { home: 1, away: 0 } },
+  { fixture: { id: 901, date: "2026-06-11", status: { short: "NS" } }, // not started -> ignored
+    league: { round: "Group Stage - 1" },
+    teams: { home: { name: "Canada", winner: null }, away: { name: "Qatar", winner: null } },
+    goals: { home: null, away: null } },
+];
+const liveRes = buildResults(liveFixtures, teamsMeta, "2026-06-11T19:30:00Z");
+ok(liveRes.anyLive === true, "anyLive true when a match is in play");
+eq(liveRes.teams.ESP.pts, 3, "ESP provisionally has 3 pts while leading live");
+eq(liveRes.teams.URU.pts, 0, "URU provisionally 0 pts while losing live");
+ok(liveRes.teams.ESP.live === true, "ESP flagged live");
+ok(liveRes.teams.URU.live === true, "URU flagged live");
+ok(liveRes.teams.CAN.live === false, "CAN not live (match not started)");
+eq(liveRes.teams.CAN.pts, 0, "CAN no points from a not-started match");
 
 console.log(`\n${fail === 0 ? "ALL PASS" : "FAILURES"}: ${pass} passed, ${fail} failed`);
 process.exit(fail === 0 ? 0 : 1);

@@ -68,7 +68,10 @@ function buildPlayer(player, teamsMeta, results) {
   // Still "alive" if the best team has not been eliminated.
   const alive = !best.eliminated || best.stage === "champion";
 
-  return { name: player.name, teams, best, alive };
+  // "live" if any of this player's teams is currently playing.
+  const live = teams.some((t) => t.live);
+
+  return { name: player.name, teams, best, alive, live };
 }
 
 function rankPlayers(players) {
@@ -100,10 +103,11 @@ function teamLine(t, isBest) {
     ? (out ? "Out in groups" : "Group stage")
     : (out ? `Out — ${meta.label}` : meta.label);
   const grp = t.group ? `Grp ${t.group} · ` : "";
+  const liveLabel = t.live ? '<span class="team-live">● LIVE</span> ' : "";
   return `
-    <div class="team-line ${isBest ? "is-best" : ""} ${out ? "out" : ""}">
+    <div class="team-line ${isBest ? "is-best" : ""} ${out ? "out" : ""} ${t.live ? "live" : ""}">
       <span class="tflag">${t.flag}</span>
-      <span class="tname">${t.name}${isBest ? " ⭐" : ""}</span>
+      <span class="tname">${liveLabel}${t.name}${isBest ? " ⭐" : ""}</span>
       <span class="tstage">${grp}${stageLabel}</span>
       <span class="tpts">${t.pts} pts · GD ${gd(t) >= 0 ? "+" : ""}${gd(t)}</span>
     </div>`;
@@ -119,11 +123,11 @@ function render(ranked) {
     const isLiveGroup = p.best.stage === "group" && !p.best.eliminated;
 
     const row = document.createElement("div");
-    row.className = `row rank-${rank}`;
+    row.className = `row rank-${rank}${p.live ? " live" : ""}`;
     row.innerHTML = `
       <div class="rank">${medal ? `<span class="medal">${medal}</span>` : rank}</div>
       <div class="player-main">
-        <div class="player-name">${p.name}</div>
+        <div class="player-name">${p.name}${p.live ? '<span class="live-tag">● LIVE</span>' : ""}</div>
         <div class="best-line">
           <span class="bigflag">${p.best.flag}</span>
           <span class="bname">${p.best.name}</span>
@@ -163,6 +167,10 @@ async function refresh() {
       statusPill.textContent = "Not started";
       statusPill.className = "pill demo";
       updatedEl.textContent = countdownToKickoff();
+    } else if (resultsFile.anyLive) {
+      statusPill.textContent = "● LIVE — as it stands";
+      statusPill.className = "pill live-pill";
+      updatedEl.textContent = fmtUpdated(resultsFile.lastUpdated);
     } else if (resultsFile.demo) {
       statusPill.textContent = "Demo data";
       statusPill.className = "pill demo";

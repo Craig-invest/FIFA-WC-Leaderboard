@@ -1,18 +1,16 @@
 name: Update World Cup results
 
-# MANUAL ONLY for now. This workflow will NOT run on its own.
-# It only runs when you click "Run workflow" on the GitHub Actions tab.
-#
-# When you're ready for hands-off auto-updates during the tournament,
-# uncomment the "schedule" block below. It runs every 30 minutes but ONLY
-# during match-window hours (16:00-08:59 UTC), which covers all 2026 kickoffs
-# (North American afternoon/evening). ~32 runs/day — well under the free
-# API-Football limit of 100/day. Outside those hours it stays asleep.
+# Runs every 15 minutes during match-window hours (16:00-08:59 UTC), which
+# covers all 2026 kickoffs (North American afternoon/evening, running late into
+# UTC night). ~68 runs/day — comfortably under the free API-Football limit of
+# 100/day. Outside those hours it doesn't run; and even when it runs, the script
+# itself stays asleep until the 11 June kickoff (see WC_KICKOFF guard).
+# You can also trigger it any time with the "Run workflow" button.
 on:
   workflow_dispatch: {}
-  # schedule:
-  #   - cron: "*/30 16-23 * * *"   # every 30 min, 16:00-23:59 UTC
-  #   - cron: "*/30 0-8 * * *"     # every 30 min, 00:00-08:59 UTC (overnight matches)
+  schedule:
+    - cron: "*/15 16-23 * * *"   # every 15 min, 16:00-23:59 UTC
+    - cron: "*/15 0-8 * * *"     # every 15 min, 00:00-08:59 UTC (overnight matches)
 
 # Allow the action to commit the updated results file back to the repo.
 permissions:

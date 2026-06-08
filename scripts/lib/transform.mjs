@@ -58,6 +58,24 @@ export function makeResolver(teamsMeta) {
 const FINISHED = new Set(["FT", "AET", "PEN"]);
 export const isFinished = (fx) => FINISHED.has(fx?.fixture?.status?.short);
 
+// In-play statuses per API-Football: 1st/2nd half, half-time, extra time,
+// break time, penalties in progress, suspended/interrupted but live.
+const LIVE = new Set(["1H", "HT", "2H", "ET", "BT", "P", "LIVE", "INT", "SUSP"]);
+export const isLive = (fx) => LIVE.has(fx?.fixture?.status?.short);
+
+// Which of our team codes are currently playing (for the live row highlight).
+export function liveTeamSet(fixtures, resolve) {
+  const set = new Set();
+  for (const fx of fixtures) {
+    if (!isLive(fx)) continue;
+    const h = resolve(fx.teams?.home?.name);
+    const a = resolve(fx.teams?.away?.name);
+    if (h) set.add(h);
+    if (a) set.add(a);
+  }
+  return set;
+}
+
 // Map a provider "round" string to our stage code (null = not a stage we rank on).
 export function roundToStage(round) {
   const r = normalize(round);
@@ -75,14 +93,16 @@ function blankStat() {
   return { p: 0, w: 0, d: 0, l: 0, gf: 0, ga: 0, pts: 0, stage: "group", eliminated: false };
 }
 
-// --- Group-stage table from finished group matches ---
-export function computeGroupStats(fixtures, resolve) {
+// --- Group-stage table from finished (and optionally live) group matches ---
+// When includeLive is true, an in-progress match counts provisionally using its
+// current score — this is what powers the "as it stands" view.
+export function computeGroupStats(fixtures, resolve, includeLive = true) {
   const stats = {};
   const ensure = (code) => (stats[code] ||= blankStat());
 
   for (const fx of fixtures) {
     if (roundToStage(fx.league?.round) !== "group") continue;
-    if (!isFinished(fx)) continue;
+    if (!isFinished(fx) && !(includeLive && isLive(fx))) continue;
     const h = resolve(fx.teams?.home?.name);
     const a = resolve(fx.teams?.away?.name);
     if (!h || !a) continue;
@@ -160,8 +180,12 @@ export function computeStages(fixtures, resolve) {
 // --- Merge into the full results.json object ---
 export function buildResults(fixtures, teamsMeta, nowISO = new Date().toISOString()) {
   const resolve = makeResolver(teamsMeta);
-  const groupStats = computeGroupStats(fixtures, resolve);
+  // Group points include live, provisional scores ("as it stands").
+  const groupStats = computeGroupStats(fixtures, resolve, true);
+  // Stage / elimination only ever come from FINISHED matches — you can't be
+  // knocked out mid-game, and a champion is only crowned at full-time.
   const { stages, groupsComplete, appearsInKnockout } = computeStages(fixtures, resolve);
+  const liveTeams = liveTeamSet(fixtures, resolve);
 
   const teams = {};
   for (const code of Object.keys(teamsMeta)) {
@@ -174,8 +198,15 @@ export function buildResults(fixtures, teamsMeta, nowISO = new Date().toISOStrin
       base.stage = "group";
       base.eliminated = true; // didn't make the knockouts
     }
+    base.live = liveTeams.has(code); // currently playing -> provisional + highlight
     teams[code] = base;
   }
 
-  return { lastUpdated: nowISO, demo: false, source: "api", teams };
+  return {
+    lastUpdated: nowISO,
+    demo: false,
+    source: "api",
+    anyLive: liveTeams.size > 0,
+    teams,
+  };
 }
