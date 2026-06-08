@@ -1,30 +1,32 @@
 {
-  "_comment": "Per-team results. The auto-update robot will overwrite this once live. PRE-TOURNAMENT STATE: everyone level at zero, nobody eliminated. stage = group | r32 | r16 | qf | sf | final | champion.",
-  "lastUpdated": null,
+  "lastUpdated": "2026-06-08T05:47:56.561Z",
   "demo": true,
-  "notStarted": true,
+  "source": "api",
+  "anyLive": true,
   "teams": {
     "MEX": {
-      "p": 0,
-      "w": 0,
+      "p": 1,
+      "w": 1,
       "d": 0,
       "l": 0,
-      "gf": 0,
+      "gf": 1,
       "ga": 0,
-      "pts": 0,
+      "pts": 3,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": true
     },
     "RSA": {
-      "p": 0,
+      "p": 1,
       "w": 0,
       "d": 0,
-      "l": 0,
+      "l": 1,
       "gf": 0,
-      "ga": 0,
+      "ga": 1,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": true
     },
     "KOR": {
       "p": 0,
@@ -35,7 +37,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "CZE": {
       "p": 0,
@@ -46,7 +49,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "CAN": {
       "p": 0,
@@ -57,7 +61,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "BIH": {
       "p": 0,
@@ -68,7 +73,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "QAT": {
       "p": 0,
@@ -79,7 +85,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "SUI": {
       "p": 0,
@@ -90,7 +97,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "BRA": {
       "p": 0,
@@ -101,7 +109,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "MAR": {
       "p": 0,
@@ -112,7 +121,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "HAI": {
       "p": 0,
@@ -123,7 +133,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "SCO": {
       "p": 0,
@@ -134,7 +145,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "USA": {
       "p": 0,
@@ -145,7 +157,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "PAR": {
       "p": 0,
@@ -156,7 +169,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "AUS": {
       "p": 0,
@@ -167,7 +181,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "TUR": {
       "p": 0,
@@ -178,7 +193,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "GER": {
       "p": 0,
@@ -189,7 +205,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "CUW": {
       "p": 0,
@@ -200,7 +217,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "CIV": {
       "p": 0,
@@ -211,7 +229,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "ECU": {
       "p": 0,
@@ -222,7 +241,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "NED": {
       "p": 0,
@@ -233,7 +253,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "JPN": {
       "p": 0,
@@ -244,7 +265,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "SWE": {
       "p": 0,
@@ -255,7 +277,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "TUN": {
       "p": 0,
@@ -266,7 +289,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "BEL": {
       "p": 0,
@@ -277,7 +301,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "EGY": {
       "p": 0,
@@ -288,7 +313,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "IRN": {
       "p": 0,
@@ -299,7 +325,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "NZL": {
       "p": 0,
@@ -310,7 +337,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "ESP": {
       "p": 0,
@@ -321,7 +349,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "CPV": {
       "p": 0,
@@ -332,7 +361,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "KSA": {
       "p": 0,
@@ -343,7 +373,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "URU": {
       "p": 0,
@@ -354,7 +385,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "FRA": {
       "p": 0,
@@ -365,7 +397,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "SEN": {
       "p": 0,
@@ -376,7 +409,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "IRQ": {
       "p": 0,
@@ -387,7 +421,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "NOR": {
       "p": 0,
@@ -398,7 +433,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "ARG": {
       "p": 0,
@@ -409,7 +445,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "ALG": {
       "p": 0,
@@ -420,7 +457,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "AUT": {
       "p": 0,
@@ -431,7 +469,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "JOR": {
       "p": 0,
@@ -442,7 +481,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "POR": {
       "p": 0,
@@ -453,7 +493,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "COD": {
       "p": 0,
@@ -464,7 +505,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "UZB": {
       "p": 0,
@@ -475,7 +517,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "COL": {
       "p": 0,
@@ -486,7 +529,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "ENG": {
       "p": 0,
@@ -497,7 +541,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "CRO": {
       "p": 0,
@@ -508,7 +553,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "GHA": {
       "p": 0,
@@ -519,7 +565,8 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     },
     "PAN": {
       "p": 0,
@@ -530,7 +577,9 @@
       "ga": 0,
       "pts": 0,
       "stage": "group",
-      "eliminated": false
+      "eliminated": false,
+      "live": false
     }
-  }
+  },
+  "testNote": "TEMP TEST: MEX 1-0 RSA live"
 }
