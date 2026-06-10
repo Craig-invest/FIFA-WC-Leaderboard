@@ -1,0 +1,64 @@
+{
+  "_comment": "Team metadata for the PREDICTION HELPER (separate from the leaderboard). Used to attach flags + group to whatever team names the odds API returns. 'aliases' lists alternative spellings the API might use so name-matching is robust. Edit aliases if a team shows up unmatched.",
+  "teams": {
+    "Mexico":            { "flag": "🇲🇽", "group": "A", "aliases": [] },
+    "South Africa":      { "flag": "🇿🇦", "group": "A", "aliases": [] },
+    "South Korea":       { "flag": "🇰🇷", "group": "A", "aliases": ["Korea Republic", "Republic of Korea", "Korea"] },
+    "Czech Republic":    { "flag": "🇨🇿", "group": "A", "aliases": ["Czechia"] },
+
+    "Canada":            { "flag": "🇨🇦", "group": "B", "aliases": [] },
+    "Bosnia & Herzegovina": { "flag": "🇧🇦", "group": "B", "aliases": ["Bosnia and Herzegovina", "Bosnia-Herzegovina", "Bosnia"] },
+    "Qatar":             { "flag": "🇶🇦", "group": "B", "aliases": [] },
+    "Switzerland":       { "flag": "🇨🇭", "group": "B", "aliases": [] },
+
+    "Brazil":            { "flag": "🇧🇷", "group": "C", "aliases": [] },
+    "Morocco":           { "flag": "🇲🇦", "group": "C", "aliases": [] },
+    "Haiti":             { "flag": "🇭🇹", "group": "C", "aliases": [] },
+    "Scotland":          { "flag": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "group": "C", "aliases": [] },
+
+    "United States":     { "flag": "🇺🇸", "group": "D", "aliases": ["USA", "United States of America", "US"] },
+    "Paraguay":          { "flag": "🇵🇾", "group": "D", "aliases": [] },
+    "Australia":         { "flag": "🇦🇺", "group": "D", "aliases": [] },
+    "Turkey":            { "flag": "🇹🇷", "group": "D", "aliases": ["Türkiye", "Turkiye"] },
+
+    "Germany":           { "flag": "🇩🇪", "group": "E", "aliases": [] },
+    "Curaçao":           { "flag": "🇨🇼", "group": "E", "aliases": ["Curacao"] },
+    "Ivory Coast":       { "flag": "🇨🇮", "group": "E", "aliases": ["Côte d'Ivoire", "Cote d'Ivoire", "Cote dIvoire"] },
+    "Ecuador":           { "flag": "🇪🇨", "group": "E", "aliases": [] },
+
+    "Netherlands":       { "flag": "🇳🇱", "group": "F", "aliases": ["Holland"] },
+    "Japan":             { "flag": "🇯🇵", "group": "F", "aliases": [] },
+    "Sweden":            { "flag": "🇸🇪", "group": "F", "aliases": [] },
+    "Tunisia":           { "flag": "🇹🇳", "group": "F", "aliases": [] },
+
+    "Belgium":           { "flag": "🇧🇪", "group": "G", "aliases": [] },
+    "Egypt":             { "flag": "🇪🇬", "group": "G", "aliases": [] },
+    "Iran":              { "flag": "🇮🇷", "group": "G", "aliases": ["IR Iran", "Iran (Islamic Republic)"] },
+    "New Zealand":       { "flag": "🇳🇿", "group": "G", "aliases": [] },
+
+    "Spain":             { "flag": "🇪🇸", "group": "H", "aliases": [] },
+    "Cape Verde":        { "flag": "🇨🇻", "group": "H", "aliases": ["Cabo Verde"] },
+    "Saudi Arabia":      { "flag": "🇸🇦", "group": "H", "aliases": [] },
+    "Uruguay":           { "flag": "🇺🇾", "group": "H", "aliases": [] },
+
+    "France":            { "flag": "🇫🇷", "group": "I", "aliases": [] },
+    "Senegal":           { "flag": "🇸🇳", "group": "I", "aliases": [] },
+    "Iraq":              { "flag": "🇮🇶", "group": "I", "aliases": [] },
+    "Norway":            { "flag": "🇳🇴", "group": "I", "aliases": [] },
+
+    "Argentina":         { "flag": "🇦🇷", "group": "J", "aliases": [] },
+    "Algeria":           { "flag": "🇩🇿", "group": "J", "aliases": [] },
+    "Austria":           { "flag": "🇦🇹", "group": "J", "aliases": [] },
+    "Jordan":            { "flag": "🇯🇴", "group": "J", "aliases": [] },
+
+    "Portugal":          { "flag": "🇵🇹", "group": "K", "aliases": [] },
+    "DR Congo":          { "flag": "🇨🇩", "group": "K", "aliases": ["Congo DR", "Democratic Republic of the Congo", "DR Congo (Kinshasa)"] },
+    "Uzbekistan":        { "flag": "🇺🇿", "group": "K", "aliases": [] },
+    "Colombia":          { "flag": "🇨🇴", "group": "K", "aliases": [] },
+
+    "England":           { "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "group": "L", "aliases": [] },
+    "Croatia":           { "flag": "🇭🇷", "group": "L", "aliases": [] },
+    "Ghana":             { "flag": "🇬🇭", "group": "L", "aliases": [] },
+    "Panama":            { "flag": "🇵🇦", "group": "L", "aliases": [] }
+  }
+}

@@ -12,3 +12,7 @@ Thumbs.db
 *.log
 *.tmp
 .env
+
+# Prediction-helper transient email artifacts (built per-run, never committed)
+data/.email-body.html
+data/.pending-email.json
