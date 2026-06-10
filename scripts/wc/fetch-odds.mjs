@@ -1,0 +1,250 @@
+/* fetch-odds.mjs — the prediction helper's robot.
+ *
+ * 1) Pulls upcoming World Cup matches + live odds from The Odds API.
+ * 2) Computes a suggested outcome + scoreline for each (see lib/picks.mjs).
+ * 3) Merges them into data/wc-matches.json (the page reads this).
+ * 4) Finds matches kicking off inside the "predict-by" window that haven't been
+ *    emailed yet, and writes an email body for the workflow to send.
+ *
+ * Run locally:  ODDS_API_KEY=xxxx node scripts/wc/fetch-odds.mjs
+ *
+ * Safety: if the API errors, it exits non-zero WITHOUT touching wc-matches.json,
+ * so the last good odds stay on the page.
+ */
+import { readFileSync, writeFileSync, existsSync, rmSync } from "fs";
+import { fileURLToPath } from "url";
+import { dirname, join } from "path";
+import { computePicks } from "./lib/picks.mjs";
+
+const here = dirname(fileURLToPath(import.meta.url));
+const root = join(here, "..", "..");
+const TEAMS_PATH    = join(root, "data/wc-teams.json");
+const MATCHES_PATH  = join(root, "data/wc-matches.json");
+const NOTIFIED_PATH = join(root, "data/wc-notified.json");
+const EMAIL_HTML    = join(root, "data/.email-body.html");
+const EMAIL_META    = join(root, "data/.pending-email.json");
+
+// --- config (overridable via env) ---
+const API_KEY    = process.env.ODDS_API_KEY;
+const SPORT_KEY  = process.env.ODDS_SPORT_KEY || "soccer_fifa_world_cup";
+const REGIONS    = process.env.ODDS_REGIONS   || "uk";          // uk = good WC coverage, 1 credit
+const MARKETS    = "h2h,totals";
+const LEAD_HOURS = Number(process.env.EMAIL_LEAD_HOURS || 60);   // ~2.5 days → covers the 2-day mark
+const PREDICT_BY_HOURS = 48;                                     // you aim to predict 2 days out
+
+function log(...a) { console.log("[wc-odds]", ...a); }
+function die(msg) { console.error("[wc-odds] ERROR:", msg); process.exit(1); }
+
+// Build a name → {canonical, flag, group} lookup that tolerates alternate spellings.
+export function buildTeamLookup(metaInput) {
+  const meta = metaInput || JSON.parse(readFileSync(TEAMS_PATH, "utf8")).teams;
+  const lut = new Map();
+  for (const [name, info] of Object.entries(meta)) {
+    const entry = { canonical: name, flag: info.flag, group: info.group };
+    lut.set(name.toLowerCase(), entry);
+    for (const alias of info.aliases || []) lut.set(alias.toLowerCase(), entry);
+  }
+  return lut;
+}
+export function resolveTeam(lut, raw) {
+  return lut.get(String(raw).toLowerCase()) || { canonical: raw, flag: "🏳️", group: "?" };
+}
+
+async function fetchOdds() {
+  const url = `https://api.the-odds-api.com/v4/sports/${SPORT_KEY}/odds`
+    + `?apiKey=${API_KEY}&regions=${REGIONS}&markets=${MARKETS}`
+    + `&oddsFormat=decimal&dateFormat=iso`;
+  const res = await fetch(url);
+  if (!res.ok) {
+    const body = await res.text().catch(() => "");
+    die(`Odds API responded ${res.status} ${res.statusText}. ${body.slice(0, 300)}`);
+  }
+  log(`credits used: ${res.headers.get("x-requests-used")} / remaining: ${res.headers.get("x-requests-remaining")}`);
+  const json = await res.json();
+  if (!Array.isArray(json)) die("Odds API response was not an array");
+  return json;
+}
+
+const avg = (xs) => (xs.length ? xs.reduce((a, b) => a + b, 0) / xs.length : 0);
+const mode = (xs) => {
+  const counts = new Map();
+  for (const x of xs) counts.set(x, (counts.get(x) || 0) + 1);
+  return [...counts.entries()].sort((a, b) => b[1] - a[1])[0]?.[0];
+};
+
+// Reduce one event's many bookmakers into a single consensus set of odds.
+export function consensusOdds(event) {
+  const home = [], draw = [], away = [];
+  const totalsByLine = new Map(); // point → { over:[], under:[] }
+
+  for (const bk of event.bookmakers || []) {
+    for (const mk of bk.markets || []) {
+      if (mk.key === "h2h") {
+        for (const o of mk.outcomes || []) {
+          if (o.name === event.home_team) home.push(o.price);
+          else if (o.name === event.away_team) away.push(o.price);
+          else if (o.name === "Draw") draw.push(o.price);
+        }
+      } else if (mk.key === "totals") {
+        for (const o of mk.outcomes || []) {
+          const line = o.point;
+          if (line == null) continue;
+          if (!totalsByLine.has(line)) totalsByLine.set(line, { over: [], under: [] });
+          if (o.name === "Over") totalsByLine.get(line).over.push(o.price);
+          else if (o.name === "Under") totalsByLine.get(line).under.push(o.price);
+        }
+      }
+    }
+  }
+  if (!home.length || !away.length || !draw.length) return null;
+
+  // Use the most commonly-offered totals line as the "main" line.
+  const lines = [];
+  for (const [line, v] of totalsByLine) for (let k = 0; k < v.over.length; k++) lines.push(line);
+  const mainLine = mode(lines);
+  const t = mainLine != null ? totalsByLine.get(mainLine) : null;
+
+  return {
+    home: +avg(home).toFixed(3),
+    draw: +avg(draw).toFixed(3),
+    away: +avg(away).toFixed(3),
+    totalsLine: mainLine ?? null,
+    over: t ? +avg(t.over).toFixed(3) : null,
+    under: t ? +avg(t.under).toFixed(3) : null,
+    books: (event.bookmakers || []).length,
+  };
+}
+
+function predictByISO(commenceTime) {
+  return new Date(new Date(commenceTime).getTime() - PREDICT_BY_HOURS * 3600e3).toISOString();
+}
+
+export function buildMatch(event, lut) {
+  const odds = consensusOdds(event);
+  if (!odds) return null;
+  const h = resolveTeam(lut, event.home_team);
+  const a = resolveTeam(lut, event.away_team);
+  const pick = computePicks(
+    { home: odds.home, draw: odds.draw, away: odds.away },
+    odds.totalsLine != null ? { line: odds.totalsLine, over: odds.over, under: odds.under } : undefined,
+  );
+  // Stage label: same group ⇒ group game, else a knockout tie.
+  const stage = h.group !== "?" && h.group === a.group ? `Group ${h.group}` : "Knockout";
+  return {
+    id: event.id,
+    home: h.canonical, homeFlag: h.flag,
+    away: a.canonical, awayFlag: a.flag,
+    stage,
+    commenceTime: event.commence_time,
+    predictBy: predictByISO(event.commence_time),
+    odds,
+    pick,
+  };
+}
+
+// --- email body for the games due in the window ---
+const OUTCOME_TEXT = (m) =>
+  m.pick.outcome.pick === "HOME" ? `${m.home} to win`
+  : m.pick.outcome.pick === "AWAY" ? `${m.away} to win`
+  : "Draw";
+
+function fmtUTC(iso) {
+  return new Date(iso).toLocaleString("en-GB", {
+    weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit",
+    timeZone: "UTC", hour12: false,
+  }) + " UTC";
+}
+
+export function emailHtml(due) {
+  const rows = due.map((m) => {
+    const p = m.pick;
+    const pct = (x) => `${Math.round(x * 100)}%`;
+    return `
+      <tr>
+        <td style="padding:10px 8px;border-bottom:1px solid #eee;">
+          <strong>${m.homeFlag} ${m.home} v ${m.away} ${m.awayFlag}</strong><br>
+          <span style="color:#666;font-size:13px;">${m.stage} · ${fmtUTC(m.commenceTime)}</span>
+        </td>
+        <td style="padding:10px 8px;border-bottom:1px solid #eee;font-size:13px;color:#444;">
+          ${m.home} ${m.odds.home} · Draw ${m.odds.draw} · ${m.away} ${m.odds.away}<br>
+          <span style="color:#888;">${pct(p.probs.HOME)} / ${pct(p.probs.DRAW)} / ${pct(p.probs.AWAY)}</span>
+        </td>
+        <td style="padding:10px 8px;border-bottom:1px solid #eee;">
+          <strong style="color:#15803d;">${OUTCOME_TEXT(m)}</strong>
+          <span style="color:#888;">(${p.outcome.confidence})</span><br>
+          <span style="font-size:13px;color:#444;">Suggested score: <strong>${m.home} ${p.score.home}–${p.score.away} ${m.away}</strong></span>
+        </td>
+      </tr>`;
+  }).join("");
+
+  return `<!DOCTYPE html><html><body style="font-family:Arial,Helvetica,sans-serif;color:#222;max-width:680px;margin:auto;">
+    <h2 style="margin-bottom:4px;">⚽ World Cup picks — ${due.length} game${due.length === 1 ? "" : "s"} to predict</h2>
+    <p style="color:#666;margin-top:0;">These kick off within the next couple of days. Lodge your predictions before kickoff.</p>
+    <table style="border-collapse:collapse;width:100%;">
+      <thead><tr style="text-align:left;font-size:12px;color:#888;text-transform:uppercase;">
+        <th style="padding:6px 8px;">Match</th><th style="padding:6px 8px;">Odds · implied (H/D/A)</th><th style="padding:6px 8px;">Suggested pick</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <p style="color:#999;font-size:12px;margin-top:18px;">Suggestions are derived from de-vigged bookmaker odds (favourite by margin-adjusted probability) plus a simple Poisson scoreline model. A nudge, not a guarantee.</p>
+  </body></html>`;
+}
+
+async function main() {
+  if (!API_KEY) die("ODDS_API_KEY is not set. Add it as a GitHub Actions secret (see PREDICTIONS-GUIDE.md).");
+
+  // Clear any stale pending-email artifacts from a previous run.
+  for (const f of [EMAIL_HTML, EMAIL_META]) if (existsSync(f)) rmSync(f);
+
+  const lut = buildTeamLookup();
+  const events = await fetchOdds();
+  log(`fetched ${events.length} events with odds`);
+
+  const fetched = events.map((e) => buildMatch(e, lut)).filter(Boolean);
+
+  // Don't wipe good data with nothing: if the API returned no usable events but
+  // we already have real matches stored, keep them and stop here.
+  let prior = { matches: [] };
+  try { prior = JSON.parse(readFileSync(MATCHES_PATH, "utf8")); } catch { /* none yet */ }
+  if (fetched.length === 0) {
+    if (!prior.demo && (prior.matches || []).length) {
+      log("API returned no usable events; keeping existing matches untouched.");
+      return;
+    }
+    log("API returned no usable events and no prior real data — nothing to write yet.");
+    return;
+  }
+
+  // Merge: existing real matches by id, overwritten by freshly-fetched ones.
+  const byId = new Map();
+  if (!prior.demo) for (const m of prior.matches || []) byId.set(m.id, m);
+  for (const m of fetched) byId.set(m.id, m);
+  const matches = [...byId.values()].sort((a, b) => new Date(a.commenceTime) - new Date(b.commenceTime));
+
+  writeFileSync(MATCHES_PATH, JSON.stringify({
+    demo: false, source: "the-odds-api", lastUpdated: new Date().toISOString(), matches,
+  }, null, 2) + "\n");
+  log(`wrote ${matches.length} matches to wc-matches.json`);
+
+  // Work out which games to email about (in window, not already notified).
+  let notified = { notified: [] };
+  try { notified = JSON.parse(readFileSync(NOTIFIED_PATH, "utf8")); } catch { /* none yet */ }
+  const already = new Set(notified.notified || []);
+  const now = Date.now();
+  const due = matches.filter((m) => {
+    const t = new Date(m.commenceTime).getTime();
+    return t > now && t <= now + LEAD_HOURS * 3600e3 && !already.has(m.id);
+  });
+
+  if (!due.length) { log("no new games in the email window."); return; }
+
+  const subject = `⚽ WC picks: ${due.length} game${due.length === 1 ? "" : "s"} to predict`;
+  writeFileSync(EMAIL_HTML, emailHtml(due));
+  writeFileSync(EMAIL_META, JSON.stringify({ subject, ids: due.map((m) => m.id), count: due.length }, null, 2) + "\n");
+  log(`email queued for ${due.length} game(s): ${due.map((m) => `${m.home} v ${m.away}`).join(", ")}`);
+}
+
+// Only run the robot when executed directly (not when imported by tests).
+if (process.argv[1] && process.argv[1] === fileURLToPath(import.meta.url)) {
+  main().catch((e) => die(e.stack || e.message));
+}

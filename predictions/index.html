@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WC 2026 — Prediction Helper</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Personal World Cup 2026 prediction helper — live odds and suggested picks." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-decoration"></div>
+
+  <header class="site-header">
+    <h1>World Cup 2026 <span class="accent">Prediction Helper</span></h1>
+    <p class="subtitle">Live odds → a suggested pick for every game. Predict ~2 days before kickoff.</p>
+    <div class="meta-row">
+      <span id="status-pill" class="pill">Loading…</span>
+      <span id="updated" class="updated"></span>
+    </div>
+    <div class="controls">
+      <label class="toggle"><input type="checkbox" id="upcoming-only" /> Upcoming only</label>
+    </div>
+  </header>
+
+  <main>
+    <div id="matches" class="matches" aria-live="polite"></div>
+    <p id="empty" class="empty" hidden></p>
+    <p id="error" class="error" hidden></p>
+  </main>
+
+  <section class="how-it-works">
+    <button id="how-toggle" class="how-toggle" aria-expanded="false">How the suggested picks are made ▾</button>
+    <div id="how-body" class="how-body" hidden>
+      <ul>
+        <li><strong>Odds → probability.</strong> Bookmaker decimal odds are converted to implied probabilities, then the bookmaker's margin is stripped out so Home/Draw/Away add up to 100%.</li>
+        <li><strong>Suggested outcome.</strong> The highest of those three, with a confidence label — <em>Strong</em> (≥55%), <em>Lean</em> (40–55%) or <em>Toss-up</em>.</li>
+        <li><strong>Suggested score.</strong> Expected goals are estimated from the over/under market and split between the teams (an independent-Poisson model) to read off the most likely exact score that matches the suggested outcome.</li>
+        <li><strong>Predict-by tag.</strong> Each game shows when to lodge your pick (2 days before kickoff). You'll also get one email digest covering all games entering that window.</li>
+        <li>Suggestions are a data-driven nudge from the market — not a guarantee.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <span>Personal tool · odds refresh every 6 hrs · suggestions from de-vigged market odds</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+name: WC prediction helper
+
+# Refreshes World Cup odds + suggested picks every 6 hours (4 runs/day). The Odds
+# API free tier is 500 credits/month; one uk-region call for h2h+totals costs a
+# couple of credits, so ~4/day stays comfortably inside the budget. Each run also
+# checks whether any games are ~2 days out and, if so, emails you ONE digest.
+# You can also trigger it any time with the "Run workflow" button.
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "0 */6 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wc-predictions
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run prediction-helper tests
+        run: |
+          node scripts/wc/test/picks.test.mjs
+          node scripts/wc/test/parse.test.mjs
+
+      - name: Fetch odds + compute picks
+        env:
+          ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+        run: node scripts/wc/fetch-odds.mjs
+
+      - name: Is there an email to send?
+        id: email
+        run: |
+          if [ -f data/.pending-email.json ]; then
+            echo "send=true" >> "$GITHUB_OUTPUT"
+            echo "subject=$(node -e "console.log(require('./data/.pending-email.json').subject)")" >> "$GITHUB_OUTPUT"
+          else
+            echo "send=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Send reminder email
+        if: steps.email.outputs.send == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.GMAIL_USER }}
+          password: ${{ secrets.GMAIL_APP_PASSWORD }}
+          subject: ${{ steps.email.outputs.subject }}
+          to: ${{ secrets.ALERT_TO }}
+          from: World Cup Picks <${{ secrets.GMAIL_USER }}>
+          html_body: file://data/.email-body.html
+
+      - name: Mark games as emailed (only after a successful send)
+        if: steps.email.outputs.send == 'true'
+        run: node scripts/wc/mark-notified.mjs
+
+      - name: Commit updated data (if changed)
+        run: |
+          if git diff --quiet -- data/wc-matches.json data/wc-notified.json; then
+            echo "No data changes — nothing to commit."
+            exit 0
+          fi
+          git config user.name  "wc-predictions-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/wc-matches.json data/wc-notified.json
+          git commit -m "Auto-update WC odds + picks [skip ci]"
+          git push

@@ -1,0 +1,121 @@
+{
+  "demo": true,
+  "source": "demo",
+  "lastUpdated": "2026-06-10T12:56:08.083Z",
+  "matches": [
+    {
+      "id": "demo-1",
+      "home": "Mexico",
+      "away": "South Africa",
+      "stage": "Group A",
+      "commenceTime": "2026-06-11T19:00:00Z",
+      "odds": {
+        "home": 1.55,
+        "draw": 3.9,
+        "away": 6.5,
+        "totalsLine": 2.5,
+        "over": 1.95,
+        "under": 1.85,
+        "books": 9
+      },
+      "pick": {
+        "probs": {
+          "HOME": 0.6112852664576801,
+          "DRAW": 0.24294670846394983,
+          "AWAY": 0.1457680250783699
+        },
+        "overround": 1.055417700578991,
+        "outcome": {
+          "pick": "HOME",
+          "prob": 0.6112852664576801,
+          "confidence": "Strong"
+        },
+        "score": {
+          "home": 1,
+          "away": 0
+        },
+        "expectedGoals": 2.473684210526316,
+        "lambdas": {
+          "home": 1.7315789473684222,
+          "away": 0.7421052631578938
+        }
+      }
+    },
+    {
+      "id": "demo-2",
+      "home": "Spain",
+      "away": "Cape Verde",
+      "stage": "Group H",
+      "commenceTime": "2026-06-12T19:00:00Z",
+      "odds": {
+        "home": 1.18,
+        "draw": 6.5,
+        "away": 15,
+        "totalsLine": 3,
+        "over": 1.8,
+        "under": 2,
+        "books": 9
+      },
+      "pick": {
+        "probs": {
+          "HOME": 0.7935216082037927,
+          "DRAW": 0.14405469195084236,
+          "AWAY": 0.06242369984536501
+        },
+        "overround": 1.0679704476314646,
+        "outcome": {
+          "pick": "HOME",
+          "prob": 0.7935216082037927,
+          "confidence": "Strong"
+        },
+        "score": {
+          "home": 2,
+          "away": 0
+        },
+        "expectedGoals": 3.0526315789473686,
+        "lambdas": {
+          "home": 2.5031578947368436,
+          "away": 0.5494736842105248
+        }
+      }
+    },
+    {
+      "id": "demo-3",
+      "home": "Argentina",
+      "away": "Austria",
+      "stage": "Group J",
+      "commenceTime": "2026-06-15T22:00:00Z",
+      "odds": {
+        "home": 1.62,
+        "draw": 3.8,
+        "away": 5.5,
+        "totalsLine": 2.5,
+        "over": 1.9,
+        "under": 1.9,
+        "books": 8
+      },
+      "pick": {
+        "probs": {
+          "HOME": 0.5811043763554468,
+          "DRAW": 0.24773397097258518,
+          "AWAY": 0.17116165267196795
+        },
+        "overround": 1.062260027172308,
+        "outcome": {
+          "pick": "HOME",
+          "prob": 0.5811043763554468,
+          "confidence": "Strong"
+        },
+        "score": {
+          "home": 1,
+          "away": 0
+        },
+        "expectedGoals": 2.5,
+        "lambdas": {
+          "home": 1.700000000000001,
+          "away": 0.799999999999999
+        }
+      }
+    }
+  ]
+}
