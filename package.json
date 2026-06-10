@@ -6,7 +6,9 @@
   "private": true,
   "scripts": {
     "test": "node scripts/test/transform.test.mjs",
+    "test:predictions": "node scripts/wc/test/picks.test.mjs && node scripts/wc/test/parse.test.mjs",
     "update": "node scripts/update-results.mjs",
+    "update:odds": "node scripts/wc/fetch-odds.mjs",
     "serve": "python3 -m http.server 8099"
   },
   "license": "MIT"
