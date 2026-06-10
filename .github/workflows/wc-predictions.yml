@@ -76,5 +76,5 @@ jobs:
           git config user.name  "wc-predictions-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/wc-matches.json data/wc-notified.json
-          git commit -m "Auto-update WC odds + picks [skip ci]"
+          git commit -m "Auto-update WC odds + picks"
           git push
