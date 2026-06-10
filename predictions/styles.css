@@ -118,6 +118,13 @@ main { max-width: 900px; margin: 0 auto; padding: 18px; }
 .predict.now { background: var(--accent); color: #07241b; }
 .predict.locked { color: var(--muted); }
 
+.card.pending { opacity: 0.75; border-style: dashed; }
+.card.pending .teams.tbd { color: var(--muted); font-weight: 700; margin-bottom: 6px; }
+.pending-note {
+  text-align: center; font-size: 12px; color: var(--muted); font-weight: 600;
+  background: #0c241c; border-radius: 8px; padding: 7px; margin-top: 4px;
+}
+
 .empty, .error { text-align: center; color: var(--muted); padding: 30px 12px; }
 .error { color: #ffb4b4; }
 

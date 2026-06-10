@@ -4,7 +4,7 @@
  * Verifies: consensus across bookmakers, team-name resolution (incl. aliases),
  * stage detection, end-to-end pick attachment, and email-body rendering.
  */
-import { buildTeamLookup, consensusOdds, buildMatch, emailHtml } from "../fetch-odds.mjs";
+import { buildTeamLookup, consensusOdds, buildMatch, emailHtml, knockoutPlaceholders } from "../fetch-odds.mjs";
 
 let passed = 0, failed = 0;
 const ok = (c, m) => c ? passed++ : (failed++, console.error("  ✗ " + m));
@@ -78,6 +78,21 @@ ok(m.predictBy && new Date(m.commenceTime) - new Date(m.predictBy) === 48 * 3600
 ok(["HOME", "DRAW", "AWAY"].includes(m.pick.outcome.pick), "a valid outcome is suggested");
 ok(approx(m.pick.probs.HOME + m.pick.probs.DRAW + m.pick.probs.AWAY, 1), "attached probs sum to 1");
 ok(Number.isInteger(m.pick.score.home) && Number.isInteger(m.pick.score.away), "integer suggested score");
+ok(m.oddsReady === true && m.group === "A", "real game is oddsReady with its group");
+
+// --- knockout placeholders ---
+const koFile = { matches: [
+  { id: "ko-73", matchNo: 73, stageCode: "r32", stageLabel: "Round of 32", windowLabel: "28 Jun – 3 Jul", sortDate: "2026-06-28T12:00:00Z" },
+  { id: "ko-104", matchNo: 104, stageCode: "final", stageLabel: "Final", windowLabel: "19 Jul", sortDate: "2026-07-19T12:00:00Z" },
+]};
+const phNone = knockoutPlaceholders(koFile, [m]); // m is a group game → all KO placeholders kept
+ok(phNone.length === 2, "knockout placeholders generated when no KO odds exist");
+ok(phNone[0].oddsReady === false && phNone[0].pick === null && phNone[0].tbd === true, "placeholder is TBD, no odds, no pick");
+ok(phNone[0].home === "TBD" && phNone[0].windowLabel === "28 Jun – 3 Jul", "placeholder carries TBD teams + window label");
+
+const r32Real = { ...m, stage: "Round of 32", oddsReady: true };
+const phDrop = knockoutPlaceholders(koFile, [r32Real]); // a real R32 game exists → drop R32 placeholders
+ok(phDrop.length === 1 && phDrop[0].stage === "Final", "a round's placeholders drop once its real games arrive");
 
 // --- email body renders the match ---
 const html = emailHtml([m]);

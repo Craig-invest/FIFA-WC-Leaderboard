@@ -18,7 +18,8 @@ import { computePicks } from "./lib/picks.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..", "..");
-const TEAMS_PATH    = join(root, "data/wc-teams.json");
+const TEAMS_PATH     = join(root, "data/wc-teams.json");
+const KNOCKOUTS_PATH = join(root, "data/wc-knockouts.json");
 const MATCHES_PATH  = join(root, "data/wc-matches.json");
 const NOTIFIED_PATH = join(root, "data/wc-notified.json");
 const EMAIL_HTML    = join(root, "data/.email-body.html");
@@ -129,17 +130,34 @@ export function buildMatch(event, lut) {
     odds.totalsLine != null ? { line: odds.totalsLine, over: odds.over, under: odds.under } : undefined,
   );
   // Stage label: same group ⇒ group game, else a knockout tie.
-  const stage = h.group !== "?" && h.group === a.group ? `Group ${h.group}` : "Knockout";
+  const group = h.group !== "?" && h.group === a.group ? h.group : null;
+  const stage = group ? `Group ${group}` : "Knockout";
   return {
     id: event.id,
     home: h.canonical, homeFlag: h.flag,
     away: a.canonical, awayFlag: a.flag,
-    stage,
+    stage, group,
     commenceTime: event.commence_time,
     predictBy: predictByISO(event.commence_time),
+    oddsReady: true,
     odds,
     pick,
   };
+}
+
+// Turn the static knockout placeholders into match rows (teams + odds TBD).
+// A round's placeholders are dropped once that round's real games arrive with odds.
+export function knockoutPlaceholders(koFile, existingMatches) {
+  const roundsWithOdds = new Set(existingMatches.filter((m) => m.oddsReady).map((m) => m.stage));
+  return (koFile.matches || [])
+    .filter((k) => !roundsWithOdds.has(k.stageLabel))
+    .map((k) => ({
+      id: k.id, matchNo: k.matchNo,
+      home: "TBD", homeFlag: "🏳️", away: "TBD", awayFlag: "🏳️",
+      stage: k.stageLabel, group: null, tbd: true, windowLabel: k.windowLabel,
+      commenceTime: k.sortDate, predictBy: null,
+      oddsReady: false, odds: null, pick: null,
+    }));
 }
 
 // --- email body for the games due in the window ---
@@ -215,16 +233,27 @@ async function main() {
     return;
   }
 
-  // Merge: existing real matches by id, overwritten by freshly-fetched ones.
+  // Merge: keep prior REAL (odds-ready) games by id, overwritten by fresh ones.
+  // Prior knockout placeholders are dropped here and regenerated fresh below.
   const byId = new Map();
-  if (!prior.demo) for (const m of prior.matches || []) byId.set(m.id, m);
+  if (!prior.demo) for (const m of prior.matches || []) if (m.oddsReady) byId.set(m.id, m);
   for (const m of fetched) byId.set(m.id, m);
-  const matches = [...byId.values()].sort((a, b) => new Date(a.commenceTime) - new Date(b.commenceTime));
+  const matches = [...byId.values()];
+
+  // Append the full knockout bracket as placeholders (teams/odds TBD) so the
+  // page shows the complete schedule. A round's placeholders disappear once that
+  // round's real games arrive with odds.
+  try {
+    const koFile = JSON.parse(readFileSync(KNOCKOUTS_PATH, "utf8"));
+    matches.push(...knockoutPlaceholders(koFile, matches));
+  } catch (e) { log("no knockout placeholders loaded:", e.message); }
+
+  matches.sort((a, b) => new Date(a.commenceTime) - new Date(b.commenceTime));
 
   writeFileSync(MATCHES_PATH, JSON.stringify({
     demo: false, source: "the-odds-api", lastUpdated: new Date().toISOString(), matches,
   }, null, 2) + "\n");
-  log(`wrote ${matches.length} matches to wc-matches.json`);
+  log(`wrote ${matches.length} matches (incl. knockout placeholders) to wc-matches.json`);
 
   // Work out which games to email about (in window, not already notified).
   let notified = { notified: [] };
@@ -232,6 +261,7 @@ async function main() {
   const already = new Set(notified.notified || []);
   const now = Date.now();
   const due = matches.filter((m) => {
+    if (!m.oddsReady || !m.pick) return false; // never email TBD/odds-pending games
     const t = new Date(m.commenceTime).getTime();
     return t > now && t <= now + LEAD_HOURS * 3600e3 && !already.has(m.id);
   });
