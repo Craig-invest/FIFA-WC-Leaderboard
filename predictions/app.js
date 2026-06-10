@@ -72,7 +72,26 @@ function confClass(c) {
   return c === "Strong" ? "conf-strong" : c === "Lean" ? "conf-lean" : "conf-toss";
 }
 
+// A game whose teams/odds aren't decided yet (e.g. a knockout fixture).
+function pendingCard(m) {
+  const when = m.windowLabel || fmtKick(m.commenceTime);
+  return `
+    <article class="card pending">
+      <div class="card-top">
+        <span class="stage">${m.stage || ""}${m.matchNo ? ` · Match ${m.matchNo}` : ""}</span>
+        <span class="kick">${when}</span>
+      </div>
+      <div class="teams tbd">
+        <span class="team home"><span class="flag">🏳️</span>TBD</span>
+        <span class="vs">v</span>
+        <span class="team away">TBD<span class="flag">🏳️</span></span>
+      </div>
+      <div class="pending-note">Teams &amp; odds to be confirmed</div>
+    </article>`;
+}
+
 function matchCard(m) {
+  if (!m.oddsReady) return pendingCard(m);
   const homeFlag = flagFor(m.home, m.homeFlag);
   const awayFlag = flagFor(m.away, m.awayFlag);
   const o = m.odds || {};

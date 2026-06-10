@@ -1,0 +1,261 @@
+{
+  "_comment": "Knockout-stage placeholders (teams TBD until the group stage decides them). Dates are the official round windows; odds appear once bookmakers post them. The robot drops a round's placeholders automatically once that round's real games arrive with odds.",
+  "matches": [
+    {
+      "id": "ko-73",
+      "matchNo": 73,
+      "stageCode": "r32",
+      "stageLabel": "Round of 32",
+      "windowLabel": "28 Jun – 3 Jul",
+      "sortDate": "2026-06-28T12:00:00.000Z"
+    },
+    {
+      "id": "ko-74",
+      "matchNo": 74,
+      "stageCode": "r32",
+      "stageLabel": "Round of 32",
+      "windowLabel": "28 Jun – 3 Jul",
+      "sortDate": "2026-06-28T12:01:00.000Z"
+    },
+    {
+      "id": "ko-75",
+      "matchNo": 75,
+      "stageCode": "r32",
+      "stageLabel": "Round of 32",
+      "windowLabel": "28 Jun – 3 Jul",
+      "sortDate": "2026-06-28T12:02:00.000Z"
+    },
+    {
+      "id": "ko-76",
+      "matchNo": 76,
+      "stageCode": "r32",
+      "stageLabel": "Round of 32",
+      "windowLabel": "28 Jun – 3 Jul",
+      "sortDate": "2026-06-28T12:03:00.000Z"
+    },
+    {
+      "id": "ko-77",
+      "matchNo": 77,
+      "stageCode": "r32",
+      "stageLabel": "Round of 32",
+      "windowLabel": "28 Jun – 3 Jul",
+      "sortDate": "2026-06-28T12:04:00.000Z"
+    },
+    {
+      "id": "ko-78",
+      "matchNo": 78,
+      "stageCode": "r32",
+      "stageLabel": "Round of 32",
+      "windowLabel": "28 Jun – 3 Jul",
+      "sortDate": "2026-06-28T12:05:00.000Z"
+    },
+    {
+      "id": "ko-79",
+      "matchNo": 79,
+      "stageCode": "r32",
+      "stageLabel": "Round of 32",
+      "windowLabel": "28 Jun – 3 Jul",
+      "sortDate": "2026-06-28T12:06:00.000Z"
+    },
+    {
+      "id": "ko-80",
+      "matchNo": 80,
+      "stageCode": "r32",
+      "stageLabel": "Round of 32",
+      "windowLabel": "28 Jun – 3 Jul",
+      "sortDate": "2026-06-28T12:07:00.000Z"
+    },
+    {
+      "id": "ko-81",
+      "matchNo": 81,
+      "stageCode": "r32",
+      "stageLabel": "Round of 32",
+      "windowLabel": "28 Jun – 3 Jul",
+      "sortDate": "2026-06-28T12:08:00.000Z"
+    },
+    {
+      "id": "ko-82",
+      "matchNo": 82,
+      "stageCode": "r32",
+      "stageLabel": "Round of 32",
+      "windowLabel": "28 Jun – 3 Jul",
+      "sortDate": "2026-06-28T12:09:00.000Z"
+    },
+    {
+      "id": "ko-83",
+      "matchNo": 83,
+      "stageCode": "r32",
+      "stageLabel": "Round of 32",
+      "windowLabel": "28 Jun – 3 Jul",
+      "sortDate": "2026-06-28T12:10:00.000Z"
+    },
+    {
+      "id": "ko-84",
+      "matchNo": 84,
+      "stageCode": "r32",
+      "stageLabel": "Round of 32",
+      "windowLabel": "28 Jun – 3 Jul",
+      "sortDate": "2026-06-28T12:11:00.000Z"
+    },
+    {
+      "id": "ko-85",
+      "matchNo": 85,
+      "stageCode": "r32",
+      "stageLabel": "Round of 32",
+      "windowLabel": "28 Jun – 3 Jul",
+      "sortDate": "2026-06-28T12:12:00.000Z"
+    },
+    {
+      "id": "ko-86",
+      "matchNo": 86,
+      "stageCode": "r32",
+      "stageLabel": "Round of 32",
+      "windowLabel": "28 Jun – 3 Jul",
+      "sortDate": "2026-06-28T12:13:00.000Z"
+    },
+    {
+      "id": "ko-87",
+      "matchNo": 87,
+      "stageCode": "r32",
+      "stageLabel": "Round of 32",
+      "windowLabel": "28 Jun – 3 Jul",
+      "sortDate": "2026-06-28T12:14:00.000Z"
+    },
+    {
+      "id": "ko-88",
+      "matchNo": 88,
+      "stageCode": "r32",
+      "stageLabel": "Round of 32",
+      "windowLabel": "28 Jun – 3 Jul",
+      "sortDate": "2026-06-28T12:15:00.000Z"
+    },
+    {
+      "id": "ko-89",
+      "matchNo": 89,
+      "stageCode": "r16",
+      "stageLabel": "Round of 16",
+      "windowLabel": "4 – 7 Jul",
+      "sortDate": "2026-07-04T12:00:00.000Z"
+    },
+    {
+      "id": "ko-90",
+      "matchNo": 90,
+      "stageCode": "r16",
+      "stageLabel": "Round of 16",
+      "windowLabel": "4 – 7 Jul",
+      "sortDate": "2026-07-04T12:01:00.000Z"
+    },
+    {
+      "id": "ko-91",
+      "matchNo": 91,
+      "stageCode": "r16",
+      "stageLabel": "Round of 16",
+      "windowLabel": "4 – 7 Jul",
+      "sortDate": "2026-07-04T12:02:00.000Z"
+    },
+    {
+      "id": "ko-92",
+      "matchNo": 92,
+      "stageCode": "r16",
+      "stageLabel": "Round of 16",
+      "windowLabel": "4 – 7 Jul",
+      "sortDate": "2026-07-04T12:03:00.000Z"
+    },
+    {
+      "id": "ko-93",
+      "matchNo": 93,
+      "stageCode": "r16",
+      "stageLabel": "Round of 16",
+      "windowLabel": "4 – 7 Jul",
+      "sortDate": "2026-07-04T12:04:00.000Z"
+    },
+    {
+      "id": "ko-94",
+      "matchNo": 94,
+      "stageCode": "r16",
+      "stageLabel": "Round of 16",
+      "windowLabel": "4 – 7 Jul",
+      "sortDate": "2026-07-04T12:05:00.000Z"
+    },
+    {
+      "id": "ko-95",
+      "matchNo": 95,
+      "stageCode": "r16",
+      "stageLabel": "Round of 16",
+      "windowLabel": "4 – 7 Jul",
+      "sortDate": "2026-07-04T12:06:00.000Z"
+    },
+    {
+      "id": "ko-96",
+      "matchNo": 96,
+      "stageCode": "r16",
+      "stageLabel": "Round of 16",
+      "windowLabel": "4 – 7 Jul",
+      "sortDate": "2026-07-04T12:07:00.000Z"
+    },
+    {
+      "id": "ko-97",
+      "matchNo": 97,
+      "stageCode": "qf",
+      "stageLabel": "Quarter-final",
+      "windowLabel": "9 – 11 Jul",
+      "sortDate": "2026-07-09T12:00:00.000Z"
+    },
+    {
+      "id": "ko-98",
+      "matchNo": 98,
+      "stageCode": "qf",
+      "stageLabel": "Quarter-final",
+      "windowLabel": "9 – 11 Jul",
+      "sortDate": "2026-07-09T12:01:00.000Z"
+    },
+    {
+      "id": "ko-99",
+      "matchNo": 99,
+      "stageCode": "qf",
+      "stageLabel": "Quarter-final",
+      "windowLabel": "9 – 11 Jul",
+      "sortDate": "2026-07-09T12:02:00.000Z"
+    },
+    {
+      "id": "ko-100",
+      "matchNo": 100,
+      "stageCode": "qf",
+      "stageLabel": "Quarter-final",
+      "windowLabel": "9 – 11 Jul",
+      "sortDate": "2026-07-09T12:03:00.000Z"
+    },
+    {
+      "id": "ko-101",
+      "matchNo": 101,
+      "stageCode": "sf",
+      "stageLabel": "Semi-final",
+      "windowLabel": "14 – 15 Jul",
+      "sortDate": "2026-07-14T12:00:00.000Z"
+    },
+    {
+      "id": "ko-102",
+      "matchNo": 102,
+      "stageCode": "sf",
+      "stageLabel": "Semi-final",
+      "windowLabel": "14 – 15 Jul",
+      "sortDate": "2026-07-14T12:01:00.000Z"
+    },
+    {
+      "id": "ko-103",
+      "matchNo": 103,
+      "stageCode": "third",
+      "stageLabel": "Third place",
+      "windowLabel": "18 Jul",
+      "sortDate": "2026-07-18T12:00:00.000Z"
+    },
+    {
+      "id": "ko-104",
+      "matchNo": 104,
+      "stageCode": "final",
+      "stageLabel": "Final",
+      "windowLabel": "19 Jul",
+      "sortDate": "2026-07-19T12:00:00.000Z"
+    }
+  ]
+}
