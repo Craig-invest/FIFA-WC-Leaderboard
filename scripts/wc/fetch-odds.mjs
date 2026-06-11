@@ -15,10 +15,13 @@ import { readFileSync, writeFileSync, existsSync, rmSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import { computePicks } from "./lib/picks.mjs";
+import { buildStandings, drawAdvancesBoth } from "./lib/qualify.mjs";
+import { makeResolver } from "../lib/transform.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..", "..");
 const TEAMS_PATH     = join(root, "data/wc-teams.json");
+const LB_TEAMS_PATH  = join(root, "data/teams.json");  // leaderboard's code→{name,group} (for standings)
 const KNOCKOUTS_PATH = join(root, "data/wc-knockouts.json");
 const MATCHES_PATH  = join(root, "data/wc-matches.json");
 const NOTIFIED_PATH = join(root, "data/wc-notified.json");
@@ -32,6 +35,13 @@ const REGIONS    = process.env.ODDS_REGIONS   || "uk";          // uk = good WC 
 const MARKETS    = "h2h,totals";
 const LEAD_HOURS = Number(process.env.EMAIL_LEAD_HOURS || 60);   // ~2.5 days → covers the 2-day mark
 const PREDICT_BY_HOURS = 48;                                     // you aim to predict 2 days out
+
+// API-Football (reused from the leaderboard) supplies results for group standings,
+// which feed the round-3 "draw advances both" boost. Optional: if the key is
+// missing or the call fails, the boost simply stays dormant.
+const FOOTBALL_KEY    = process.env.API_FOOTBALL_KEY;
+const FOOTBALL_LEAGUE = process.env.WC_LEAGUE_ID || "1";
+const FOOTBALL_SEASON = process.env.WC_SEASON || "2026";
 
 function log(...a) { console.log("[wc-odds]", ...a); }
 function die(msg) { console.error("[wc-odds] ERROR:", msg); process.exit(1); }
@@ -160,6 +170,72 @@ export function knockoutPlaceholders(koFile, existingMatches) {
     }));
 }
 
+// Stored consensus odds → arguments for computePicks().
+function oddsArgs(odds) {
+  return [
+    { home: odds.home, draw: odds.draw, away: odds.away },
+    odds.totalsLine != null ? { line: odds.totalsLine, over: odds.over, under: odds.under } : undefined,
+  ];
+}
+
+// Fetch the full fixture list (with results) from API-Football, for standings.
+// Returns null (non-fatal) if the key is missing or the call fails.
+async function fetchFixtures() {
+  if (!FOOTBALL_KEY) return null;
+  try {
+    const url = `https://v3.football.api-sports.io/fixtures?league=${FOOTBALL_LEAGUE}&season=${FOOTBALL_SEASON}`;
+    const res = await fetch(url, { headers: { "x-apisports-key": FOOTBALL_KEY } });
+    if (!res.ok) { log(`API-Football responded ${res.status}; standings/qualification skipped`); return null; }
+    const json = await res.json();
+    if (!Array.isArray(json.response)) { log("API-Football: no fixtures array; standings skipped"); return null; }
+    log(`fetched ${json.response.length} fixtures from API-Football (for standings)`);
+    return json.response;
+  } catch (e) { log("API-Football fetch failed; standings skipped:", e.message); return null; }
+}
+
+// Group round (1/2/3) by date-order within each group: the first two kickoffs
+// are round 1, next two round 2, last two round 3. Returns a Map id→round.
+export function groupRoundsByDate(matches) {
+  const byGroup = new Map();
+  for (const m of matches) {
+    if (!m.oddsReady || !m.group) continue;
+    if (!byGroup.has(m.group)) byGroup.set(m.group, []);
+    byGroup.get(m.group).push(m);
+  }
+  const rounds = new Map();
+  for (const games of byGroup.values()) {
+    games.sort((a, b) => new Date(a.commenceTime) - new Date(b.commenceTime));
+    games.forEach((m, i) => rounds.set(m.id, Math.floor(i / 2) + 1));
+  }
+  return rounds;
+}
+
+// Attach groupRound + drawAdvancesBoth to each real (odds-ready) match and
+// recompute its pick with that context. Mutates `matches` in place.
+export function attachContextAndRepick(matches, fixtures, lbTeamsMeta) {
+  const rounds = groupRoundsByDate(matches);
+  const standings = fixtures && lbTeamsMeta ? buildStandings(fixtures, lbTeamsMeta) : null;
+  const resolveCode = lbTeamsMeta ? makeResolver(lbTeamsMeta) : null;
+
+  for (const m of matches) {
+    if (!m.oddsReady || !m.odds) continue;
+    if (m.group) {
+      m.groupRound = rounds.get(m.id) ?? null;
+      m.drawAdvancesBoth = false;
+      if (m.groupRound === 3 && standings && resolveCode) {
+        const cH = resolveCode(m.home), cA = resolveCode(m.away);
+        if (cH && cA) m.drawAdvancesBoth = drawAdvancesBoth(cH, cA, standings);
+      }
+    } else {
+      m.groupRound = "KO";
+      m.drawAdvancesBoth = false;
+    }
+    const [h2h, totals] = oddsArgs(m.odds);
+    m.pick = computePicks(h2h, totals, { groupRound: m.groupRound, drawAdvancesBoth: m.drawAdvancesBoth });
+  }
+  return matches;
+}
+
 // --- email body for the games due in the window ---
 const OUTCOME_TEXT = (m) =>
   m.pick.outcome.pick === "HOME" ? `${m.home} to win`
@@ -191,6 +267,7 @@ export function emailHtml(due) {
           <strong style="color:#15803d;">${OUTCOME_TEXT(m)}</strong>
           <span style="color:#888;">(${p.outcome.confidence})</span><br>
           <span style="font-size:13px;color:#444;">Suggested score: <strong>${m.home} ${p.score.home}–${p.score.away} ${m.away}</strong></span>
+          ${p.reason ? `<br><span style="font-size:11px;color:#aaa;">${p.reason}</span>` : ""}
         </td>
       </tr>`;
   }).join("");
@@ -204,7 +281,7 @@ export function emailHtml(due) {
       </tr></thead>
       <tbody>${rows}</tbody>
     </table>
-    <p style="color:#999;font-size:12px;margin-top:18px;">Suggestions are derived from de-vigged bookmaker odds (favourite by margin-adjusted probability) plus a simple Poisson scoreline model. A nudge, not a guarantee.</p>
+    <p style="color:#999;font-size:12px;margin-top:18px;">Suggestions come from de-vigged bookmaker odds: the favourite by margin-adjusted probability, with a fixed scoreline anchor (2-0 walkover · 2-1 round-1 close win · 1-0 otherwise · 1-1 when incredibly tight). A nudge, not a guarantee.</p>
   </body></html>`;
 }
 
@@ -239,6 +316,14 @@ async function main() {
   if (!prior.demo) for (const m of prior.matches || []) if (m.oddsReady) byId.set(m.id, m);
   for (const m of fetched) byId.set(m.id, m);
   const matches = [...byId.values()];
+
+  // Attach round + qualification context and (re)compute each pick with it.
+  // group_round comes from the schedule (date-order); the round-3 draw boost
+  // needs standings from API-Football (dormant if that key/data isn't available).
+  let lbTeams = null;
+  try { lbTeams = JSON.parse(readFileSync(LB_TEAMS_PATH, "utf8")).teams; } catch { /* fine */ }
+  const fixtures = await fetchFixtures();
+  attachContextAndRepick(matches, fixtures, lbTeams);
 
   // Append the full knockout bracket as placeholders (teams/odds TBD) so the
   // page shows the complete schedule. A round's placeholders disappear once that

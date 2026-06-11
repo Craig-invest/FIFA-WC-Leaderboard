@@ -132,6 +132,7 @@ function matchCard(m) {
         </div>
         ${score ? `<div class="sug-score">${m.home} <strong>${score.home}–${score.away}</strong> ${m.away}</div>` : ""}
       </div>
+      ${m.pick?.reason ? `<div class="sug-reason">${m.pick.reason}</div>` : ""}
 
       <div class="predict ${status.cls}">${status.text}</div>
     </article>`;

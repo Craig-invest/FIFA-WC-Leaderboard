@@ -110,6 +110,7 @@ main { max-width: 900px; margin: 0 auto; padding: 18px; }
 .sug-conf { font-size: 12px; color: var(--muted); }
 .sug-score { font-size: 14px; color: var(--ink); }
 .sug-score strong { color: var(--accent); }
+.sug-reason { margin-top: 6px; font-size: 11px; color: var(--muted); font-style: italic; }
 
 .predict {
   margin-top: 10px; font-size: 12px; font-weight: 700; text-align: center;

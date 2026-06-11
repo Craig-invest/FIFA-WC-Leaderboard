@@ -65,13 +65,27 @@ Want the reminder earlier/later? Change `EMAIL_LEAD_HOURS` in
 
 1. **Odds → probability:** decimal odds become implied probabilities, then the
    bookmaker's margin is removed so Home/Draw/Away sum to 100%.
-2. **Outcome:** the highest of the three, labelled **Strong** (≥55%),
-   **Lean** (40–55%) or **Toss-up**.
-3. **Scoreline:** expected goals are estimated from the over/under market and
-   split between the teams (a simple Poisson model) to find the most likely
-   exact score that matches the suggested outcome.
+2. **Outcome:** the favourite — unless the game is *incredibly tight* (no side
+   reaches a 40% win chance), where a **draw** is suggested instead. A confidence
+   label is shown (Strong / Lean / Toss-up).
+3. **Scoreline (fixed anchors):**
+   - **2-0** when it's almost a walkover (favourite ≥ 70%)
+   - **2-1** for a close win in **group round 1**
+   - **1-0** for any other close win (group round 2/3 or knockout)
+   - **1-1** for a draw
+4. **Situational draw boost:** in a **final group game where a draw sends both
+   teams through**, the draw probability gets a small ×1.125 nudge.
+
+Every pick carries a short **reason** ("almost a walkover → 2-0", etc.) shown on
+the page and in the email so you can sanity-check it. All thresholds live in one
+`PICK_CONFIG` block at the top of `scripts/wc/lib/picks.mjs` — tune them freely.
 
 It's a data-driven nudge from the betting market — not a guarantee.
+
+> **Note on the draw boost:** it reads group standings via **API-Football**,
+> reusing the `API_FOOTBALL_KEY` secret your leaderboard already uses — nothing
+> extra to set up. If that key is ever missing, the boost simply stays off; the
+> rest of the picks are unaffected.
 
 ---
 
