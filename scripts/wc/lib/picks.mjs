@@ -131,9 +131,10 @@ export function suggestScore(lh, la, outcomePick, maxGoals = 8) {
 
 // All tunable thresholds in one place — tweak these after backtesting.
 export const PICK_CONFIG = {
-  draw_tight: 0.40,   // pick DRAW when neither side's no-vig win prob reaches this
-  walkover: 0.70,     // a WIN with favourite ≥ this is "almost a walkover" → 2-0
-  draw_boost: 1.125,  // round-3 multiplier on p_draw when a draw qualifies BOTH teams
+  draw_tight: 0.40,        // pick DRAW when neither side's no-vig win prob reaches this
+  walkover: 0.70,          // a WIN with favourite ≥ this is "almost a walkover" → 2-0
+  tight_goals_split: 2.6,  // tight win: expected total goals ≤ this → 1-0, else → 2-1
+  draw_boost: 1.125,       // round-3 multiplier on p_draw when a draw qualifies BOTH teams
 };
 
 // Apply the situational draw boost (only round-3 group games where a draw sends
@@ -146,15 +147,28 @@ function applyDrawBoost(probs, groupRound, drawAdvancesBoth) {
   return { probs: { HOME: probs.HOME * scale, DRAW: d, AWAY: probs.AWAY * scale }, boosted: true };
 }
 
+// Plain-language explanation for the dashboard — no jargon, favourite by name.
+export function friendlyReason(rule, favName = "the favourite") {
+  switch (rule) {
+    case "draw":       return "Two evenly-matched sides, few goals likely — 1-1 covers the most realistic draws.";
+    case "draw_boost": return "Both teams can advance with a draw — leaning to a 1-1.";
+    case "walkover":   return `Strong favourite — backing a comfortable 2-0 to ${favName}.`;
+    case "tight_low":  return `Close game, low-scoring — backing a narrow 1-0 to ${favName}.`;
+    case "tight_high": return `Close game but goals expected — 2-1 to ${favName} is the safe middle-ground.`;
+    default:           return "";
+  }
+}
+
 /**
  * Turn no-vig probabilities into an outcome pick + fixed scoreline.
- * Anchors: incredibly tight → 1-1 · walkover → 2-0 · close win round 1 → 2-1 ·
- * close win anywhere else (group round 2/3 or knockout) → 1-0.
+ * Anchors: incredibly tight → 1-1 · walkover → 2-0 · tight win → 1-0 if few goals
+ * are expected (peaked distribution, bank the exact), else 2-1 (flatter cluster,
+ * harvest closeness). The tight-win split is gated on expected goals, not round.
  * @param {{HOME:number,DRAW:number,AWAY:number}} baseProbs
- * @param {{groupRound?:number|"KO", drawAdvancesBoth?:boolean}} context
+ * @param {{groupRound?:number|"KO", drawAdvancesBoth?:boolean, expectedGoals?:number}} context
  */
 export function decidePick(baseProbs, context = {}) {
-  const { groupRound = null, drawAdvancesBoth = false } = context;
+  const { groupRound = null, drawAdvancesBoth = false, expectedGoals = 2.6 } = context;
   const { probs, boosted } = applyDrawBoost(baseProbs, groupRound, drawAdvancesBoth);
 
   const favSide = probs.HOME >= probs.AWAY ? "HOME" : "AWAY";
@@ -162,27 +176,28 @@ export function decidePick(baseProbs, context = {}) {
   const orient = (favScore, dogScore) =>
     favSide === "HOME" ? { home: favScore, away: dogScore } : { home: dogScore, away: favScore };
 
-  let pick, score, reason;
+  let pick, score, rule;
   if (favProb < PICK_CONFIG.draw_tight) {
     pick = "DRAW";
     score = { home: 1, away: 1 };
-    reason = `incredibly tight (favourite ${Math.round(favProb * 100)}%) → draw 1-1`;
-    if (boosted) reason += " [draw boosted: R3 advances both]";
+    rule = boosted ? "draw_boost" : "draw";
   } else if (favProb >= PICK_CONFIG.walkover) {
     pick = favSide;
     score = orient(2, 0);
-    reason = `almost a walkover (favourite ${Math.round(favProb * 100)}%) → 2-0`;
-  } else if (groupRound === 1) {
-    pick = favSide;
-    score = orient(2, 1);
-    reason = "close win, group round 1 → 2-1";
-  } else {
+    rule = "walkover";
+  } else if (expectedGoals <= PICK_CONFIG.tight_goals_split) {
+    // Low goals → the distribution spikes on 1-0; bank the exact-3.0.
     pick = favSide;
     score = orient(1, 0);
-    reason = "close win → 1-0";
+    rule = "tight_low";
+  } else {
+    // More goals → flatter cluster; 2-1 is central and harvests closeness.
+    pick = favSide;
+    score = orient(2, 1);
+    rule = "tight_high";
   }
 
-  return { pick, score, reason, probs, boosted, favSide, favProb };
+  return { pick, score, rule, probs, boosted, favSide, favProb };
 }
 
 // ---- top-level: odds in, full suggestion out --------------------------------
@@ -198,20 +213,24 @@ export function computePicks(h2h, totals, context = {}) {
   const probs = devig1x2(h2h);
   if (!probs) return null;
 
-  const d = decidePick({ HOME: probs.HOME, DRAW: probs.DRAW, AWAY: probs.AWAY }, context);
+  const expectedGoals = estimateTotalGoals(totals);
+  const d = decidePick({ HOME: probs.HOME, DRAW: probs.DRAW, AWAY: probs.AWAY },
+    { ...context, expectedGoals });
   const pickProb = d.pick === "DRAW" ? d.probs.DRAW : d.favProb;
 
   return {
     // Display the raw (market) probabilities; the optional draw boost is an
-    // internal decision nudge, noted in `reason`, not shown on the bars.
+    // internal decision nudge, not shown on the bars.
     probs: { HOME: probs.HOME, DRAW: probs.DRAW, AWAY: probs.AWAY },
     overround: probs.overround,
     outcome: { pick: d.pick, prob: pickProb, confidence: confidenceLabel(pickProb) },
     score: d.score,
-    reason: d.reason,
+    rule: d.rule,
+    favSide: d.favSide,
+    reason: friendlyReason(d.rule), // generic; the robot rewrites it with the team name
     drawBoosted: d.boosted,
     groupRound: context.groupRound ?? null,
-    expectedGoals: estimateTotalGoals(totals),
+    expectedGoals,
   };
 }
 

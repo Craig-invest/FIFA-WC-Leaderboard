@@ -14,7 +14,7 @@
 import { readFileSync, writeFileSync, existsSync, rmSync } from "fs";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
-import { computePicks } from "./lib/picks.mjs";
+import { computePicks, friendlyReason } from "./lib/picks.mjs";
 import { buildStandings, drawAdvancesBoth } from "./lib/qualify.mjs";
 import { makeResolver } from "../lib/transform.mjs";
 
@@ -139,6 +139,8 @@ export function buildMatch(event, lut) {
     { home: odds.home, draw: odds.draw, away: odds.away },
     odds.totalsLine != null ? { line: odds.totalsLine, over: odds.over, under: odds.under } : undefined,
   );
+  // Rewrite the reason with the favourite's actual name for the dashboard.
+  if (pick) pick.reason = friendlyReason(pick.rule, pick.favSide === "HOME" ? h.canonical : a.canonical);
   // Stage label: same group ⇒ group game, else a knockout tie.
   const group = h.group !== "?" && h.group === a.group ? h.group : null;
   const stage = group ? `Group ${group}` : "Knockout";
@@ -232,6 +234,7 @@ export function attachContextAndRepick(matches, fixtures, lbTeamsMeta) {
     }
     const [h2h, totals] = oddsArgs(m.odds);
     m.pick = computePicks(h2h, totals, { groupRound: m.groupRound, drawAdvancesBoth: m.drawAdvancesBoth });
+    if (m.pick) m.pick.reason = friendlyReason(m.pick.rule, m.pick.favSide === "HOME" ? m.home : m.away);
   }
   return matches;
 }

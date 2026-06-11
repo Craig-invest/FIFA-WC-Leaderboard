@@ -1,7 +1,7 @@
 {
   "demo": true,
   "source": "demo",
-  "lastUpdated": "2026-06-11T13:54:44.191Z",
+  "lastUpdated": "2026-06-11T16:01:33.715Z",
   "matches": [
     {
       "id": "demo-1",
@@ -38,10 +38,12 @@
           "confidence": "Strong"
         },
         "score": {
-          "home": 2,
-          "away": 1
+          "home": 1,
+          "away": 0
         },
-        "reason": "close win, group round 1 → 2-1",
+        "rule": "tight_low",
+        "favSide": "HOME",
+        "reason": "Close game, low-scoring — backing a narrow 1-0 to Mexico.",
         "drawBoosted": false,
         "groupRound": 1,
         "expectedGoals": 2.473684210526316
@@ -85,7 +87,9 @@
           "home": 2,
           "away": 0
         },
-        "reason": "almost a walkover (favourite 79%) → 2-0",
+        "rule": "walkover",
+        "favSide": "HOME",
+        "reason": "Strong favourite — backing a comfortable 2-0 to Spain.",
         "drawBoosted": false,
         "groupRound": 1,
         "expectedGoals": 3.0526315789473686
@@ -104,9 +108,9 @@
         "home": 1.62,
         "draw": 3.8,
         "away": 5.5,
-        "totalsLine": 2.5,
-        "over": 1.9,
-        "under": 1.9,
+        "totalsLine": 3.5,
+        "over": 1.85,
+        "under": 1.95,
         "books": 8
       },
       "predictBy": "2026-06-13T22:00:00.000Z",
@@ -129,10 +133,12 @@
           "home": 2,
           "away": 1
         },
-        "reason": "close win, group round 1 → 2-1",
+        "rule": "tight_high",
+        "favSide": "HOME",
+        "reason": "Close game but goals expected — 2-1 to Argentina is the safe middle-ground.",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 2.5
+        "expectedGoals": 3.526315789473684
       }
     },
     {
