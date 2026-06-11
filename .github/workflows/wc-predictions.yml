@@ -33,10 +33,13 @@ jobs:
         run: |
           node scripts/wc/test/picks.test.mjs
           node scripts/wc/test/parse.test.mjs
+          node scripts/wc/test/decide.test.mjs
+          node scripts/wc/test/qualify.test.mjs
 
       - name: Fetch odds + compute picks
         env:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
+          API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: node scripts/wc/fetch-odds.mjs
 
       - name: Is there an email to send?
