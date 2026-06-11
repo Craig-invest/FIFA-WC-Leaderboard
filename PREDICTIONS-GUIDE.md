@@ -68,11 +68,10 @@ Want the reminder earlier/later? Change `EMAIL_LEAD_HOURS` in
 2. **Outcome:** the favourite — unless the game is *incredibly tight* (no side
    reaches a 40% win chance), where a **draw** is suggested instead. A confidence
    label is shown (Strong / Lean / Toss-up).
-3. **Scoreline (fixed anchors):**
+3. **Scoreline (fixed anchors, tuned for Superbru scoring):**
    - **2-0** when it's almost a walkover (favourite ≥ 70%)
-   - **2-1** for a close win in **group round 1**
-   - **1-0** for any other close win (group round 2/3 or knockout)
    - **1-1** for a draw
+   - close win: **1-0** if few goals are expected (≤ `tight_goals_split`, default 2.6 — back the exact score), else **2-1** (more goals likely → safer middle-ground)
 4. **Situational draw boost:** in a **final group game where a draw sends both
    teams through**, the draw probability gets a small ×1.125 nudge.
 

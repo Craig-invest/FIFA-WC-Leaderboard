@@ -35,6 +35,7 @@ jobs:
           node scripts/wc/test/parse.test.mjs
           node scripts/wc/test/decide.test.mjs
           node scripts/wc/test/qualify.test.mjs
+          node scripts/wc/test/ev.test.mjs
 
       - name: Fetch odds + compute picks
         env:
