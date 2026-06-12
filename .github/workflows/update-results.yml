@@ -36,6 +36,7 @@ jobs:
         run: |
           node scripts/test/transform.test.mjs
           node scripts/test/openfootball.test.mjs
+          node scripts/test/thesportsdb.test.mjs
 
       - name: Fetch latest results
         run: node scripts/update-results.mjs

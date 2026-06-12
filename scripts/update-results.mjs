@@ -22,15 +22,20 @@ import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import { buildResults } from "./lib/transform.mjs";
 import { openfootballToFixtures } from "./lib/openfootball.mjs";
+import { tsdbToFixtures } from "./lib/thesportsdb.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
 const TEAMS_PATH = join(root, "data/teams.json");
 const RESULTS_PATH = join(root, "data/results.json");
 
-// --- Config ---
-// openfootball publishes the 2026 results as plain JSON, no key required.
-const DATA_URL = process.env.WC_DATA_URL
+// --- Config: two free, no-key sources, tried in order ---
+// 1) TheSportsDB (free key "123"), World Cup = league 4429, season "2025-2026".
+//    Updates after matches finish (fresher than openfootball in practice).
+// 2) openfootball JSON — fallback if TheSportsDB is unreachable/empty.
+const TSDB_URL = process.env.WC_TSDB_URL
+  || "https://www.thesportsdb.com/api/v1/json/123/eventsseason.php?id=4429&s=2025-2026";
+const OPENFOOTBALL_URL = process.env.WC_DATA_URL
   || "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json";
 
 // The robot stays asleep until the tournament's first whistle: Mexico v South
@@ -41,14 +46,38 @@ const KICKOFF = new Date(process.env.WC_KICKOFF || "2026-06-11T19:00:00Z");
 function log(...a) { console.log(`[update]`, ...a); }
 function die(msg) { console.error(`[update] ERROR: ${msg}`); process.exit(1); }
 
+async function getJSON(url) {
+  const res = await fetch(url, { headers: { "user-agent": "wc-leaderboard" } });
+  if (!res.ok) throw new Error(`${url} responded ${res.status} ${res.statusText}`);
+  return res.json();
+}
+
+function countPlayed(fixtures) {
+  return fixtures.filter((f) => f?.fixture?.status?.short && f.fixture.status.short !== "NS").length;
+}
+
+// Try TheSportsDB first; fall back to openfootball. Prefer whichever actually has
+// played matches (so a fresher-but-empty source can't blank out a populated one).
 async function fetchFixtures() {
-  const res = await fetch(DATA_URL, { headers: { "user-agent": "wc-leaderboard" } });
-  if (!res.ok) die(`Data source responded ${res.status} ${res.statusText}`);
-  let doc;
-  try { doc = await res.json(); }
-  catch { die("Data source did not return valid JSON"); }
-  if (!doc || !Array.isArray(doc.matches)) die("Data source missing 'matches' array");
-  return openfootballToFixtures(doc);
+  let tsdb = [];
+  try {
+    const doc = await getJSON(TSDB_URL);
+    tsdb = tsdbToFixtures(doc);
+    log(`TheSportsDB: ${tsdb.length} fixtures, ${countPlayed(tsdb)} played`);
+  } catch (e) { log(`TheSportsDB unavailable: ${e.message}`); }
+
+  if (countPlayed(tsdb) > 0) return tsdb;
+
+  let of = [];
+  try {
+    const doc = await getJSON(OPENFOOTBALL_URL);
+    if (doc && Array.isArray(doc.matches)) of = openfootballToFixtures(doc);
+    log(`openfootball: ${of.length} fixtures, ${countPlayed(of)} played`);
+  } catch (e) { log(`openfootball unavailable: ${e.message}`); }
+
+  if (countPlayed(of) > 0) return of;
+  // Neither has played matches yet — return whichever we got (likely all unplayed).
+  return tsdb.length ? tsdb : of;
 }
 
 async function main() {
