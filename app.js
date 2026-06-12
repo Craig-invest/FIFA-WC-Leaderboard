@@ -71,13 +71,19 @@ function buildPlayer(player, teamsMeta, results) {
   // "live" if any of this player's teams is currently playing.
   const live = teams.some((t) => t.live);
 
-  return { name: player.name, teams, best, alive, live };
+  // "played" if any of this player's teams has played a match (used as a
+  // tiebreaker so players already in the action edge out those yet to kick off).
+  const played = teams.some((t) => (t.p || 0) > 0);
+
+  return { name: player.name, teams, best, alive, live, played };
 }
 
 function rankPlayers(players) {
   return [...players].sort((A, B) => {
     const c = compareTeams(B.best, A.best);
     if (c !== 0) return c;
+    // Tie on the best team: favour the player who already has a team that's played.
+    if (A.played !== B.played) return A.played ? -1 : 1;
     return A.name.localeCompare(B.name); // stable, keeps a clean 1..12
   });
 }
