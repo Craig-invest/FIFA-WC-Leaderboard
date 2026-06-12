@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-12T19:50:03.264Z",
+  "lastUpdated": "2026-06-12T22:17:28.862Z",
   "demo": false,
   "source": "api",
   "anyLive": false,
@@ -53,25 +53,25 @@
       "live": false
     },
     "CAN": {
-      "p": 0,
+      "p": 1,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 0,
-      "gf": 0,
-      "ga": 0,
-      "pts": 0,
+      "gf": 1,
+      "ga": 1,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
       "live": false
     },
     "BIH": {
-      "p": 0,
+      "p": 1,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 0,
-      "gf": 0,
-      "ga": 0,
-      "pts": 0,
+      "gf": 1,
+      "ga": 1,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
       "live": false
