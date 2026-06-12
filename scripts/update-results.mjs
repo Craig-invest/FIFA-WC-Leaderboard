@@ -22,7 +22,6 @@ import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import { buildResults } from "./lib/transform.mjs";
 import { openfootballToFixtures } from "./lib/openfootball.mjs";
-import { tsdbToFixtures } from "./lib/thesportsdb.mjs";
 import { footballdataToFixtures } from "./lib/footballdata.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -32,13 +31,11 @@ const RESULTS_PATH = join(root, "data/results.json");
 
 // --- Config: free sources, tried in order, first one with real results wins ---
 // 1) football-data.org (free token) — proper provider, prompt finished results.
-// 2) TheSportsDB (free key "123") — backup.
-// 3) openfootball JSON (no key) — last-resort backup.
+//    This is what powers the live board.
+// 2) openfootball JSON (no key) — no-token fallback if football-data is down.
 const FOOTBALLDATA_TOKEN = process.env.FOOTBALL_DATA_TOKEN;
 const FOOTBALLDATA_URL = process.env.WC_FD_URL
   || "https://api.football-data.org/v4/competitions/WC/matches";
-const TSDB_URL = process.env.WC_TSDB_URL
-  || "https://www.thesportsdb.com/api/v1/json/123/eventsseason.php?id=4429&s=2025-2026";
 const OPENFOOTBALL_URL = process.env.WC_DATA_URL
   || "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json";
 
@@ -88,15 +85,7 @@ async function fetchFixtures() {
     log("football-data.org: no FOOTBALL_DATA_TOKEN set, skipping");
   }
 
-  // 2) TheSportsDB (free key)
-  try {
-    const fx = tsdbToFixtures(await getJSON(TSDB_URL));
-    log(`TheSportsDB: ${fx.length} fixtures, ${countPlayed(fx)} played`);
-    if (countPlayed(fx) > 0) return fx;
-    if (fx.length && !firstNonEmpty) firstNonEmpty = fx;
-  } catch (e) { log(`TheSportsDB unavailable: ${e.message}`); }
-
-  // 3) openfootball (no key)
+  // 2) openfootball (no key)
   try {
     const doc = await getJSON(OPENFOOTBALL_URL);
     const fx = doc && Array.isArray(doc.matches) ? openfootballToFixtures(doc) : [];

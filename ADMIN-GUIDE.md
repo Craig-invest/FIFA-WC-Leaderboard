@@ -73,7 +73,7 @@ itself is wrong or hasn't updated. You take temporary manual control.
 
 1. **Actions** tab: https://github.com/Craig-invest/FIFA-WC-Leaderboard/actions
 2. Green ✓ = ran fine. Red ✗ = something failed (click it to see why —
-   usually a missing/expired API key).
+   usually a missing/expired API token).
 3. The leaderboard also shows a timestamp ("Updated …") so you can see at a
    glance how fresh the data is.
 
@@ -83,7 +83,9 @@ itself is wrong or hasn't updated. You take temporary manual control.
 
 - **Board looks stale in my browser but fine elsewhere** → browser cache.
   Hard-refresh: Cmd/Ctrl + Shift + R (desktop) or pull-to-refresh (mobile).
-- **Red ✗ on every run** → the `API_FOOTBALL_KEY` secret is missing/wrong.
-  Re-add it: repo **Settings → Secrets and variables → Actions**.
+- **Red ✗ on every run** → the `FOOTBALL_DATA_TOKEN` secret is missing/wrong/expired
+  (football-data.org deletes unverified accounts). Re-add it: repo **Settings →
+  Secrets and variables → Actions**. (Even if it expires, the robot falls back to
+  openfootball, so the board keeps updating — just less promptly.)
 - **Edited results.json and it broke** → JSON is fussy about commas/quotes.
   If unsure, paste the change to me and I'll check it.

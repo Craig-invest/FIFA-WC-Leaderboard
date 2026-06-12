@@ -62,23 +62,30 @@ exactly once across the group (no team owned by two people).
 
 ## 🤖 Step 3 — Turn on automatic live updates
 
-The robot is already built. It just needs a free API key to fetch real results.
+The robot is already built. It just needs a free API token to fetch real results.
 
-### 3a. Get a free API key (5 minutes)
-1. Go to **https://www.api-football.com/** and create a free account.
-2. On your dashboard, copy your **API key** (a long string of letters/numbers).
-   - The free plan = **100 requests/day**. We use ~12/day, so you'll never hit the limit.
+We use **[football-data.org](https://www.football-data.org/)** — the World Cup is on its
+free tier (free forever), and it posts finished results promptly. Results update **after
+each match finishes** (not minute-by-minute in-play — that's a paid feature everywhere).
+If football-data.org is ever down, the robot automatically falls back to the free
+[openfootball](https://github.com/openfootball/worldcup.json) dataset.
 
-### 3b. Give the key to GitHub (kept secret, never in the code)
+### 3a. Get a free API token (3 minutes)
+1. Register at **https://www.football-data.org/client/register**.
+2. They email you an **API token** (a long string of letters/numbers).
+3. ⚠️ Click the **verify-email** link in that email, or the free account is auto-deleted
+   for inactivity.
+
+### 3b. Give the token to GitHub (kept secret, never in the code)
 1. On GitHub: repo → **Settings** → **Secrets and variables** → **Actions**.
 2. Click **New repository secret**.
-3. Name it exactly: `API_FOOTBALL_KEY`
-4. Paste your key into the value box → **Add secret**.
+3. Name it exactly: `FOOTBALL_DATA_TOKEN`
+4. Paste your token into the value box → **Add secret**.
 
 ### 3c. Switch it on
 - Go to the **Actions** tab → enable workflows if prompted.
 - Open **"Update World Cup results"** → **Run workflow** to test it immediately.
-- After that it runs **every 2 hours automatically** and commits fresh results.
+- After that it runs **several times a day automatically** and commits fresh results.
   GitHub Pages then shows the update within a minute. Set-and-forget. ✅
 
 ---
@@ -111,11 +118,13 @@ You're never stuck waiting on the API. To take manual control:
 ```bash
 npm test          # run the unit tests for the results-transform logic
 npm run serve     # serve the page locally at http://localhost:8099
-npm run update    # fetch results now (needs API_FOOTBALL_KEY in your environment)
+npm run update    # fetch results now (needs FOOTBALL_DATA_TOKEN in your environment)
 ```
 
-- The robot fetches `fixtures?league=1&season=2026` from API-Football and derives the
-  whole table (group points, stage reached, eliminations, champion) in
-  `scripts/lib/transform.mjs`. That logic is covered by unit tests in `scripts/test/`.
+- The robot fetches the World Cup (`competitions/WC/matches`) from football-data.org
+  (falling back to openfootball), normalises each source to a common fixture shape
+  (`scripts/lib/footballdata.mjs`, `scripts/lib/openfootball.mjs`), then derives the
+  whole table — group points, stage reached, eliminations, champion — in
+  `scripts/lib/transform.mjs`. All of it is covered by unit tests in `scripts/test/`.
 - Safety: the robot **won't** overwrite good data if the API errors or returns nothing,
   and it respects the `"manual": true` override.
