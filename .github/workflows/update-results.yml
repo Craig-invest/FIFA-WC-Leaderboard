@@ -37,8 +37,11 @@ jobs:
           node scripts/test/transform.test.mjs
           node scripts/test/openfootball.test.mjs
           node scripts/test/thesportsdb.test.mjs
+          node scripts/test/footballdata.test.mjs
 
       - name: Fetch latest results
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
         run: node scripts/update-results.mjs
 
       - name: Commit updated results (if changed)

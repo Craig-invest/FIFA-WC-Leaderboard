@@ -23,16 +23,20 @@ import { dirname, join } from "path";
 import { buildResults } from "./lib/transform.mjs";
 import { openfootballToFixtures } from "./lib/openfootball.mjs";
 import { tsdbToFixtures } from "./lib/thesportsdb.mjs";
+import { footballdataToFixtures } from "./lib/footballdata.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = join(here, "..");
 const TEAMS_PATH = join(root, "data/teams.json");
 const RESULTS_PATH = join(root, "data/results.json");
 
-// --- Config: two free, no-key sources, tried in order ---
-// 1) TheSportsDB (free key "123"), World Cup = league 4429, season "2025-2026".
-//    Updates after matches finish (fresher than openfootball in practice).
-// 2) openfootball JSON — fallback if TheSportsDB is unreachable/empty.
+// --- Config: free sources, tried in order, first one with real results wins ---
+// 1) football-data.org (free token) — proper provider, prompt finished results.
+// 2) TheSportsDB (free key "123") — backup.
+// 3) openfootball JSON (no key) — last-resort backup.
+const FOOTBALLDATA_TOKEN = process.env.FOOTBALL_DATA_TOKEN;
+const FOOTBALLDATA_URL = process.env.WC_FD_URL
+  || "https://api.football-data.org/v4/competitions/WC/matches";
 const TSDB_URL = process.env.WC_TSDB_URL
   || "https://www.thesportsdb.com/api/v1/json/123/eventsseason.php?id=4429&s=2025-2026";
 const OPENFOOTBALL_URL = process.env.WC_DATA_URL
@@ -56,28 +60,44 @@ function countPlayed(fixtures) {
   return fixtures.filter((f) => f?.fixture?.status?.short && f.fixture.status.short !== "NS").length;
 }
 
-// Try TheSportsDB first; fall back to openfootball. Prefer whichever actually has
-// played matches (so a fresher-but-empty source can't blank out a populated one).
+// Try sources in priority order; return the first that actually has played
+// matches (so a reachable-but-empty source can't blank out a populated one).
 async function fetchFixtures() {
-  let tsdb = [];
+  let firstNonEmpty = null;
+
+  // 1) football-data.org (needs free token)
+  if (FOOTBALLDATA_TOKEN) {
+    try {
+      const res = await fetch(FOOTBALLDATA_URL, { headers: { "X-Auth-Token": FOOTBALLDATA_TOKEN } });
+      if (!res.ok) throw new Error(`responded ${res.status} ${res.statusText}`);
+      const fx = footballdataToFixtures(await res.json());
+      log(`football-data.org: ${fx.length} fixtures, ${countPlayed(fx)} played`);
+      if (countPlayed(fx) > 0) return fx;
+      if (fx.length && !firstNonEmpty) firstNonEmpty = fx;
+    } catch (e) { log(`football-data.org unavailable: ${e.message}`); }
+  } else {
+    log("football-data.org: no FOOTBALL_DATA_TOKEN set, skipping");
+  }
+
+  // 2) TheSportsDB (free key)
   try {
-    const doc = await getJSON(TSDB_URL);
-    tsdb = tsdbToFixtures(doc);
-    log(`TheSportsDB: ${tsdb.length} fixtures, ${countPlayed(tsdb)} played`);
+    const fx = tsdbToFixtures(await getJSON(TSDB_URL));
+    log(`TheSportsDB: ${fx.length} fixtures, ${countPlayed(fx)} played`);
+    if (countPlayed(fx) > 0) return fx;
+    if (fx.length && !firstNonEmpty) firstNonEmpty = fx;
   } catch (e) { log(`TheSportsDB unavailable: ${e.message}`); }
 
-  if (countPlayed(tsdb) > 0) return tsdb;
-
-  let of = [];
+  // 3) openfootball (no key)
   try {
     const doc = await getJSON(OPENFOOTBALL_URL);
-    if (doc && Array.isArray(doc.matches)) of = openfootballToFixtures(doc);
-    log(`openfootball: ${of.length} fixtures, ${countPlayed(of)} played`);
+    const fx = doc && Array.isArray(doc.matches) ? openfootballToFixtures(doc) : [];
+    log(`openfootball: ${fx.length} fixtures, ${countPlayed(fx)} played`);
+    if (countPlayed(fx) > 0) return fx;
+    if (fx.length && !firstNonEmpty) firstNonEmpty = fx;
   } catch (e) { log(`openfootball unavailable: ${e.message}`); }
 
-  if (countPlayed(of) > 0) return of;
-  // Neither has played matches yet — return whichever we got (likely all unplayed).
-  return tsdb.length ? tsdb : of;
+  // Nothing has played matches yet — return any non-empty fixture list we got.
+  return firstNonEmpty || [];
 }
 
 async function main() {
