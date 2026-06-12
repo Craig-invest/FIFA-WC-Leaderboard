@@ -82,7 +82,7 @@ function rankPlayers(players) {
   });
 }
 
-function stageBadge(t, isLiveGroup) {
+function stageBadge(t, isLiveGroup, notPlayed) {
   const meta = STAGE[t.stage] || STAGE.group;
   let cls = meta.cls;
   let label = meta.label;
@@ -90,6 +90,8 @@ function stageBadge(t, isLiveGroup) {
     // During the live group stage (not yet eliminated) show points; otherwise "out".
     cls = isLiveGroup ? "st-group-live" : "st-group";
     label = isLiveGroup ? "Group stage" : "Out — groups";
+    // None of this player's teams has kicked off yet → muted "yet to play" style.
+    if (notPlayed) cls = "st-waiting";
   }
   const showPts = stageOrder(t) <= 1; // group / r32: points still the interesting number
   const pts = showPts ? `<span class="pts">${t.pts} pts · GD ${gd(t) >= 0 ? "+" : ""}${gd(t)}</span>` : "";
@@ -121,6 +123,8 @@ function render(ranked) {
     const rank = i + 1;
     const medal = rank === 1 ? "🥇" : rank === 2 ? "🥈" : rank === 3 ? "🥉" : "";
     const isLiveGroup = p.best.stage === "group" && !p.best.eliminated;
+    // "Yet to play" = none of this player's four teams has played a match.
+    const notPlayed = p.teams.every((t) => (t.p || 0) === 0);
 
     const row = document.createElement("div");
     row.className = `row rank-${rank}${p.live ? " live" : ""}`;
@@ -133,7 +137,7 @@ function render(ranked) {
           <span class="bname">${p.best.name}</span>
         </div>
       </div>
-      ${stageBadge(p.best, isLiveGroup)}
+      ${stageBadge(p.best, isLiveGroup, notPlayed)}
       <div class="teams-detail">
         ${[...p.teams].sort((a, b) => compareTeams(b, a)).map((t) => teamLine(t, t.id === p.best.id)).join("")}
       </div>`;
