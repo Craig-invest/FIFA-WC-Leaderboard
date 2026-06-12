@@ -69,6 +69,15 @@ async function fetchFixtures() {
   if (FOOTBALLDATA_TOKEN) {
     try {
       const res = await fetch(FOOTBALLDATA_URL, { headers: { "X-Auth-Token": FOOTBALLDATA_TOKEN } });
+      // Respect their rate limiter (Daniel's tip): log remaining quota, and if
+      // we ever get throttled (429), back off gracefully and let a fallback or
+      // the next scheduled run handle it rather than hammering the API.
+      const remaining = res.headers.get("x-requests-available-minute");
+      if (remaining != null) log(`football-data.org: ${remaining} requests left this minute`);
+      if (res.status === 429) {
+        const retry = res.headers.get("retry-after") || "?";
+        throw new Error(`rate-limited (429), retry after ${retry}s`);
+      }
       if (!res.ok) throw new Error(`responded ${res.status} ${res.statusText}`);
       const fx = footballdataToFixtures(await res.json());
       log(`football-data.org: ${fx.length} fixtures, ${countPlayed(fx)} played`);
