@@ -35,6 +35,7 @@ const REGIONS    = process.env.ODDS_REGIONS   || "uk";          // uk = good WC 
 const MARKETS    = "h2h,totals";
 const LEAD_HOURS = Number(process.env.EMAIL_LEAD_HOURS || 60);   // ~2.5 days → covers the 2-day mark
 const PREDICT_BY_HOURS = 48;                                     // you aim to predict 2 days out
+const CONCLUDED_AFTER_HOURS = Number(process.env.CONCLUDED_AFTER_HOURS || 3); // drop games this long after kickoff
 
 // API-Football (reused from the leaderboard) supplies results for group standings,
 // which feed the round-3 "draw advances both" boost. Optional: if the key is
@@ -318,7 +319,11 @@ async function main() {
   const byId = new Map();
   if (!prior.demo) for (const m of prior.matches || []) if (m.oddsReady) byId.set(m.id, m);
   for (const m of fetched) byId.set(m.id, m);
-  const matches = [...byId.values()];
+  // Drop concluded games (kicked off more than CONCLUDED_AFTER_HOURS ago) so they
+  // don't pile up — The Odds API already stops returning them; this prunes any we
+  // were still carrying from a previous run.
+  const concludedCutoff = Date.now() - CONCLUDED_AFTER_HOURS * 3600e3;
+  const matches = [...byId.values()].filter((m) => new Date(m.commenceTime).getTime() > concludedCutoff);
 
   // Attach round + qualification context and (re)compute each pick with it.
   // group_round comes from the schedule (date-order); the round-3 draw boost

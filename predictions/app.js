@@ -6,6 +6,9 @@
  */
 const REFRESH_MS = 5 * 60 * 1000;
 const PREDICT_BY_HOURS = 48;
+// A match is treated as concluded (and dropped from the board) this long after
+// kickoff — enough to cover 90' + stoppage, plus extra time & penalties.
+const CONCLUDED_AFTER_MS = 3 * 60 * 60 * 1000;
 
 const els = {
   matches: document.getElementById("matches"),
@@ -143,6 +146,8 @@ function render(file) {
   const now = Date.now();
   let matches = [...(file.matches || [])].sort(
     (a, b) => new Date(a.commenceTime) - new Date(b.commenceTime));
+  // Drop concluded games (kicked off more than ~3h ago) so the board stays current.
+  matches = matches.filter((m) => now < new Date(m.commenceTime).getTime() + CONCLUDED_AFTER_MS);
   if (upcomingOnly) matches = matches.filter((m) => new Date(m.commenceTime).getTime() > now);
 
   els.matches.innerHTML = "";
