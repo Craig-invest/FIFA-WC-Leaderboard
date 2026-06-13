@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-13T19:04:45.879Z",
+  "lastUpdated": "2026-06-13T21:55:48.223Z",
   "demo": false,
   "source": "api",
   "anyLive": false,
@@ -77,25 +77,25 @@
       "live": false
     },
     "QAT": {
-      "p": 0,
+      "p": 1,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 0,
-      "gf": 0,
-      "ga": 0,
-      "pts": 0,
+      "gf": 1,
+      "ga": 1,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
       "live": false
     },
     "SUI": {
-      "p": 0,
+      "p": 1,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 0,
-      "gf": 0,
-      "ga": 0,
-      "pts": 0,
+      "gf": 1,
+      "ga": 1,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
       "live": false
