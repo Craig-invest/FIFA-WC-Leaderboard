@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-15T16:51:14.209Z",
+  "lastUpdated": "2026-06-15T20:42:38.038Z",
   "demo": false,
   "source": "api",
   "anyLive": true,
@@ -293,28 +293,28 @@
       "live": false
     },
     "BEL": {
-      "p": 0,
+      "p": 1,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 0,
-      "gf": 0,
-      "ga": 0,
-      "pts": 0,
+      "gf": 1,
+      "ga": 1,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "EGY": {
-      "p": 0,
+      "p": 1,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 0,
-      "gf": 0,
-      "ga": 0,
-      "pts": 0,
+      "gf": 1,
+      "ga": 1,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "IRN": {
       "p": 0,
@@ -350,7 +350,7 @@
       "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "CPV": {
       "p": 1,
@@ -362,7 +362,7 @@
       "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "KSA": {
       "p": 0,
