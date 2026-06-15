@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-14T22:01:14.590Z",
+  "lastUpdated": "2026-06-15T08:52:50.541Z",
   "demo": false,
   "source": "api",
-  "anyLive": true,
+  "anyLive": false,
   "teams": {
     "MEX": {
       "p": 1,
@@ -221,24 +221,24 @@
       "live": false
     },
     "CIV": {
-      "p": 0,
-      "w": 0,
+      "p": 1,
+      "w": 1,
       "d": 0,
       "l": 0,
-      "gf": 0,
+      "gf": 1,
       "ga": 0,
-      "pts": 0,
+      "pts": 3,
       "stage": "group",
       "eliminated": false,
       "live": false
     },
     "ECU": {
-      "p": 0,
+      "p": 1,
       "w": 0,
       "d": 0,
-      "l": 0,
+      "l": 1,
       "gf": 0,
-      "ga": 0,
+      "ga": 1,
       "pts": 0,
       "stage": "group",
       "eliminated": false,
@@ -254,7 +254,7 @@
       "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "JPN": {
       "p": 1,
@@ -266,27 +266,27 @@
       "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "SWE": {
-      "p": 0,
-      "w": 0,
+      "p": 1,
+      "w": 1,
       "d": 0,
       "l": 0,
-      "gf": 0,
-      "ga": 0,
-      "pts": 0,
+      "gf": 5,
+      "ga": 1,
+      "pts": 3,
       "stage": "group",
       "eliminated": false,
       "live": false
     },
     "TUN": {
-      "p": 0,
+      "p": 1,
       "w": 0,
       "d": 0,
-      "l": 0,
-      "gf": 0,
-      "ga": 0,
+      "l": 1,
+      "gf": 1,
+      "ga": 5,
       "pts": 0,
       "stage": "group",
       "eliminated": false,
