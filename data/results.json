@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-15T11:41:18.891Z",
+  "lastUpdated": "2026-06-15T16:51:14.209Z",
   "demo": false,
   "source": "api",
-  "anyLive": false,
+  "anyLive": true,
   "teams": {
     "MEX": {
       "p": 1,
@@ -341,28 +341,28 @@
       "live": false
     },
     "ESP": {
-      "p": 0,
+      "p": 1,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 0,
       "gf": 0,
       "ga": 0,
-      "pts": 0,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "CPV": {
-      "p": 0,
+      "p": 1,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 0,
       "gf": 0,
       "ga": 0,
-      "pts": 0,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "KSA": {
       "p": 0,
