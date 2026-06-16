@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-16T20:34:56.727Z",
+  "lastUpdated": "2026-06-16T22:46:25.671Z",
   "demo": false,
   "source": "api",
   "anyLive": true,
@@ -57,8 +57,8 @@
       "w": 0,
       "d": 1,
       "l": 0,
-      "gf": 0,
-      "ga": 0,
+      "gf": 1,
+      "ga": 1,
       "pts": 1,
       "stage": "group",
       "eliminated": false,
@@ -69,8 +69,8 @@
       "w": 0,
       "d": 1,
       "l": 0,
-      "gf": 0,
-      "ga": 0,
+      "gf": 1,
+      "ga": 1,
       "pts": 1,
       "stage": "group",
       "eliminated": false,
@@ -390,51 +390,51 @@
     },
     "FRA": {
       "p": 1,
-      "w": 0,
-      "d": 1,
+      "w": 1,
+      "d": 0,
       "l": 0,
-      "gf": 0,
-      "ga": 0,
-      "pts": 1,
+      "gf": 3,
+      "ga": 1,
+      "pts": 3,
       "stage": "group",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "SEN": {
       "p": 1,
       "w": 0,
+      "d": 0,
+      "l": 1,
+      "gf": 1,
+      "ga": 3,
+      "pts": 0,
+      "stage": "group",
+      "eliminated": false,
+      "live": false
+    },
+    "IRQ": {
+      "p": 1,
+      "w": 0,
       "d": 1,
       "l": 0,
-      "gf": 0,
-      "ga": 0,
+      "gf": 1,
+      "ga": 1,
       "pts": 1,
       "stage": "group",
       "eliminated": false,
       "live": true
     },
-    "IRQ": {
-      "p": 0,
-      "w": 0,
-      "d": 0,
-      "l": 0,
-      "gf": 0,
-      "ga": 0,
-      "pts": 0,
-      "stage": "group",
-      "eliminated": false,
-      "live": false
-    },
     "NOR": {
-      "p": 0,
+      "p": 1,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 0,
-      "gf": 0,
-      "ga": 0,
-      "pts": 0,
+      "gf": 1,
+      "ga": 1,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "ARG": {
       "p": 0,
@@ -582,7 +582,7 @@
     }
   },
   "liveFirstSeen": {
-    "FRA": "2026-06-16T20:34:56.727Z",
-    "SEN": "2026-06-16T20:34:56.727Z"
+    "IRQ": "2026-06-16T22:46:25.671Z",
+    "NOR": "2026-06-16T22:46:25.671Z"
   }
 }
