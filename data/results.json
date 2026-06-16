@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-16T16:20:13.572Z",
+  "lastUpdated": "2026-06-16T20:34:56.727Z",
   "demo": false,
   "source": "api",
-  "anyLive": false,
+  "anyLive": true,
   "teams": {
     "MEX": {
       "p": 1,
@@ -57,8 +57,8 @@
       "w": 0,
       "d": 1,
       "l": 0,
-      "gf": 1,
-      "ga": 1,
+      "gf": 0,
+      "ga": 0,
       "pts": 1,
       "stage": "group",
       "eliminated": false,
@@ -69,8 +69,8 @@
       "w": 0,
       "d": 1,
       "l": 0,
-      "gf": 1,
-      "ga": 1,
+      "gf": 0,
+      "ga": 0,
       "pts": 1,
       "stage": "group",
       "eliminated": false,
@@ -389,28 +389,28 @@
       "live": false
     },
     "FRA": {
-      "p": 0,
+      "p": 1,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 0,
       "gf": 0,
       "ga": 0,
-      "pts": 0,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "SEN": {
-      "p": 0,
+      "p": 1,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 0,
       "gf": 0,
       "ga": 0,
-      "pts": 0,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "IRQ": {
       "p": 0,
@@ -580,5 +580,9 @@
       "eliminated": false,
       "live": false
     }
+  },
+  "liveFirstSeen": {
+    "FRA": "2026-06-16T20:34:56.727Z",
+    "SEN": "2026-06-16T20:34:56.727Z"
   }
 }
