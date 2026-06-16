@@ -2,7 +2,7 @@
   "lastUpdated": "2026-06-15T22:53:39.426Z",
   "demo": false,
   "source": "api",
-  "anyLive": true,
+  "anyLive": false,
   "teams": {
     "MEX": {
       "p": 1,
@@ -374,7 +374,7 @@
       "pts": 3,
       "stage": "group",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "URU": {
       "p": 1,
@@ -386,7 +386,7 @@
       "pts": 0,
       "stage": "group",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "FRA": {
       "p": 0,
