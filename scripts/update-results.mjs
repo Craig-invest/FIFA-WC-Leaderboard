@@ -105,9 +105,10 @@ async function main() {
   }
 
   // Respect a manual override: if someone set "manual": true, don't auto-overwrite.
+  let prevResults = null;
   try {
-    const existing = JSON.parse(readFileSync(RESULTS_PATH, "utf8"));
-    if (existing.manual === true) {
+    prevResults = JSON.parse(readFileSync(RESULTS_PATH, "utf8"));
+    if (prevResults.manual === true) {
       log("results.json is in manual-override mode (\"manual\": true) — leaving it untouched.");
       return;
     }
@@ -125,6 +126,29 @@ async function main() {
   if (!anyPlayed) {
     log("No played matches in the data yet. Leaving existing data untouched.");
     return;
+  }
+
+  // Stale-live guard: football-data.org occasionally gets stuck returning IN_PLAY
+  // long after a game has ended. We track when each team was first seen as live
+  // (persisted in liveFirstSeen). If a team has been live for more than
+  // STALE_LIVE_H hours we force-clear it, regardless of what the API says.
+  const STALE_LIVE_H = 4;
+  if (results.anyLive) {
+    const prevFirstSeen = prevResults?.liveFirstSeen || {};
+    const firstSeen = {};
+    const now = Date.now();
+    for (const [code, team] of Object.entries(results.teams)) {
+      if (!team.live) continue;
+      firstSeen[code] = prevFirstSeen[code] || results.lastUpdated;
+      const ageH = (now - new Date(firstSeen[code]).getTime()) / 3_600_000;
+      if (ageH > STALE_LIVE_H) {
+        log(`${code} has been live for ${ageH.toFixed(1)}h — API status stale, clearing.`);
+        team.live = false;
+        delete firstSeen[code];
+      }
+    }
+    results.anyLive = Object.values(results.teams).some((t) => t.live);
+    if (Object.keys(firstSeen).length) results.liveFirstSeen = firstSeen;
   }
 
   writeFileSync(RESULTS_PATH, JSON.stringify(results, null, 2) + "\n");
