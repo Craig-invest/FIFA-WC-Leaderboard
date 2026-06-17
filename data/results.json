@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-17T14:46:50.276Z",
+  "lastUpdated": "2026-06-17T17:43:00.757Z",
   "demo": false,
   "source": "api",
-  "anyLive": false,
+  "anyLive": true,
   "teams": {
     "MEX": {
       "p": 1,
@@ -57,8 +57,8 @@
       "w": 0,
       "d": 1,
       "l": 0,
-      "gf": 0,
-      "ga": 0,
+      "gf": 1,
+      "ga": 1,
       "pts": 1,
       "stage": "group",
       "eliminated": false,
@@ -69,8 +69,8 @@
       "w": 0,
       "d": 1,
       "l": 0,
-      "gf": 0,
-      "ga": 0,
+      "gf": 1,
+      "ga": 1,
       "pts": 1,
       "stage": "group",
       "eliminated": false,
@@ -485,28 +485,28 @@
       "live": false
     },
     "POR": {
-      "p": 0,
-      "w": 0,
+      "p": 1,
+      "w": 1,
       "d": 0,
       "l": 0,
-      "gf": 0,
+      "gf": 1,
       "ga": 0,
-      "pts": 0,
+      "pts": 3,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "COD": {
-      "p": 0,
+      "p": 1,
       "w": 0,
       "d": 0,
-      "l": 0,
+      "l": 1,
       "gf": 0,
-      "ga": 0,
+      "ga": 1,
       "pts": 0,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "UZB": {
       "p": 0,
@@ -580,5 +580,9 @@
       "eliminated": false,
       "live": false
     }
+  },
+  "liveFirstSeen": {
+    "POR": "2026-06-17T17:43:00.757Z",
+    "COD": "2026-06-17T17:43:00.757Z"
   }
 }
