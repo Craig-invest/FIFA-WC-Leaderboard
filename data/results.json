@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-16T22:46:25.671Z",
+  "lastUpdated": "2026-06-17T10:22:52.478Z",
   "demo": false,
   "source": "api",
-  "anyLive": true,
+  "anyLive": false,
   "teams": {
     "MEX": {
       "p": 1,
@@ -415,70 +415,70 @@
     "IRQ": {
       "p": 1,
       "w": 0,
-      "d": 1,
-      "l": 0,
-      "gf": 1,
-      "ga": 1,
-      "pts": 1,
-      "stage": "group",
-      "eliminated": false,
-      "live": true
-    },
-    "NOR": {
-      "p": 1,
-      "w": 0,
-      "d": 1,
-      "l": 0,
-      "gf": 1,
-      "ga": 1,
-      "pts": 1,
-      "stage": "group",
-      "eliminated": false,
-      "live": true
-    },
-    "ARG": {
-      "p": 0,
-      "w": 0,
       "d": 0,
-      "l": 0,
-      "gf": 0,
-      "ga": 0,
+      "l": 1,
+      "gf": 1,
+      "ga": 4,
       "pts": 0,
       "stage": "group",
       "eliminated": false,
       "live": false
     },
-    "ALG": {
-      "p": 0,
-      "w": 0,
+    "NOR": {
+      "p": 1,
+      "w": 1,
       "d": 0,
       "l": 0,
-      "gf": 0,
+      "gf": 4,
+      "ga": 1,
+      "pts": 3,
+      "stage": "group",
+      "eliminated": false,
+      "live": false
+    },
+    "ARG": {
+      "p": 1,
+      "w": 1,
+      "d": 0,
+      "l": 0,
+      "gf": 3,
       "ga": 0,
+      "pts": 3,
+      "stage": "group",
+      "eliminated": false,
+      "live": false
+    },
+    "ALG": {
+      "p": 1,
+      "w": 0,
+      "d": 0,
+      "l": 1,
+      "gf": 0,
+      "ga": 3,
       "pts": 0,
       "stage": "group",
       "eliminated": false,
       "live": false
     },
     "AUT": {
-      "p": 0,
-      "w": 0,
+      "p": 1,
+      "w": 1,
       "d": 0,
       "l": 0,
-      "gf": 0,
-      "ga": 0,
-      "pts": 0,
+      "gf": 3,
+      "ga": 1,
+      "pts": 3,
       "stage": "group",
       "eliminated": false,
       "live": false
     },
     "JOR": {
-      "p": 0,
+      "p": 1,
       "w": 0,
       "d": 0,
-      "l": 0,
-      "gf": 0,
-      "ga": 0,
+      "l": 1,
+      "gf": 1,
+      "ga": 3,
       "pts": 0,
       "stage": "group",
       "eliminated": false,
@@ -580,9 +580,5 @@
       "eliminated": false,
       "live": false
     }
-  },
-  "liveFirstSeen": {
-    "IRQ": "2026-06-16T22:46:25.671Z",
-    "NOR": "2026-06-16T22:46:25.671Z"
   }
 }
