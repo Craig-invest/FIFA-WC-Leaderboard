@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-18T20:06:45.006Z",
+  "lastUpdated": "2026-06-18T22:50:12.851Z",
   "demo": false,
   "source": "api",
-  "anyLive": false,
+  "anyLive": true,
   "teams": {
     "MEX": {
       "p": 1,
@@ -53,49 +53,49 @@
       "live": false
     },
     "CAN": {
-      "p": 1,
-      "w": 0,
+      "p": 2,
+      "w": 1,
       "d": 1,
       "l": 0,
-      "gf": 1,
+      "gf": 3,
       "ga": 1,
-      "pts": 1,
+      "pts": 4,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "BIH": {
-      "p": 1,
+      "p": 2,
       "w": 0,
       "d": 1,
-      "l": 0,
-      "gf": 1,
-      "ga": 1,
+      "l": 1,
+      "gf": 2,
+      "ga": 5,
       "pts": 1,
       "stage": "group",
       "eliminated": false,
       "live": false
     },
     "QAT": {
-      "p": 1,
+      "p": 2,
       "w": 0,
       "d": 1,
-      "l": 0,
+      "l": 1,
       "gf": 1,
-      "ga": 1,
+      "ga": 3,
       "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "SUI": {
-      "p": 1,
-      "w": 0,
+      "p": 2,
+      "w": 1,
       "d": 1,
       "l": 0,
-      "gf": 1,
-      "ga": 1,
-      "pts": 1,
+      "gf": 5,
+      "ga": 2,
+      "pts": 4,
       "stage": "group",
       "eliminated": false,
       "live": false
@@ -580,5 +580,9 @@
       "eliminated": false,
       "live": false
     }
+  },
+  "liveFirstSeen": {
+    "CAN": "2026-06-18T22:50:12.851Z",
+    "QAT": "2026-06-18T22:50:12.851Z"
   }
 }
