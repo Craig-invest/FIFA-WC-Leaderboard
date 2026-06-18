@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-18T14:41:01.235Z",
+  "lastUpdated": "2026-06-18T17:53:08.611Z",
   "demo": false,
   "source": "api",
-  "anyLive": false,
+  "anyLive": true,
   "teams": {
     "MEX": {
       "p": 1,
@@ -17,16 +17,16 @@
       "live": false
     },
     "RSA": {
-      "p": 1,
+      "p": 2,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 1,
-      "gf": 0,
-      "ga": 2,
-      "pts": 0,
+      "gf": 1,
+      "ga": 3,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "KOR": {
       "p": 1,
@@ -41,16 +41,16 @@
       "live": false
     },
     "CZE": {
-      "p": 1,
+      "p": 2,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 1,
-      "gf": 1,
-      "ga": 2,
-      "pts": 0,
+      "gf": 2,
+      "ga": 3,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "CAN": {
       "p": 1,
@@ -580,5 +580,9 @@
       "eliminated": false,
       "live": false
     }
+  },
+  "liveFirstSeen": {
+    "RSA": "2026-06-18T17:53:08.611Z",
+    "CZE": "2026-06-18T17:53:08.611Z"
   }
 }
