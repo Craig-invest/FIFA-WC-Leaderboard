@@ -1,17 +1,17 @@
 {
-  "lastUpdated": "2026-06-18T22:50:12.851Z",
+  "lastUpdated": "2026-06-19T10:09:23.314Z",
   "demo": false,
   "source": "api",
-  "anyLive": true,
+  "anyLive": false,
   "teams": {
     "MEX": {
-      "p": 1,
-      "w": 1,
+      "p": 2,
+      "w": 2,
       "d": 0,
       "l": 0,
-      "gf": 2,
+      "gf": 3,
       "ga": 0,
-      "pts": 3,
+      "pts": 6,
       "stage": "group",
       "eliminated": false,
       "live": false
@@ -29,12 +29,12 @@
       "live": false
     },
     "KOR": {
-      "p": 1,
+      "p": 2,
       "w": 1,
       "d": 0,
-      "l": 0,
+      "l": 1,
       "gf": 2,
-      "ga": 1,
+      "ga": 2,
       "pts": 3,
       "stage": "group",
       "eliminated": false,
@@ -57,12 +57,12 @@
       "w": 1,
       "d": 1,
       "l": 0,
-      "gf": 3,
+      "gf": 7,
       "ga": 1,
       "pts": 4,
       "stage": "group",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "BIH": {
       "p": 2,
@@ -82,11 +82,11 @@
       "d": 1,
       "l": 1,
       "gf": 1,
-      "ga": 3,
+      "ga": 7,
       "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "SUI": {
       "p": 2,
@@ -580,9 +580,5 @@
       "eliminated": false,
       "live": false
     }
-  },
-  "liveFirstSeen": {
-    "CAN": "2026-06-18T22:50:12.851Z",
-    "QAT": "2026-06-18T22:50:12.851Z"
   }
 }
