@@ -2,8 +2,7 @@ name: WC prediction helper
 
 # Refreshes World Cup odds + suggested picks every 6 hours (4 runs/day). The Odds
 # API free tier is 500 credits/month; one uk-region call for h2h+totals costs a
-# couple of credits, so ~4/day stays comfortably inside the budget. Each run also
-# checks whether any games are ~2 days out and, if so, emails you ONE digest.
+# couple of credits, so ~4/day stays comfortably inside the budget.
 # You can also trigger it any time with the "Run workflow" button.
 on:
   workflow_dispatch: {}
@@ -42,34 +41,6 @@ jobs:
           ODDS_API_KEY: ${{ secrets.ODDS_API_KEY }}
           API_FOOTBALL_KEY: ${{ secrets.API_FOOTBALL_KEY }}
         run: node scripts/wc/fetch-odds.mjs
-
-      - name: Is there an email to send?
-        id: email
-        run: |
-          if [ -f data/.pending-email.json ]; then
-            echo "send=true" >> "$GITHUB_OUTPUT"
-            echo "subject=$(node -e "console.log(require('./data/.pending-email.json').subject)")" >> "$GITHUB_OUTPUT"
-          else
-            echo "send=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Send reminder email
-        if: steps.email.outputs.send == 'true'
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
-          username: ${{ secrets.GMAIL_USER }}
-          password: ${{ secrets.GMAIL_APP_PASSWORD }}
-          subject: ${{ steps.email.outputs.subject }}
-          to: ${{ secrets.ALERT_TO }}
-          from: World Cup Picks <${{ secrets.GMAIL_USER }}>
-          html_body: file://data/.email-body.html
-
-      - name: Mark games as emailed (only after a successful send)
-        if: steps.email.outputs.send == 'true'
-        run: node scripts/wc/mark-notified.mjs
 
       - name: Commit updated data (if changed)
         run: |
