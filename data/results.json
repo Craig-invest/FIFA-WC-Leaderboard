@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-19T17:09:51.298Z",
+  "lastUpdated": "2026-06-19T19:22:44.940Z",
   "demo": false,
   "source": "api",
-  "anyLive": false,
+  "anyLive": true,
   "teams": {
     "MEX": {
       "p": 2,
@@ -149,16 +149,16 @@
       "live": false
     },
     "USA": {
-      "p": 1,
-      "w": 1,
+      "p": 2,
+      "w": 2,
       "d": 0,
       "l": 0,
-      "gf": 4,
+      "gf": 5,
       "ga": 1,
-      "pts": 3,
+      "pts": 6,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "PAR": {
       "p": 1,
@@ -173,16 +173,16 @@
       "live": false
     },
     "AUS": {
-      "p": 1,
+      "p": 2,
       "w": 1,
       "d": 0,
-      "l": 0,
+      "l": 1,
       "gf": 2,
-      "ga": 0,
+      "ga": 1,
       "pts": 3,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "TUR": {
       "p": 1,
@@ -580,5 +580,9 @@
       "eliminated": false,
       "live": false
     }
+  },
+  "liveFirstSeen": {
+    "USA": "2026-06-19T19:22:44.940Z",
+    "AUS": "2026-06-19T19:22:44.940Z"
   }
 }
