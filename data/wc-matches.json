@@ -1,54 +1,8 @@
 {
   "demo": false,
   "source": "the-odds-api",
-  "lastUpdated": "2026-06-20T03:30:52.623Z",
+  "lastUpdated": "2026-06-20T08:53:02.278Z",
   "matches": [
-    {
-      "id": "f955d4b3395ce6e3b5ac1031ca52ca4e",
-      "home": "Turkey",
-      "homeFlag": "🇹🇷",
-      "away": "Paraguay",
-      "awayFlag": "🇵🇾",
-      "stage": "Group D",
-      "group": "D",
-      "commenceTime": "2026-06-20T03:00:00Z",
-      "predictBy": "2026-06-18T03:00:00.000Z",
-      "oddsReady": true,
-      "odds": {
-        "home": 3.756,
-        "draw": 3.058,
-        "away": 2.052,
-        "totalsLine": 2.5,
-        "over": 1.64,
-        "under": 2.215,
-        "books": 17
-      },
-      "pick": {
-        "probs": {
-          "HOME": 0.24638654923697717,
-          "DRAW": 0.302625205668439,
-          "AWAY": 0.4509882450945839
-        },
-        "overround": 1.0805812346520254,
-        "outcome": {
-          "pick": "AWAY",
-          "prob": 0.4509882450945839,
-          "confidence": "Lean"
-        },
-        "score": {
-          "home": 1,
-          "away": 2
-        },
-        "rule": "tight_r1",
-        "favSide": "AWAY",
-        "reason": "Opening games tend to be more open — 2-1 to Paraguay (the most common round-1 score).",
-        "drawBoosted": false,
-        "groupRound": 1,
-        "expectedGoals": 2.6491569390402074
-      },
-      "groupRound": 1,
-      "drawAdvancesBoth": false
-    },
     {
       "id": "4f0c518545b0096c68326daf25bffc1e",
       "home": "Netherlands",
@@ -61,24 +15,24 @@
       "predictBy": "2026-06-18T17:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.708,
-        "draw": 3.908,
-        "away": 4.601,
+        "home": 1.702,
+        "draw": 3.94,
+        "away": 4.57,
         "totalsLine": 2.5,
         "over": 1.62,
-        "under": 2.248,
+        "under": 2.225,
         "books": 20
       },
       "pick": {
         "probs": {
-          "HOME": 0.5530129716110681,
-          "DRAW": 0.2416955362107739,
-          "AWAY": 0.20529149217815787
+          "HOME": 0.5541982073153991,
+          "DRAW": 0.23940237280477394,
+          "AWAY": 0.206399419879827
         },
-        "overround": 1.0587095126741093,
+        "overround": 1.0601695531479025,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.5530129716110681,
+          "prob": 0.5541982073153991,
           "confidence": "Strong"
         },
         "score": {
@@ -90,7 +44,7 @@
         "reason": "Opening games tend to be more open — 2-1 to Netherlands (the most common round-1 score).",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 2.662357807652534
+        "expectedGoals": 2.6573472041612485
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -107,24 +61,24 @@
       "predictBy": "2026-06-18T20:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.501,
-        "draw": 4.492,
-        "away": 5.798,
-        "totalsLine": 2.5,
-        "over": 1.56,
-        "under": 2.424,
+        "home": 1.507,
+        "draw": 4.477,
+        "away": 5.742,
+        "totalsLine": 3.5,
+        "over": 2.43,
+        "under": 1.53,
         "books": 20
       },
       "pick": {
         "probs": {
-          "HOME": 0.6277337914431524,
-          "DRAW": 0.20975699487002936,
-          "AWAY": 0.16250921368681817
+          "HOME": 0.6253668386675184,
+          "DRAW": 0.2105043167013514,
+          "AWAY": 0.1641288446311303
         },
-        "overround": 1.0613137724981823,
+        "overround": 1.0610892129323357,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.6277337914431524,
+          "prob": 0.6253668386675184,
           "confidence": "Strong"
         },
         "score": {
@@ -136,7 +90,7 @@
         "reason": "Opening games tend to be more open — 2-1 to Germany (the most common round-1 score).",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 2.716867469879518
+        "expectedGoals": 3.2727272727272725
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -153,24 +107,24 @@
       "predictBy": "2026-06-19T00:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.111,
-        "draw": 9.275,
-        "away": 22.649,
+        "home": 1.117,
+        "draw": 8.975,
+        "away": 21.949,
         "totalsLine": 3.5,
-        "over": 2.25,
-        "under": 1.61,
+        "over": 2.38,
+        "under": 1.56,
         "books": 20
       },
       "pick": {
         "probs": {
-          "HOME": 0.8555510641308988,
-          "DRAW": 0.10248164229104349,
-          "AWAY": 0.04196729357805768
+          "HOME": 0.8508121880109701,
+          "DRAW": 0.1058893831764071,
+          "AWAY": 0.0432984288126226
         },
-        "overround": 1.0520587802847814,
+        "overround": 1.0522359227246474,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.8555510641308988,
+          "prob": 0.8508121880109701,
           "confidence": "Strong"
         },
         "score": {
@@ -182,7 +136,7 @@
         "reason": "Strong favourite — backing a comfortable 2-0 to Ecuador.",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 3.3341968911917097
+        "expectedGoals": 3.2918781725888326
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -199,24 +153,24 @@
       "predictBy": "2026-06-19T04:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 6.412,
-        "draw": 3.928,
-        "away": 1.534,
+        "home": 6.2,
+        "draw": 3.865,
+        "away": 1.558,
         "totalsLine": 2.5,
-        "over": 2.015,
-        "under": 1.752,
+        "over": 2.06,
+        "under": 1.715,
         "books": 20
       },
       "pick": {
         "probs": {
-          "HOME": 0.1467931998268559,
-          "DRAW": 0.23962270806766803,
-          "AWAY": 0.6135840921054759
+          "HOME": 0.15189256858557362,
+          "DRAW": 0.2436569017414118,
+          "AWAY": 0.6044505296730145
         },
-        "overround": 1.0624305466623736,
+        "overround": 1.0618710584894546,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.6135840921054759,
+          "prob": 0.6044505296730145,
           "confidence": "Strong"
         },
         "score": {
@@ -228,7 +182,7 @@
         "reason": "Opening games tend to be more open — 2-1 to Japan (the most common round-1 score).",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 2.430183169631006
+        "expectedGoals": 2.408609271523179
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -245,24 +199,24 @@
       "predictBy": "2026-06-19T16:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.097,
-        "draw": 10.125,
-        "away": 24.95,
+        "home": 1.09,
+        "draw": 10.55,
+        "away": 27.2,
         "totalsLine": 3.5,
-        "over": 2.145,
-        "under": 1.708,
+        "over": 2.065,
+        "under": 1.768,
         "books": 20
       },
       "pick": {
         "probs": {
-          "HOME": 0.867819304643545,
-          "DRAW": 0.09402447182162654,
-          "AWAY": 0.03815622353482841
+          "HOME": 0.8745914067797901,
+          "DRAW": 0.09036062875734324,
+          "AWAY": 0.03504796446286659
         },
-        "overround": 1.0504226206782947,
+        "overround": 1.0489826284007233,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.867819304643545,
+          "prob": 0.8745914067797901,
           "confidence": "Strong"
         },
         "score": {
@@ -274,7 +228,7 @@
         "reason": "Strong favourite — backing a comfortable 2-0 to Spain.",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 3.386581884246042
+        "expectedGoals": 3.422515001304461
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -291,24 +245,24 @@
       "predictBy": "2026-06-19T19:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.419,
-        "draw": 4.511,
-        "away": 7.52,
+        "home": 1.415,
+        "draw": 4.505,
+        "away": 7.575,
         "totalsLine": 2.5,
-        "over": 1.812,
-        "under": 1.98,
+        "over": 1.782,
+        "under": 2.018,
         "books": 20
       },
       "pick": {
         "probs": {
-          "HOME": 0.6652203859031729,
-          "DRAW": 0.2092546503206833,
-          "AWAY": 0.12552496377614394
+          "HOME": 0.6662695125742956,
+          "DRAW": 0.209272222040539,
+          "AWAY": 0.12445826538516543
         },
-        "overround": 1.0593806953125604,
+        "overround": 1.0607025649247646,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.6652203859031729,
+          "prob": 0.6662695125742956,
           "confidence": "Strong"
         },
         "score": {
@@ -320,7 +274,7 @@
         "reason": "Opening games tend to be more open — 2-1 to Belgium (the most common round-1 score).",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 2.5443037974683547
+        "expectedGoals": 2.5621052631578944
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -337,24 +291,24 @@
       "predictBy": "2026-06-19T22:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.437,
-        "draw": 4.152,
-        "away": 7.975,
+        "home": 1.433,
+        "draw": 4.164,
+        "away": 8.18,
         "totalsLine": 2.5,
-        "over": 2.15,
-        "under": 1.657,
+        "over": 2.158,
+        "under": 1.65,
         "books": 20
       },
       "pick": {
         "probs": {
-          "HOME": 0.6551850493816629,
-          "DRAW": 0.22675840943194836,
-          "AWAY": 0.11805654118638868
+          "HOME": 0.6581876200085673,
+          "DRAW": 0.2265088519385872,
+          "AWAY": 0.1153035280528456
         },
-        "overround": 1.062133857808106,
+        "overround": 1.0602397933307577,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.6551850493816629,
+          "prob": 0.6581876200085673,
           "confidence": "Strong"
         },
         "score": {
@@ -366,7 +320,7 @@
         "reason": "Opening games tend to be more open — 2-1 to Uruguay (the most common round-1 score).",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 2.37050170738114
+        "expectedGoals": 2.366596638655462
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -383,24 +337,24 @@
       "predictBy": "2026-06-20T01:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 5.527,
-        "draw": 3.957,
-        "away": 1.595,
+        "home": 5.6,
+        "draw": 3.997,
+        "away": 1.587,
         "totalsLine": 2.5,
-        "over": 2.06,
-        "under": 1.723,
+        "over": 2.037,
+        "under": 1.737,
         "books": 20
       },
       "pick": {
         "probs": {
-          "HOME": 0.1705911447259192,
-          "DRAW": 0.2382757788476511,
-          "AWAY": 0.5911330764264298
+          "HOME": 0.16864199180515344,
+          "DRAW": 0.23627599552385772,
+          "AWAY": 0.5950820126709888
         },
-        "overround": 1.0606059323207773,
+        "overround": 1.0588787920492986,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.5911330764264298,
+          "prob": 0.5950820126709888,
           "confidence": "Strong"
         },
         "score": {
@@ -412,7 +366,7 @@
         "reason": "Opening games tend to be more open — 2-1 to Egypt (the most common round-1 score).",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 2.4109172614327252
+        "expectedGoals": 2.420508744038156
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -429,24 +383,24 @@
       "predictBy": "2026-06-20T17:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.57,
-        "draw": 3.903,
-        "away": 6.005,
+        "home": 1.563,
+        "draw": 3.868,
+        "away": 6.022,
         "totalsLine": 2.5,
-        "over": 1.928,
+        "over": 1.936,
         "under": 1.866,
-        "books": 19
+        "books": 20
       },
       "pick": {
         "probs": {
-          "HOME": 0.6010686512925693,
-          "DRAW": 0.24178267551353672,
-          "AWAY": 0.15714867319389406
+          "HOME": 0.6010940677243105,
+          "DRAW": 0.24289297514299313,
+          "AWAY": 0.15601295713269633
         },
-        "overround": 1.0596837379382888,
+        "overround": 1.064384594473281,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.6010686512925693,
+          "prob": 0.6010940677243105,
           "confidence": "Strong"
         },
         "score": {
@@ -458,7 +412,7 @@
         "reason": "Opening games tend to be more open — 2-1 to Argentina (the most common round-1 score).",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 2.4836584080126514
+        "expectedGoals": 2.4815886375591796
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -475,24 +429,24 @@
       "predictBy": "2026-06-20T21:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.086,
-        "draw": 10.816,
-        "away": 27.841,
+        "home": 1.085,
+        "draw": 10.974,
+        "away": 28.314,
         "totalsLine": 3.5,
-        "over": 1.972,
-        "under": 1.83,
+        "over": 1.988,
+        "under": 1.823,
         "books": 19
       },
       "pick": {
         "probs": {
-          "HOME": 0.8776441036107168,
-          "DRAW": 0.08812144013694882,
-          "AWAY": 0.03423445625233427
+          "HOME": 0.8793602799591094,
+          "DRAW": 0.08694240056092888,
+          "AWAY": 0.03369731947996163
         },
-        "overround": 1.0491841844401386,
+        "overround": 1.0481016793457771,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.8776441036107168,
+          "prob": 0.8793602799591094,
           "confidence": "Strong"
         },
         "score": {
@@ -504,7 +458,7 @@
         "reason": "Strong favourite — backing a comfortable 2-0 to France.",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 3.462651236191478
+        "expectedGoals": 3.456704277092627
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -521,24 +475,24 @@
       "predictBy": "2026-06-21T00:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 2.275,
-        "draw": 3.416,
-        "away": 3.062,
+        "home": 2.269,
+        "draw": 3.403,
+        "away": 3.079,
         "totalsLine": 2.5,
-        "over": 1.93,
-        "under": 1.854,
+        "over": 1.932,
+        "under": 1.844,
         "books": 19
       },
       "pick": {
         "probs": {
-          "HOME": 0.4151165433105734,
-          "DRAW": 0.2764608126556073,
-          "AWAY": 0.30842264403381925
+          "HOME": 0.4160266454957507,
+          "DRAW": 0.2773918479664585,
+          "AWAY": 0.30658150653779087
         },
-        "overround": 1.0588844184693893,
+        "overround": 1.0593619186165928,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.4151165433105734,
+          "prob": 0.4160266454957507,
           "confidence": "Lean"
         },
         "score": {
@@ -550,7 +504,7 @@
         "reason": "Opening games tend to be more open — 2-1 to Norway (the most common round-1 score).",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 2.4799154334038054
+        "expectedGoals": 2.476694915254237
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -567,8 +521,8 @@
       "predictBy": "2026-06-21T03:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 5.845,
-        "draw": 4.053,
+        "home": 5.847,
+        "draw": 4.042,
         "away": 1.565,
         "totalsLine": 2.5,
         "over": 1.912,
@@ -577,14 +531,14 @@
       },
       "pick": {
         "probs": {
-          "HOME": 0.16189177914176195,
-          "DRAW": 0.23347087320098658,
-          "AWAY": 0.6046373476572515
+          "HOME": 0.16174259283317793,
+          "DRAW": 0.23397054435813744,
+          "AWAY": 0.6042868628086846
         },
-        "overround": 1.0567948510930596,
+        "overround": 1.0574077894277274,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.6046373476572515,
+          "prob": 0.6042868628086846,
           "confidence": "Strong"
         },
         "score": {
@@ -613,9 +567,9 @@
       "predictBy": "2026-06-21T17:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.198,
-        "draw": 6.655,
-        "away": 14.658,
+        "home": 1.202,
+        "draw": 6.608,
+        "away": 14.553,
         "totalsLine": 2.5,
         "over": 1.593,
         "under": 2.285,
@@ -623,14 +577,14 @@
       },
       "pick": {
         "probs": {
-          "HOME": 0.792553082757113,
-          "DRAW": 0.14267146403351183,
-          "AWAY": 0.06477545320937518
+          "HOME": 0.790829302730571,
+          "DRAW": 0.14385242461896885,
+          "AWAY": 0.06531827265046013
         },
-        "overround": 1.0532096323411986,
+        "overround": 1.0519928289646234,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.792553082757113,
+          "prob": 0.790829302730571,
           "confidence": "Strong"
         },
         "score": {
@@ -659,24 +613,24 @@
       "predictBy": "2026-06-21T20:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.212,
-        "draw": 6.311,
-        "away": 13.895,
+        "home": 1.211,
+        "draw": 6.461,
+        "away": 14.184,
         "totalsLine": 2.5,
-        "over": 1.618,
-        "under": 2.235,
+        "over": 1.587,
+        "under": 2.272,
         "books": 19
       },
       "pick": {
         "probs": {
-          "HOME": 0.78169504382368,
-          "DRAW": 0.15012112075967363,
-          "AWAY": 0.06818383541664629
+          "HOME": 0.7856631085929134,
+          "DRAW": 0.14725863248816254,
+          "AWAY": 0.06707825891892402
         },
-        "overround": 1.055504336083435,
+        "overround": 1.0510406082615784,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.78169504382368,
+          "prob": 0.7856631085929134,
           "confidence": "Strong"
         },
         "score": {
@@ -688,7 +642,7 @@
         "reason": "Strong favourite — backing a comfortable 2-0 to England.",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 2.6601349597716064
+        "expectedGoals": 2.677507126198497
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -705,9 +659,9 @@
       "predictBy": "2026-06-21T23:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 6.645,
-        "draw": 3.95,
-        "away": 1.526,
+        "home": 6.634,
+        "draw": 3.961,
+        "away": 1.527,
         "totalsLine": 2.5,
         "over": 1.928,
         "under": 1.848,
@@ -715,14 +669,14 @@
       },
       "pick": {
         "probs": {
-          "HOME": 0.14211004787847525,
-          "DRAW": 0.23906867548163743,
-          "AWAY": 0.6188212766398873
+          "HOME": 0.14246443227750133,
+          "DRAW": 0.23860364648546928,
+          "AWAY": 0.6189319212370293
         },
-        "overround": 1.0589616412605696,
+        "overround": 1.0580789662687842,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.6188212766398873,
+          "prob": 0.6189319212370293,
           "confidence": "Strong"
         },
         "score": {
@@ -752,8 +706,8 @@
       "oddsReady": true,
       "odds": {
         "home": 1.489,
-        "draw": 4.084,
-        "away": 7.021,
+        "draw": 4.095,
+        "away": 7.011,
         "totalsLine": 2.5,
         "over": 2.1,
         "under": 1.692,
@@ -761,14 +715,14 @@
       },
       "pick": {
         "probs": {
-          "HOME": 0.6342474920264409,
-          "DRAW": 0.23124253565802416,
-          "AWAY": 0.1345099723155349
+          "HOME": 0.6345198969414,
+          "DRAW": 0.2307204216228925,
+          "AWAY": 0.13475968143570743
         },
-        "overround": 1.0588795079307403,
+        "overround": 1.0584249217409294,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.6342474920264409,
+          "prob": 0.6345198969414,
           "confidence": "Strong"
         },
         "score": {
@@ -797,9 +751,9 @@
       "predictBy": "2026-06-22T19:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.427,
-        "draw": 4.713,
-        "away": 6.879,
+        "home": 1.428,
+        "draw": 4.718,
+        "away": 6.842,
         "totalsLine": 2.5,
         "over": 1.65,
         "under": 2.178,
@@ -807,14 +761,14 @@
       },
       "pick": {
         "probs": {
-          "HOME": 0.6621540917294867,
-          "DRAW": 0.20048671523402875,
-          "AWAY": 0.1373591930364846
+          "HOME": 0.6616463034244566,
+          "DRAW": 0.20026089895933105,
+          "AWAY": 0.13809279761621224
         },
-        "overround": 1.05831989364043,
+        "overround": 1.0583904246429034,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.6621540917294867,
+          "prob": 0.6616463034244566,
           "confidence": "Strong"
         },
         "score": {
@@ -843,9 +797,9 @@
       "predictBy": "2026-06-22T19:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 2.418,
+        "home": 2.421,
         "draw": 3.042,
-        "away": 3.142,
+        "away": 3.145,
         "totalsLine": 2.5,
         "over": 2.098,
         "under": 1.726,
@@ -853,14 +807,14 @@
       },
       "pick": {
         "probs": {
-          "HOME": 0.389947874568008,
-          "DRAW": 0.3099585669643141,
-          "AWAY": 0.30009355846767777
+          "HOME": 0.3897645778097343,
+          "DRAW": 0.310197252753901,
+          "AWAY": 0.30003816943636463
         },
-        "overround": 1.060564646370024,
+        "overround": 1.0597485794713672,
         "outcome": {
           "pick": "DRAW",
-          "prob": 0.3099585669643141,
+          "prob": 0.310197252753901,
           "confidence": "Toss-up"
         },
         "score": {
@@ -889,24 +843,24 @@
       "predictBy": "2026-06-22T22:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 7.495,
-        "draw": 4.955,
-        "away": 1.387,
+        "home": 7.8,
+        "draw": 4.976,
+        "away": 1.371,
         "totalsLine": 2.5,
-        "over": 1.808,
-        "under": 1.988,
+        "over": 1.772,
+        "under": 2,
         "books": 19
       },
       "pick": {
         "probs": {
-          "HOME": 0.1263206409234297,
-          "DRAW": 0.19107430952999105,
-          "AWAY": 0.6826050495465793
+          "HOME": 0.12111226576237448,
+          "DRAW": 0.18984639729632652,
+          "AWAY": 0.689041336941299
         },
-        "overround": 1.0562191621707258,
+        "overround": 1.0585643609101503,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.6826050495465793,
+          "prob": 0.689041336941299,
           "confidence": "Strong"
         },
         "score": {
@@ -918,7 +872,7 @@
         "reason": "Opening games tend to be more open — 2-1 to Brazil (the most common round-1 score).",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 2.547418335089568
+        "expectedGoals": 2.5604453870625665
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -935,24 +889,24 @@
       "predictBy": "2026-06-22T22:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.222,
-        "draw": 6.297,
-        "away": 13.5,
-        "totalsLine": 2.5,
-        "over": 1.6,
-        "under": 2.25,
+        "home": 1.199,
+        "draw": 6.605,
+        "away": 14.527,
+        "totalsLine": 3.5,
+        "over": 2.43,
+        "under": 1.53,
         "books": 19
       },
       "pick": {
         "probs": {
-          "HOME": 0.7784650520248663,
-          "DRAW": 0.1510694447474014,
-          "AWAY": 0.07046550322773235
+          "HOME": 0.7910984888600328,
+          "DRAW": 0.14360743196717324,
+          "AWAY": 0.06529407917279406
         },
-        "overround": 1.0512104601691334,
+        "overround": 1.0542661485372897,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.7784650520248663,
+          "prob": 0.7910984888600328,
           "confidence": "Strong"
         },
         "score": {
@@ -964,7 +918,7 @@
         "reason": "Strong favourite — backing a comfortable 2-0 to Morocco.",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 2.6688311688311686
+        "expectedGoals": 3.2727272727272725
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -981,24 +935,24 @@
       "predictBy": "2026-06-23T01:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 3.383,
-        "draw": 3.639,
-        "away": 2.052,
+        "home": 3.497,
+        "draw": 3.633,
+        "away": 2.013,
         "totalsLine": 2.5,
-        "over": 2.122,
-        "under": 1.698,
+        "over": 2.118,
+        "under": 1.7,
         "books": 18
       },
       "pick": {
         "probs": {
-          "HOME": 0.27946337036456115,
-          "DRAW": 0.2598034025675489,
-          "AWAY": 0.46073322706789005
+          "HOME": 0.2702868147443142,
+          "DRAW": 0.2601687286432333,
+          "AWAY": 0.4695444566124524
         },
-        "overround": 1.0577258293247573,
+        "overround": 1.0579849928550786,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.46073322706789005,
+          "prob": 0.4695444566124524,
           "confidence": "Lean"
         },
         "score": {
@@ -1010,7 +964,7 @@
         "reason": "Opening games tend to be more open — 2-1 to Mexico (the most common round-1 score).",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 2.3890052356020943
+        "expectedGoals": 2.390518596123625
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -1029,22 +983,22 @@
       "odds": {
         "home": 5.75,
         "draw": 3.861,
-        "away": 1.603,
+        "away": 1.602,
         "totalsLine": 2.5,
-        "over": 2.026,
-        "under": 1.768,
+        "over": 2.002,
+        "under": 1.765,
         "books": 18
       },
       "pick": {
         "probs": {
-          "HOME": 0.1645744909955101,
-          "DRAW": 0.2450928058078692,
-          "AWAY": 0.5903327031966208
+          "HOME": 0.16451386807637472,
+          "DRAW": 0.24500252303526407,
+          "AWAY": 0.5904836088883612
         },
-        "overround": 1.056743620631982,
+        "overround": 1.0571330278218407,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.5903327031966208,
+          "prob": 0.5904836088883612,
           "confidence": "Strong"
         },
         "score": {
@@ -1056,7 +1010,7 @@
         "reason": "Opening games tend to be more open — 2-1 to South Korea (the most common round-1 score).",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 2.4319978914074856
+        "expectedGoals": 2.4370852136979027
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -1119,24 +1073,24 @@
       "predictBy": "2026-06-23T20:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 4.843,
-        "draw": 3.769,
-        "away": 1.707,
+        "home": 4.932,
+        "draw": 3.797,
+        "away": 1.689,
         "totalsLine": 2.5,
-        "over": 1.874,
-        "under": 1.898,
+        "over": 1.864,
+        "under": 1.922,
         "books": 18
       },
       "pick": {
         "probs": {
-          "HOME": 0.19523252310474093,
-          "DRAW": 0.2508652452630035,
-          "AWAY": 0.5539022316322556
+          "HOME": 0.19160790897304264,
+          "DRAW": 0.24888338347512412,
+          "AWAY": 0.5595087075518332
         },
-        "overround": 1.057629032659947,
+        "overround": 1.0581896285716526,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.5539022316322556,
+          "prob": 0.5595087075518332,
           "confidence": "Strong"
         },
         "score": {
@@ -1148,7 +1102,7 @@
         "reason": "Tight game — backing a narrow 1-0 to Germany (the most common score from round 2 on).",
         "drawBoosted": false,
         "groupRound": 2,
-        "expectedGoals": 2.5063626723223753
+        "expectedGoals": 2.515319598520866
       },
       "groupRound": 2,
       "drawAdvancesBoth": false
@@ -1165,9 +1119,9 @@
       "predictBy": "2026-06-23T23:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 2.18,
+        "home": 2.184,
         "draw": 3.361,
-        "away": 3.297,
+        "away": 3.294,
         "totalsLine": 2.5,
         "over": 2.03,
         "under": 1.78,
@@ -1175,14 +1129,14 @@
       },
       "pick": {
         "probs": {
-          "HOME": 0.4329334855518653,
-          "DRAW": 0.2808077948536347,
-          "AWAY": 0.28625871959449994
+          "HOME": 0.43237067875712143,
+          "DRAW": 0.28095732294125353,
+          "AWAY": 0.2866719983016251
         },
-        "overround": 1.0595521289963172,
+        "overround": 1.058988225546773,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.4329334855518653,
+          "prob": 0.43237067875712143,
           "confidence": "Lean"
         },
         "score": {
@@ -1211,24 +1165,24 @@
       "predictBy": "2026-06-23T23:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 9.378,
-        "draw": 5.325,
-        "away": 1.311,
+        "home": 9.806,
+        "draw": 5.422,
+        "away": 1.294,
         "totalsLine": 2.5,
-        "over": 1.644,
-        "under": 2.236,
+        "over": 1.583,
+        "under": 2.262,
         "books": 18
       },
       "pick": {
         "probs": {
-          "HOME": 0.10086293446610683,
-          "DRAW": 0.17763241303721125,
-          "AWAY": 0.7215046524966819
+          "HOME": 0.0962778012493049,
+          "DRAW": 0.17412396146268608,
+          "AWAY": 0.7295982372880091
         },
-        "overround": 1.057202477966153,
+        "overround": 1.0592096959012407,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.7215046524966819,
+          "prob": 0.7295982372880091,
           "confidence": "Strong"
         },
         "score": {
@@ -1240,7 +1194,7 @@
         "reason": "Strong favourite — backing a comfortable 2-0 to Netherlands.",
         "drawBoosted": false,
         "groupRound": 2,
-        "expectedGoals": 2.652577319587629
+        "expectedGoals": 2.676592977893368
       },
       "groupRound": 2,
       "drawAdvancesBoth": false
@@ -1257,36 +1211,36 @@
       "predictBy": "2026-06-24T02:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 2.122,
-        "draw": 3.3,
-        "away": 3.494,
-        "totalsLine": 2.5,
-        "over": 2.276,
-        "under": 1.62,
-        "books": 17
+        "home": 2.712,
+        "draw": 2.366,
+        "away": 3.686,
+        "totalsLine": 1.5,
+        "over": 1.577,
+        "under": 2.388,
+        "books": 18
       },
       "pick": {
         "probs": {
-          "HOME": 0.4443739076800508,
-          "DRAW": 0.28574588851426297,
-          "AWAY": 0.2698802038056863
+          "HOME": 0.34698182946674044,
+          "DRAW": 0.3977238890590871,
+          "AWAY": 0.25529428147417255
         },
-        "overround": 1.0604887601564819,
+        "overround": 1.062682630927719,
         "outcome": {
-          "pick": "HOME",
-          "prob": 0.4443739076800508,
-          "confidence": "Lean"
+          "pick": "DRAW",
+          "prob": 0.3977238890590871,
+          "confidence": "Toss-up"
         },
         "score": {
-          "home": 2,
+          "home": 1,
           "away": 1
         },
-        "rule": "tight_r1",
+        "rule": "draw",
         "favSide": "HOME",
-        "reason": "Opening games tend to be more open — 2-1 to Paraguay (the most common round-1 score).",
+        "reason": "Two evenly-matched sides, few goals likely — 1-1 covers the most realistic draws.",
         "drawBoosted": false,
         "groupRound": 1,
-        "expectedGoals": 2.3316221765913756
+        "expectedGoals": 1.7045397225725094
       },
       "groupRound": 1,
       "drawAdvancesBoth": false
@@ -1303,38 +1257,38 @@
       "predictBy": "2026-06-24T02:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 2.666,
-        "draw": 3.735,
-        "away": 2.418,
+        "home": 3.058,
+        "draw": 3.842,
+        "away": 2.113,
         "totalsLine": 2.5,
-        "over": 1.788,
-        "under": 2.006,
-        "books": 17
+        "over": 1.715,
+        "under": 2.06,
+        "books": 18
       },
       "pick": {
         "probs": {
-          "HOME": 0.35506917834264495,
-          "DRAW": 0.25344429168982363,
-          "AWAY": 0.3914865299675315
+          "HOME": 0.3083401978750357,
+          "DRAW": 0.24542017831906793,
+          "AWAY": 0.4462396238058964
         },
-        "overround": 1.0563963202725302,
+        "overround": 1.0605529886523462,
         "outcome": {
-          "pick": "DRAW",
-          "prob": 0.25344429168982363,
-          "confidence": "Toss-up"
+          "pick": "AWAY",
+          "prob": 0.4462396238058964,
+          "confidence": "Lean"
         },
         "score": {
           "home": 1,
-          "away": 1
+          "away": 2
         },
-        "rule": "draw",
+        "rule": "tight_r1",
         "favSide": "AWAY",
-        "reason": "Two evenly-matched sides, few goals likely — 1-1 covers the most realistic draws.",
+        "reason": "Opening games tend to be more open — 2-1 to United States (the most common round-1 score).",
         "drawBoosted": false,
-        "groupRound": 2,
-        "expectedGoals": 2.5574591460200313
+        "groupRound": 1,
+        "expectedGoals": 2.591390728476821
       },
-      "groupRound": 2,
+      "groupRound": 1,
       "drawAdvancesBoth": false
     },
     {
@@ -1349,24 +1303,24 @@
       "predictBy": "2026-06-24T19:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 4.206,
-        "draw": 3.758,
+        "home": 4.211,
+        "draw": 3.756,
         "away": 1.796,
         "totalsLine": 2.5,
-        "over": 1.818,
-        "under": 1.968,
+        "over": 1.83,
+        "under": 1.964,
         "books": 18
       },
       "pick": {
         "probs": {
-          "HOME": 0.2241608061670386,
-          "DRAW": 0.2508835419740725,
-          "AWAY": 0.5249556518588888
+          "HOME": 0.22392433084700253,
+          "DRAW": 0.2510504145891181,
+          "AWAY": 0.5250252545638795
         },
-        "overround": 1.060647449131368,
+        "overround": 1.0605068388828909,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.5249556518588888,
+          "prob": 0.5250252545638795,
           "confidence": "Lean"
         },
         "score": {
@@ -1378,7 +1332,7 @@
         "reason": "Tight game — backing a narrow 1-0 to France (the most common score from round 2 on).",
         "drawBoosted": false,
         "groupRound": 2,
-        "expectedGoals": 2.539619651347068
+        "expectedGoals": 2.535318924617817
       },
       "groupRound": 2,
       "drawAdvancesBoth": false
@@ -1395,24 +1349,24 @@
       "predictBy": "2026-06-24T19:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.302,
-        "draw": 5.242,
-        "away": 10.25,
+        "home": 1.297,
+        "draw": 5.297,
+        "away": 10.472,
         "totalsLine": 2.5,
-        "over": 1.842,
-        "under": 1.94,
+        "over": 1.84,
+        "under": 1.952,
         "books": 18
       },
       "pick": {
         "probs": {
-          "HOME": 0.7270597005045284,
-          "DRAW": 0.1805859843679695,
-          "AWAY": 0.09235431512750206
+          "HOME": 0.7306151370494182,
+          "DRAW": 0.17889519213764304,
+          "AWAY": 0.09048967081293882
         },
-        "overround": 1.0563770136248194,
+        "overround": 1.0552888710245136,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.7270597005045284,
+          "prob": 0.7306151370494182,
           "confidence": "Strong"
         },
         "score": {
@@ -1424,7 +1378,7 @@
         "reason": "Strong favourite — backing a comfortable 2-0 to Senegal.",
         "drawBoosted": false,
         "groupRound": 2,
-        "expectedGoals": 2.525912215758858
+        "expectedGoals": 2.529535864978903
       },
       "groupRound": 2,
       "drawAdvancesBoth": false
@@ -1441,24 +1395,24 @@
       "predictBy": "2026-06-25T00:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 2.746,
-        "draw": 3.519,
-        "away": 2.415,
+        "home": 2.749,
+        "draw": 3.531,
+        "away": 2.422,
         "totalsLine": 2.5,
-        "over": 2.04,
-        "under": 1.746,
+        "over": 2.064,
+        "under": 1.75,
         "books": 18
       },
       "pick": {
         "probs": {
-          "HOME": 0.34277150514442517,
-          "DRAW": 0.26747671302261766,
-          "AWAY": 0.3897517818329571
+          "HOME": 0.34322444636826305,
+          "DRAW": 0.26721155566874966,
+          "AWAY": 0.38956399796298724
         },
-        "overround": 1.062416374341835,
+        "overround": 1.0598564495975764,
         "outcome": {
           "pick": "DRAW",
-          "prob": 0.26747671302261766,
+          "prob": 0.26721155566874966,
           "confidence": "Toss-up"
         },
         "score": {
@@ -1470,7 +1424,7 @@
         "reason": "Two evenly-matched sides, few goals likely — 1-1 covers the most realistic draws.",
         "drawBoosted": false,
         "groupRound": 2,
-        "expectedGoals": 2.4223454833597464
+        "expectedGoals": 2.41767173571054
       },
       "groupRound": 2,
       "drawAdvancesBoth": false
@@ -1487,24 +1441,24 @@
       "predictBy": "2026-06-25T00:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 5.897,
-        "draw": 4.089,
-        "away": 1.544,
+        "home": 5.919,
+        "draw": 4.106,
+        "away": 1.547,
         "totalsLine": 2.5,
-        "over": 1.808,
-        "under": 1.956,
+        "over": 1.81,
+        "under": 1.964,
         "books": 18
       },
       "pick": {
         "probs": {
-          "HOME": 0.15970709932861413,
-          "DRAW": 0.23032349345581743,
-          "AWAY": 0.6099694072155684
+          "HOME": 0.1595490756589035,
+          "DRAW": 0.22999780292865316,
+          "AWAY": 0.6104531214124433
         },
-        "overround": 1.0618047169593408,
+        "overround": 1.0589058986587683,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.6099694072155684,
+          "prob": 0.6104531214124433,
           "confidence": "Strong"
         },
         "score": {
@@ -1516,7 +1470,7 @@
         "reason": "Tight game — backing a narrow 1-0 to Spain (the most common score from round 2 on).",
         "drawBoosted": false,
         "groupRound": 2,
-        "expectedGoals": 2.539319872476089
+        "expectedGoals": 2.5408055113937467
       },
       "groupRound": 2,
       "drawAdvancesBoth": false
@@ -1533,24 +1487,24 @@
       "predictBy": "2026-06-25T03:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 12.138,
-        "draw": 6.15,
-        "away": 1.228,
+        "home": 12.194,
+        "draw": 6.139,
+        "away": 1.227,
         "totalsLine": 2.5,
-        "over": 1.606,
-        "under": 2.24,
+        "over": 1.605,
+        "under": 2.26,
         "books": 18
       },
       "pick": {
         "probs": {
-          "HOME": 0.07777245165929599,
-          "DRAW": 0.15349626312854223,
-          "AWAY": 0.7687312852121618
+          "HOME": 0.07737316675547869,
+          "DRAW": 0.1536876356762188,
+          "AWAY": 0.7689391975683025
         },
-        "overround": 1.059319769107948,
+        "overround": 1.0598964490270784,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.7687312852121618,
+          "prob": 0.7689391975683025,
           "confidence": "Strong"
         },
         "score": {
@@ -1562,7 +1516,7 @@
         "reason": "Strong favourite — backing a comfortable 2-0 to Belgium.",
         "drawBoosted": false,
         "groupRound": 2,
-        "expectedGoals": 2.6648465938637544
+        "expectedGoals": 2.669469598965071
       },
       "groupRound": 2,
       "drawAdvancesBoth": false
@@ -1579,24 +1533,24 @@
       "predictBy": "2026-06-25T03:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 2.074,
-        "draw": 3.111,
-        "away": 3.761,
+        "home": 2.079,
+        "draw": 3.128,
+        "away": 3.794,
         "totalsLine": 1.5,
-        "over": 1.48,
-        "under": 2.6,
+        "over": 1.49,
+        "under": 2.55,
         "books": 18
       },
       "pick": {
         "probs": {
-          "HOME": 0.4508331002517282,
-          "DRAW": 0.30055540016781873,
-          "AWAY": 0.2486114995804531
+          "HOME": 0.451954436035306,
+          "DRAW": 0.3003878748457165,
+          "AWAY": 0.24765768911897765
         },
-        "overround": 1.0694868608280812,
+        "overround": 1.0642676399417086,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.4508331002517282,
+          "prob": 0.451954436035306,
           "confidence": "Lean"
         },
         "score": {
@@ -1608,7 +1562,7 @@
         "reason": "Tight game — backing a narrow 1-0 to Egypt (the most common score from round 2 on).",
         "drawBoosted": false,
         "groupRound": 2,
-        "expectedGoals": 1.7745098039215688
+        "expectedGoals": 1.7623762376237624
       },
       "groupRound": 2,
       "drawAdvancesBoth": false
@@ -1625,9 +1579,9 @@
       "predictBy": "2026-06-25T21:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.625,
-        "draw": 3.744,
-        "away": 5.526,
+        "home": 1.624,
+        "draw": 3.771,
+        "away": 5.562,
         "totalsLine": 2.5,
         "over": 2.03,
         "under": 1.75,
@@ -1635,14 +1589,14 @@
       },
       "pick": {
         "probs": {
-          "HOME": 0.5786728275880124,
-          "DRAW": 0.2511600814184081,
-          "AWAY": 0.17016709099357946
+          "HOME": 0.5805055888980278,
+          "DRAW": 0.24999763361718302,
+          "AWAY": 0.16949677748478914
         },
-        "overround": 1.0634413541579666,
+        "overround": 1.0607366381552532,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.5786728275880124,
+          "prob": 0.5805055888980278,
           "confidence": "Strong"
         },
         "score": {
@@ -1671,9 +1625,9 @@
       "predictBy": "2026-06-25T21:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 10.765,
-        "draw": 6.179,
-        "away": 1.241,
+        "home": 10.882,
+        "draw": 6.156,
+        "away": 1.242,
         "totalsLine": 2.5,
         "over": 1.593,
         "under": 2.285,
@@ -1681,14 +1635,14 @@
       },
       "pick": {
         "probs": {
-          "HOME": 0.08759138887165638,
-          "DRAW": 0.15260095504181598,
-          "AWAY": 0.7598076560865276
+          "HOME": 0.0867349251602833,
+          "DRAW": 0.15332187387820062,
+          "AWAY": 0.759943200961516
         },
-        "overround": 1.0605338947415588,
+        "overround": 1.0594909962314354,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.7598076560865276,
+          "prob": 0.759943200961516,
           "confidence": "Strong"
         },
         "score": {
@@ -1718,8 +1672,8 @@
       "oddsReady": true,
       "odds": {
         "home": 3.497,
-        "draw": 3.397,
-        "away": 2.065,
+        "draw": 3.403,
+        "away": 2.066,
         "totalsLine": 2.5,
         "over": 2.03,
         "under": 1.745,
@@ -1727,14 +1681,14 @@
       },
       "pick": {
         "probs": {
-          "HOME": 0.26860779066956575,
-          "DRAW": 0.27651499675345054,
-          "AWAY": 0.45487721257698377
+          "HOME": 0.2687980218148318,
+          "DRAW": 0.27622294513266726,
+          "AWAY": 0.4549790330525009
         },
-        "overround": 1.0645982867930475,
+        "overround": 1.063844859554344,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.45487721257698377,
+          "prob": 0.4549790330525009,
           "confidence": "Lean"
         },
         "score": {
@@ -1763,9 +1717,9 @@
       "predictBy": "2026-06-25T23:30:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 2.102,
-        "draw": 3.553,
-        "away": 3.25,
+        "home": 2.109,
+        "draw": 3.541,
+        "away": 3.247,
         "totalsLine": 2.5,
         "over": 2.042,
         "under": 1.738,
@@ -1773,14 +1727,14 @@
       },
       "pick": {
         "probs": {
-          "HOME": 0.446751278941482,
-          "DRAW": 0.2643037400323656,
-          "AWAY": 0.28894498102615235
+          "HOME": 0.4454110654188606,
+          "DRAW": 0.26528436514215675,
+          "AWAY": 0.28930456943898275
         },
-        "overround": 1.0648819944875891,
+        "overround": 1.0645410626458431,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.446751278941482,
+          "prob": 0.4454110654188606,
           "confidence": "Lean"
         },
         "score": {
@@ -1809,9 +1763,9 @@
       "predictBy": "2026-06-26T02:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 3.018,
-        "draw": 3.038,
-        "away": 2.46,
+        "home": 3.012,
+        "draw": 3.041,
+        "away": 2.462,
         "totalsLine": 2.5,
         "over": 2.127,
         "under": 1.672,
@@ -1819,14 +1773,14 @@
       },
       "pick": {
         "probs": {
-          "HOME": 0.310535283068824,
-          "DRAW": 0.3084909428247896,
-          "AWAY": 0.3809737741063865
+          "HOME": 0.31115239154486796,
+          "DRAW": 0.3081851375643349,
+          "AWAY": 0.3806624708907971
         },
-        "overround": 1.0670132504373768,
+        "overround": 1.0670183521219003,
         "outcome": {
           "pick": "DRAW",
-          "prob": 0.3084909428247896,
+          "prob": 0.3081851375643349,
           "confidence": "Toss-up"
         },
         "score": {
@@ -1855,9 +1809,9 @@
       "predictBy": "2026-06-26T02:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 13.764,
-        "draw": 6.609,
-        "away": 1.198,
+        "home": 13.794,
+        "draw": 6.621,
+        "away": 1.199,
         "totalsLine": 3.5,
         "over": 2.48,
         "under": 1.51,
@@ -1865,14 +1819,14 @@
       },
       "pick": {
         "probs": {
-          "HOME": 0.06862587501959946,
-          "DRAW": 0.14292125038126297,
-          "AWAY": 0.7884528745991377
+          "HOME": 0.06854968892860533,
+          "DRAW": 0.14281444027808213,
+          "AWAY": 0.7886358707933125
         },
-        "overround": 1.0586866606655345,
+        "overround": 1.057558231690834,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.7884528745991377,
+          "prob": 0.7886358707933125,
           "confidence": "Strong"
         },
         "score": {
