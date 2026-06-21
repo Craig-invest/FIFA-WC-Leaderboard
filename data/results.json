@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-21T19:11:09.383Z",
+  "lastUpdated": "2026-06-21T22:07:12.979Z",
   "demo": false,
   "source": "api",
   "anyLive": true,
@@ -302,7 +302,7 @@
       "pts": 2,
       "stage": "group",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "EGY": {
       "p": 1,
@@ -326,7 +326,7 @@
       "pts": 2,
       "stage": "group",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "NZL": {
       "p": 1,
@@ -345,7 +345,7 @@
       "w": 1,
       "d": 1,
       "l": 0,
-      "gf": 5,
+      "gf": 4,
       "ga": 0,
       "pts": 4,
       "stage": "group",
@@ -353,16 +353,16 @@
       "live": false
     },
     "CPV": {
-      "p": 1,
+      "p": 2,
       "w": 0,
-      "d": 1,
+      "d": 2,
       "l": 0,
       "gf": 0,
       "ga": 0,
-      "pts": 1,
+      "pts": 2,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "KSA": {
       "p": 2,
@@ -370,23 +370,23 @@
       "d": 1,
       "l": 1,
       "gf": 1,
-      "ga": 6,
+      "ga": 5,
       "pts": 1,
       "stage": "group",
       "eliminated": false,
       "live": false
     },
     "URU": {
-      "p": 1,
+      "p": 2,
       "w": 0,
-      "d": 1,
+      "d": 2,
       "l": 0,
       "gf": 1,
       "ga": 1,
-      "pts": 1,
+      "pts": 2,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "FRA": {
       "p": 1,
@@ -582,7 +582,7 @@
     }
   },
   "liveFirstSeen": {
-    "BEL": "2026-06-21T19:11:09.383Z",
-    "IRN": "2026-06-21T19:11:09.383Z"
+    "CPV": "2026-06-21T22:07:12.979Z",
+    "URU": "2026-06-21T22:07:12.979Z"
   }
 }
