@@ -1,13 +1,15 @@
 name: Update World Cup results
 
-# Pulls results from the free, open openfootball/worldcup.json dataset (no API
-# key needed). That source refreshes roughly once a day, so there's no point
-# polling every few minutes — we check a handful of times a day to catch the
-# update whenever it lands. The script itself stays asleep until the 11 June
-# kickoff (WC_KICKOFF guard). You can also trigger it any time with the
-# "Run workflow" button.
+# Pulls results from football-data.org (free token) with openfootball as
+# fallback. Runs six times a day via cron AND after every "WC prediction helper"
+# run — the dual trigger guards against GitHub's occasional cron delays.
+# The script itself stays asleep until the 11 June kickoff (WC_KICKOFF guard).
+# You can also trigger it any time with the "Run workflow" button.
 on:
   workflow_dispatch: {}
+  workflow_run:
+    workflows: ["WC prediction helper"]
+    types: [completed]
   schedule:
     - cron: "0 6,9,12,15,18,21 * * *"   # six times a day (UTC)
 
