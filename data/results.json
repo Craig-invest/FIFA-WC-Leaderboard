@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-22T16:53:14.424Z",
+  "lastUpdated": "2026-06-22T20:30:11.657Z",
   "demo": false,
   "source": "api",
   "anyLive": false,
@@ -437,13 +437,13 @@
       "live": false
     },
     "ARG": {
-      "p": 1,
-      "w": 1,
+      "p": 2,
+      "w": 2,
       "d": 0,
       "l": 0,
-      "gf": 3,
+      "gf": 5,
       "ga": 0,
-      "pts": 3,
+      "pts": 6,
       "stage": "group",
       "eliminated": false,
       "live": false
@@ -461,12 +461,12 @@
       "live": false
     },
     "AUT": {
-      "p": 1,
+      "p": 2,
       "w": 1,
       "d": 0,
-      "l": 0,
+      "l": 1,
       "gf": 3,
-      "ga": 1,
+      "ga": 3,
       "pts": 3,
       "stage": "group",
       "eliminated": false,
