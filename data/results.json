@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-23T20:01:33.487Z",
+  "lastUpdated": "2026-06-23T22:10:24.911Z",
   "demo": false,
   "source": "api",
   "anyLive": false,
@@ -533,13 +533,13 @@
       "live": false
     },
     "ENG": {
-      "p": 1,
+      "p": 2,
       "w": 1,
-      "d": 0,
+      "d": 1,
       "l": 0,
       "gf": 4,
       "ga": 2,
-      "pts": 3,
+      "pts": 4,
       "stage": "group",
       "eliminated": false,
       "live": false
@@ -557,13 +557,13 @@
       "live": false
     },
     "GHA": {
-      "p": 1,
+      "p": 2,
       "w": 1,
-      "d": 0,
+      "d": 1,
       "l": 0,
       "gf": 1,
       "ga": 0,
-      "pts": 3,
+      "pts": 4,
       "stage": "group",
       "eliminated": false,
       "live": false
