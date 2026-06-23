@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-23T03:24:20.938Z",
+  "lastUpdated": "2026-06-23T08:54:43.085Z",
   "demo": false,
   "source": "api",
-  "anyLive": true,
+  "anyLive": false,
   "teams": {
     "MEX": {
       "p": 2,
@@ -450,15 +450,15 @@
     },
     "ALG": {
       "p": 2,
-      "w": 0,
-      "d": 1,
+      "w": 1,
+      "d": 0,
       "l": 1,
-      "gf": 0,
-      "ga": 3,
-      "pts": 1,
+      "gf": 2,
+      "ga": 4,
+      "pts": 3,
       "stage": "group",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "AUT": {
       "p": 2,
@@ -475,14 +475,14 @@
     "JOR": {
       "p": 2,
       "w": 0,
-      "d": 1,
-      "l": 1,
-      "gf": 1,
-      "ga": 3,
-      "pts": 1,
+      "d": 0,
+      "l": 2,
+      "gf": 2,
+      "ga": 5,
+      "pts": 0,
       "stage": "group",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "POR": {
       "p": 1,
@@ -580,9 +580,5 @@
       "eliminated": false,
       "live": false
     }
-  },
-  "liveFirstSeen": {
-    "ALG": "2026-06-23T03:24:20.938Z",
-    "JOR": "2026-06-23T03:24:20.938Z"
   }
 }
