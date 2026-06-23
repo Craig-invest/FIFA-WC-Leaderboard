@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-23T14:44:48.733Z",
+  "lastUpdated": "2026-06-23T17:09:41.604Z",
   "demo": false,
   "source": "api",
-  "anyLive": false,
+  "anyLive": true,
   "teams": {
     "MEX": {
       "p": 2,
@@ -485,16 +485,16 @@
       "live": false
     },
     "POR": {
-      "p": 1,
+      "p": 2,
       "w": 0,
-      "d": 1,
+      "d": 2,
       "l": 0,
       "gf": 1,
       "ga": 1,
-      "pts": 1,
+      "pts": 2,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "COD": {
       "p": 1,
@@ -509,16 +509,16 @@
       "live": false
     },
     "UZB": {
-      "p": 1,
+      "p": 2,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 1,
       "gf": 1,
       "ga": 3,
-      "pts": 0,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "COL": {
       "p": 1,
@@ -580,5 +580,9 @@
       "eliminated": false,
       "live": false
     }
+  },
+  "liveFirstSeen": {
+    "POR": "2026-06-23T17:09:41.604Z",
+    "UZB": "2026-06-23T17:09:41.604Z"
   }
 }
