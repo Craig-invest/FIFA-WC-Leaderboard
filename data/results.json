@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-24T19:23:57.351Z",
+  "lastUpdated": "2026-06-24T19:43:48.180Z",
   "demo": false,
   "source": "api",
   "anyLive": true,
@@ -66,12 +66,12 @@
     },
     "BIH": {
       "p": 3,
-      "w": 0,
-      "d": 2,
+      "w": 1,
+      "d": 1,
       "l": 1,
-      "gf": 2,
+      "gf": 4,
       "ga": 5,
-      "pts": 2,
+      "pts": 4,
       "stage": "group",
       "eliminated": false,
       "live": true
@@ -79,11 +79,11 @@
     "QAT": {
       "p": 3,
       "w": 0,
-      "d": 2,
-      "l": 1,
+      "d": 1,
+      "l": 2,
       "gf": 1,
-      "ga": 7,
-      "pts": 2,
+      "ga": 9,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
       "live": true
