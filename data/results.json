@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-24T19:43:48.180Z",
+  "lastUpdated": "2026-06-24T22:05:57.210Z",
   "demo": false,
   "source": "api",
   "anyLive": true,
@@ -55,98 +55,98 @@
     "CAN": {
       "p": 3,
       "w": 1,
-      "d": 2,
-      "l": 0,
-      "gf": 7,
-      "ga": 1,
-      "pts": 5,
+      "d": 1,
+      "l": 1,
+      "gf": 8,
+      "ga": 3,
+      "pts": 4,
       "stage": "group",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "BIH": {
       "p": 3,
       "w": 1,
       "d": 1,
       "l": 1,
-      "gf": 4,
-      "ga": 5,
+      "gf": 5,
+      "ga": 6,
       "pts": 4,
       "stage": "group",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "QAT": {
       "p": 3,
       "w": 0,
       "d": 1,
       "l": 2,
-      "gf": 1,
-      "ga": 9,
+      "gf": 2,
+      "ga": 10,
       "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "SUI": {
+      "p": 3,
+      "w": 2,
+      "d": 1,
+      "l": 0,
+      "gf": 7,
+      "ga": 3,
+      "pts": 7,
+      "stage": "group",
+      "eliminated": false,
+      "live": false
+    },
+    "BRA": {
       "p": 3,
       "w": 1,
       "d": 2,
       "l": 0,
-      "gf": 5,
-      "ga": 2,
+      "gf": 4,
+      "ga": 1,
       "pts": 5,
       "stage": "group",
       "eliminated": false,
       "live": true
     },
-    "BRA": {
-      "p": 2,
-      "w": 1,
-      "d": 1,
-      "l": 0,
-      "gf": 4,
-      "ga": 1,
-      "pts": 4,
-      "stage": "group",
-      "eliminated": false,
-      "live": false
-    },
     "MAR": {
-      "p": 2,
+      "p": 3,
       "w": 1,
-      "d": 1,
+      "d": 2,
       "l": 0,
       "gf": 2,
       "ga": 1,
-      "pts": 4,
+      "pts": 5,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "HAI": {
-      "p": 2,
+      "p": 3,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 2,
       "gf": 0,
       "ga": 4,
-      "pts": 0,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "SCO": {
-      "p": 2,
+      "p": 3,
       "w": 1,
-      "d": 0,
+      "d": 1,
       "l": 1,
       "gf": 1,
       "ga": 1,
-      "pts": 3,
+      "pts": 4,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "USA": {
       "p": 2,
@@ -582,9 +582,9 @@
     }
   },
   "liveFirstSeen": {
-    "CAN": "2026-06-24T19:23:57.351Z",
-    "BIH": "2026-06-24T19:23:57.351Z",
-    "QAT": "2026-06-24T19:23:57.351Z",
-    "SUI": "2026-06-24T19:23:57.351Z"
+    "BRA": "2026-06-24T22:05:57.210Z",
+    "MAR": "2026-06-24T22:05:57.210Z",
+    "HAI": "2026-06-24T22:05:57.210Z",
+    "SCO": "2026-06-24T22:05:57.210Z"
   }
 }
