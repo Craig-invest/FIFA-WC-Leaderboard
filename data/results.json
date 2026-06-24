@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-24T03:26:12.278Z",
+  "lastUpdated": "2026-06-24T08:50:32.219Z",
   "demo": false,
   "source": "api",
   "anyLive": false,
@@ -497,12 +497,12 @@
       "live": false
     },
     "COD": {
-      "p": 1,
+      "p": 2,
       "w": 0,
       "d": 1,
-      "l": 0,
+      "l": 1,
       "gf": 1,
-      "ga": 1,
+      "ga": 2,
       "pts": 1,
       "stage": "group",
       "eliminated": false,
@@ -521,13 +521,13 @@
       "live": false
     },
     "COL": {
-      "p": 1,
-      "w": 1,
+      "p": 2,
+      "w": 2,
       "d": 0,
       "l": 0,
-      "gf": 3,
+      "gf": 4,
       "ga": 1,
-      "pts": 3,
+      "pts": 6,
       "stage": "group",
       "eliminated": false,
       "live": false
