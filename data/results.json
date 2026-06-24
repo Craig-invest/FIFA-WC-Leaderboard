@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-23T22:10:24.911Z",
+  "lastUpdated": "2026-06-24T03:26:12.278Z",
   "demo": false,
   "source": "api",
   "anyLive": false,
@@ -545,13 +545,13 @@
       "live": false
     },
     "CRO": {
-      "p": 1,
-      "w": 0,
+      "p": 2,
+      "w": 1,
       "d": 0,
       "l": 1,
-      "gf": 2,
+      "gf": 3,
       "ga": 4,
-      "pts": 0,
+      "pts": 3,
       "stage": "group",
       "eliminated": false,
       "live": false
@@ -569,12 +569,12 @@
       "live": false
     },
     "PAN": {
-      "p": 1,
+      "p": 2,
       "w": 0,
       "d": 0,
-      "l": 1,
+      "l": 2,
       "gf": 0,
-      "ga": 1,
+      "ga": 2,
       "pts": 0,
       "stage": "group",
       "eliminated": false,
