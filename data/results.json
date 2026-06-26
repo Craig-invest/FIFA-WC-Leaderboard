@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-26T14:21:05.861Z",
+  "lastUpdated": "2026-06-26T16:54:29.733Z",
   "demo": false,
   "source": "api",
   "anyLive": false,
@@ -24,7 +24,7 @@
       "gf": 2,
       "ga": 3,
       "pts": 4,
-      "stage": "r32",
+      "stage": "group",
       "eliminated": false,
       "live": false
     },
@@ -60,7 +60,7 @@
       "gf": 8,
       "ga": 3,
       "pts": 4,
-      "stage": "r32",
+      "stage": "group",
       "eliminated": false,
       "live": false
     },
@@ -72,7 +72,7 @@
       "gf": 5,
       "ga": 6,
       "pts": 4,
-      "stage": "r32",
+      "stage": "group",
       "eliminated": false,
       "live": false
     },
@@ -108,7 +108,7 @@
       "gf": 7,
       "ga": 1,
       "pts": 7,
-      "stage": "r32",
+      "stage": "group",
       "eliminated": false,
       "live": false
     },
@@ -120,7 +120,7 @@
       "gf": 6,
       "ga": 3,
       "pts": 7,
-      "stage": "r32",
+      "stage": "group",
       "eliminated": false,
       "live": false
     },
@@ -156,7 +156,7 @@
       "gf": 8,
       "ga": 4,
       "pts": 6,
-      "stage": "r32",
+      "stage": "group",
       "eliminated": false,
       "live": false
     },
@@ -252,7 +252,7 @@
       "gf": 10,
       "ga": 4,
       "pts": 7,
-      "stage": "r32",
+      "stage": "group",
       "eliminated": false,
       "live": false
     },
@@ -264,7 +264,7 @@
       "gf": 7,
       "ga": 3,
       "pts": 5,
-      "stage": "r32",
+      "stage": "group",
       "eliminated": false,
       "live": false
     },
