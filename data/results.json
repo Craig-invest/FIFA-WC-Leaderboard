@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-25T22:14:40.929Z",
+  "lastUpdated": "2026-06-26T03:32:06.985Z",
   "demo": false,
   "source": "api",
-  "anyLive": false,
+  "anyLive": true,
   "teams": {
     "MEX": {
       "p": 3,
@@ -149,52 +149,52 @@
       "live": false
     },
     "USA": {
-      "p": 2,
+      "p": 3,
       "w": 2,
-      "d": 0,
+      "d": 1,
       "l": 0,
-      "gf": 6,
-      "ga": 1,
-      "pts": 6,
+      "gf": 8,
+      "ga": 3,
+      "pts": 7,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "PAR": {
-      "p": 2,
+      "p": 3,
       "w": 1,
-      "d": 0,
+      "d": 1,
       "l": 1,
       "gf": 2,
       "ga": 4,
-      "pts": 3,
+      "pts": 4,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "AUS": {
-      "p": 2,
+      "p": 3,
       "w": 1,
-      "d": 0,
+      "d": 1,
       "l": 1,
       "gf": 2,
       "ga": 2,
-      "pts": 3,
+      "pts": 4,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "TUR": {
-      "p": 2,
+      "p": 3,
       "w": 0,
-      "d": 0,
+      "d": 1,
       "l": 2,
-      "gf": 0,
-      "ga": 3,
-      "pts": 0,
+      "gf": 2,
+      "ga": 5,
+      "pts": 1,
       "stage": "group",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "GER": {
       "p": 3,
@@ -245,48 +245,48 @@
       "live": false
     },
     "NED": {
-      "p": 2,
-      "w": 1,
+      "p": 3,
+      "w": 2,
       "d": 1,
       "l": 0,
-      "gf": 7,
-      "ga": 3,
-      "pts": 4,
+      "gf": 10,
+      "ga": 4,
+      "pts": 7,
       "stage": "group",
       "eliminated": false,
       "live": false
     },
     "JPN": {
-      "p": 2,
+      "p": 3,
       "w": 1,
-      "d": 1,
+      "d": 2,
       "l": 0,
-      "gf": 6,
-      "ga": 2,
-      "pts": 4,
+      "gf": 7,
+      "ga": 3,
+      "pts": 5,
       "stage": "group",
       "eliminated": false,
       "live": false
     },
     "SWE": {
-      "p": 2,
+      "p": 3,
       "w": 1,
-      "d": 0,
+      "d": 1,
       "l": 1,
-      "gf": 6,
-      "ga": 6,
-      "pts": 3,
+      "gf": 7,
+      "ga": 7,
+      "pts": 4,
       "stage": "group",
       "eliminated": false,
       "live": false
     },
     "TUN": {
-      "p": 2,
+      "p": 3,
       "w": 0,
       "d": 0,
-      "l": 2,
-      "gf": 1,
-      "ga": 9,
+      "l": 3,
+      "gf": 2,
+      "ga": 12,
       "pts": 0,
       "stage": "group",
       "eliminated": false,
@@ -580,5 +580,11 @@
       "eliminated": false,
       "live": false
     }
+  },
+  "liveFirstSeen": {
+    "USA": "2026-06-26T03:32:06.985Z",
+    "PAR": "2026-06-26T03:32:06.985Z",
+    "AUS": "2026-06-26T03:32:06.985Z",
+    "TUR": "2026-06-26T03:32:06.985Z"
   }
 }
