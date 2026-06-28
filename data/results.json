@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-28T19:17:19.721Z",
+  "lastUpdated": "2026-06-28T21:52:03.482Z",
   "demo": false,
   "source": "api",
-  "anyLive": true,
+  "anyLive": false,
   "teams": {
     "MEX": {
       "p": 3,
@@ -25,8 +25,8 @@
       "ga": 3,
       "pts": 4,
       "stage": "r32",
-      "eliminated": false,
-      "live": true
+      "eliminated": true,
+      "live": false
     },
     "KOR": {
       "p": 3,
@@ -62,7 +62,7 @@
       "pts": 4,
       "stage": "r32",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "BIH": {
       "p": 3,
@@ -580,9 +580,5 @@
       "eliminated": true,
       "live": false
     }
-  },
-  "liveFirstSeen": {
-    "RSA": "2026-06-28T19:17:19.721Z",
-    "CAN": "2026-06-28T19:17:19.721Z"
   }
 }
