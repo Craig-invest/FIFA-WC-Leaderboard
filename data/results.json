@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T15:42:56.329Z",
+  "lastUpdated": "2026-06-29T19:30:14.445Z",
   "demo": false,
   "source": "api",
   "anyLive": false,
@@ -265,7 +265,7 @@
       "ga": 3,
       "pts": 5,
       "stage": "r32",
-      "eliminated": false,
+      "eliminated": true,
       "live": false
     },
     "SWE": {
