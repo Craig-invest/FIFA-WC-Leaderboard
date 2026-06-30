@@ -86,5 +86,45 @@ ok(liveRes.teams.URU.live === true, "URU flagged live");
 ok(liveRes.teams.CAN.live === false, "CAN not live (match not started)");
 eq(liveRes.teams.CAN.pts, 0, "CAN no points from a not-started match");
 
+// --- Knockout stage advancement ---
+// A team that wins a finished R32 fixture should immediately show as r16,
+// even if no R16 fixture has appeared in the data yet.
+const r32Win = [
+  { fixture: { status: { short: "FT" } },
+    league: { round: "Round of 32" },
+    teams: { home: { name: "Brazil", winner: true }, away: { name: "Australia", winner: false } },
+    goals: { home: 1, away: 0 } },
+];
+const r32Stages = computeStages(r32Win, resolve);
+eq(r32Stages.stages.BRA?.stage, "r16", "R32 winner advances to r16 before R16 fixture appears");
+eq(r32Stages.stages.AUS?.stage, "r32", "R32 loser stays at r32");
+ok(r32Stages.stages.AUS?.eliminated === true, "R32 loser is eliminated");
+ok(r32Stages.stages.BRA?.eliminated === false, "R32 winner not eliminated");
+
+// Multi-round: won R32 and R16, no QF fixture yet -> should show qf.
+const multiRound = [
+  { fixture: { status: { short: "FT" } },
+    league: { round: "Round of 32" },
+    teams: { home: { name: "Brazil", winner: true }, away: { name: "Australia", winner: false } },
+    goals: { home: 1, away: 0 } },
+  { fixture: { status: { short: "FT" } },
+    league: { round: "Round of 16" },
+    teams: { home: { name: "Brazil", winner: true }, away: { name: "Spain", winner: false } },
+    goals: { home: 2, away: 0 } },
+];
+const multiStages = computeStages(multiRound, resolve);
+eq(multiStages.stages.BRA?.stage, "qf", "R32+R16 winner advances to qf with no QF fixture yet");
+ok(multiStages.stages.ESP?.eliminated === true, "R16 loser eliminated");
+
+// No false advancement: a team in an unfinished R32 fixture should stay at r32.
+const liveR32 = [
+  { fixture: { status: { short: "2H" } },
+    league: { round: "Round of 32" },
+    teams: { home: { name: "Brazil", winner: null }, away: { name: "Australia", winner: null } },
+    goals: { home: 1, away: 0 } },
+];
+const liveR32Stages = computeStages(liveR32, resolve);
+eq(liveR32Stages.stages.BRA?.stage, "r32", "In-progress R32 fixture: winner not yet advanced");
+
 console.log(`\n${fail === 0 ? "ALL PASS" : "FAILURES"}: ${pass} passed, ${fail} failed`);
 process.exit(fail === 0 ? 0 : 1);
