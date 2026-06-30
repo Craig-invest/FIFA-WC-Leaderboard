@@ -110,13 +110,12 @@ function teamLine(t, isBest) {
   const stageLabel = t.stage === "group"
     ? (out ? "Out in groups" : "Group stage")
     : (out ? `Out — ${meta.label}` : meta.label);
-  const grp = t.group ? `Grp ${t.group} · ` : "";
   const liveLabel = t.live ? '<span class="team-live">● LIVE</span> ' : "";
   return `
     <div class="team-line ${isBest ? "is-best" : ""} ${out ? "out" : ""} ${t.live ? "live" : ""}">
       <span class="tflag">${t.flag}</span>
       <span class="tname">${liveLabel}${t.name}${isBest ? " ⭐" : ""}</span>
-      <span class="tstage">${grp}${stageLabel}</span>
+      <span class="tstage">${stageLabel}</span>
       <span class="tpts">${t.pts} pts · GD ${gd(t) >= 0 ? "+" : ""}${gd(t)}</span>
     </div>`;
 }
