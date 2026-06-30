@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-06-30T03:30:09.550Z",
+  "lastUpdated": "2026-06-30T08:13:07.747Z",
   "demo": false,
   "source": "api",
-  "anyLive": true,
+  "anyLive": false,
   "teams": {
     "MEX": {
       "p": 3,
@@ -60,7 +60,7 @@
       "gf": 8,
       "ga": 3,
       "pts": 4,
-      "stage": "r32",
+      "stage": "r16",
       "eliminated": false,
       "live": false
     },
@@ -108,7 +108,7 @@
       "gf": 7,
       "ga": 1,
       "pts": 7,
-      "stage": "r32",
+      "stage": "r16",
       "eliminated": false,
       "live": false
     },
@@ -120,9 +120,9 @@
       "gf": 6,
       "ga": 3,
       "pts": 7,
-      "stage": "r32",
+      "stage": "r16",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "HAI": {
       "p": 3,
@@ -168,7 +168,7 @@
       "gf": 2,
       "ga": 4,
       "pts": 4,
-      "stage": "r32",
+      "stage": "r16",
       "eliminated": false,
       "live": false
     },
@@ -253,8 +253,8 @@
       "ga": 4,
       "pts": 7,
       "stage": "r32",
-      "eliminated": false,
-      "live": true
+      "eliminated": true,
+      "live": false
     },
     "JPN": {
       "p": 3,
@@ -580,9 +580,5 @@
       "eliminated": true,
       "live": false
     }
-  },
-  "liveFirstSeen": {
-    "MAR": "2026-06-30T03:30:09.550Z",
-    "NED": "2026-06-30T03:30:09.550Z"
   }
 }
