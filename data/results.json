@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-29T22:02:34.096Z",
+  "lastUpdated": "2026-06-30T03:30:09.550Z",
   "demo": false,
   "source": "api",
   "anyLive": true,
@@ -122,7 +122,7 @@
       "pts": 7,
       "stage": "r32",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "HAI": {
       "p": 3,
@@ -170,7 +170,7 @@
       "pts": 4,
       "stage": "r32",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "AUS": {
       "p": 3,
@@ -205,8 +205,8 @@
       "ga": 4,
       "pts": 6,
       "stage": "r32",
-      "eliminated": false,
-      "live": true
+      "eliminated": true,
+      "live": false
     },
     "CUW": {
       "p": 3,
@@ -254,7 +254,7 @@
       "pts": 7,
       "stage": "r32",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "JPN": {
       "p": 3,
@@ -582,7 +582,7 @@
     }
   },
   "liveFirstSeen": {
-    "PAR": "2026-06-29T22:02:34.096Z",
-    "GER": "2026-06-29T22:02:34.096Z"
+    "MAR": "2026-06-30T03:30:09.550Z",
+    "NED": "2026-06-30T03:30:09.550Z"
   }
 }
