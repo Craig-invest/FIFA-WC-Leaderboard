@@ -167,6 +167,17 @@ export function computeStages(fixtures, resolve) {
         const champ = ensure(win);
         champ.stage = "champion";
         champ.eliminated = false;
+      } else if (win) {
+        // Advance the winner to the next round immediately — the data source
+        // may not publish the next fixture until it is played, so without this
+        // a team that won (e.g.) R32 would stay shown as "Round of 32" rather
+        // than "Round of 16" until the R16 fixture data arrives.
+        const NEXT = { r32: "r16", r16: "qf", qf: "sf", sf: "final" };
+        const next = NEXT[stage];
+        if (next) {
+          const winner = ensure(win);
+          if (rank(next) > rank(winner.stage)) winner.stage = next;
+        }
       }
     }
   }
