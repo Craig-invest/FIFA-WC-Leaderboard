@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-30T22:06:43.491Z",
+  "lastUpdated": "2026-07-01T03:38:56.396Z",
   "demo": false,
   "source": "api",
   "anyLive": true,
@@ -14,7 +14,7 @@
       "pts": 9,
       "stage": "r32",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "RSA": {
       "p": 3,
@@ -242,7 +242,7 @@
       "pts": 4,
       "stage": "r32",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "NED": {
       "p": 3,
@@ -277,8 +277,8 @@
       "ga": 7,
       "pts": 4,
       "stage": "r32",
-      "eliminated": false,
-      "live": true
+      "eliminated": true,
+      "live": false
     },
     "TUN": {
       "p": 3,
@@ -396,9 +396,9 @@
       "gf": 10,
       "ga": 2,
       "pts": 9,
-      "stage": "r32",
+      "stage": "r16",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "SEN": {
       "p": 3,
@@ -582,7 +582,7 @@
     }
   },
   "liveFirstSeen": {
-    "SWE": "2026-06-30T22:06:43.491Z",
-    "FRA": "2026-06-30T22:06:43.491Z"
+    "MEX": "2026-07-01T03:38:56.396Z",
+    "ECU": "2026-07-01T03:38:56.396Z"
   }
 }
