@@ -54,6 +54,8 @@ function countdownToKickoff() {
   return `Kicks off in ${hours} hour${hours === 1 ? "" : "s"}`;
 }
 
+function isOut(t) { return t.eliminated && t.stage !== "champion"; }
+
 function buildPlayer(player, teamsMeta, results) {
   // Attach result + meta to each of the player's teams.
   const teams = player.teams.map((id) => {
@@ -62,8 +64,11 @@ function buildPlayer(player, teamsMeta, results) {
     return { id, ...meta, ...res };
   });
 
-  // Best team = strongest by the comparator.
-  const best = teams.reduce((a, b) => (compareTeams(b, a) > 0 ? b : a));
+  // Best team = strongest non-eliminated team; fall back to strongest overall
+  // only when every team is out (so the star always sits on an active team
+  // whenever one exists, and eliminated teams can be sorted to the bottom).
+  const active = teams.filter((t) => !isOut(t));
+  const best = (active.length ? active : teams).reduce((a, b) => (compareTeams(b, a) > 0 ? b : a));
 
   // Still "alive" if the best team has not been eliminated.
   const alive = !best.eliminated || best.stage === "champion";
@@ -144,7 +149,11 @@ function render(ranked) {
       </div>
       ${stageBadge(p.best, isLiveGroup, notPlayed)}
       <div class="teams-detail">
-        ${[...p.teams].sort((a, b) => compareTeams(b, a)).map((t) => teamLine(t, t.id === p.best.id)).join("")}
+        ${[...p.teams].sort((a, b) => {
+            const aOut = isOut(a), bOut = isOut(b);
+            if (aOut !== bOut) return aOut ? 1 : -1; // active teams first
+            return compareTeams(b, a);
+          }).map((t) => teamLine(t, t.id === p.best.id)).join("")}
       </div>`;
     row.addEventListener("click", () => row.classList.toggle("open"));
     board.appendChild(row);
