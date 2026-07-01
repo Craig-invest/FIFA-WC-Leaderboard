@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-07-01T03:38:56.396Z",
+  "lastUpdated": "2026-07-01T09:25:38.569Z",
   "demo": false,
   "source": "api",
-  "anyLive": true,
+  "anyLive": false,
   "teams": {
     "MEX": {
       "p": 3,
@@ -12,9 +12,9 @@
       "gf": 6,
       "ga": 0,
       "pts": 9,
-      "stage": "r32",
+      "stage": "r16",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "RSA": {
       "p": 3,
@@ -241,8 +241,8 @@
       "ga": 2,
       "pts": 4,
       "stage": "r32",
-      "eliminated": false,
-      "live": true
+      "eliminated": true,
+      "live": false
     },
     "NED": {
       "p": 3,
@@ -580,9 +580,5 @@
       "eliminated": true,
       "live": false
     }
-  },
-  "liveFirstSeen": {
-    "MEX": "2026-07-01T03:38:56.396Z",
-    "ECU": "2026-07-01T03:38:56.396Z"
   }
 }
