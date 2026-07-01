@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-07-01T14:31:37.361Z",
+  "lastUpdated": "2026-07-01T17:04:25.487Z",
   "demo": false,
   "source": "api",
-  "anyLive": false,
+  "anyLive": true,
   "teams": {
     "MEX": {
       "p": 3,
@@ -506,7 +506,7 @@
       "pts": 4,
       "stage": "r32",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "UZB": {
       "p": 3,
@@ -542,7 +542,7 @@
       "pts": 7,
       "stage": "r32",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "CRO": {
       "p": 3,
@@ -580,5 +580,9 @@
       "eliminated": true,
       "live": false
     }
+  },
+  "liveFirstSeen": {
+    "COD": "2026-07-01T17:04:25.487Z",
+    "ENG": "2026-07-01T17:04:25.487Z"
   }
 }
