@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-02T19:21:46.342Z",
+  "lastUpdated": "2026-07-02T21:56:51.668Z",
   "demo": false,
   "source": "api",
   "anyLive": false,
@@ -348,7 +348,7 @@
       "gf": 5,
       "ga": 0,
       "pts": 7,
-      "stage": "r32",
+      "stage": "r16",
       "eliminated": false,
       "live": false
     },
@@ -469,7 +469,7 @@
       "ga": 6,
       "pts": 4,
       "stage": "r32",
-      "eliminated": false,
+      "eliminated": true,
       "live": false
     },
     "JOR": {
