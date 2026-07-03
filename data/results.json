@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-03T02:47:23.359Z",
+  "lastUpdated": "2026-07-03T08:44:52.591Z",
   "demo": false,
   "source": "api",
   "anyLive": false,
@@ -96,7 +96,7 @@
       "gf": 7,
       "ga": 3,
       "pts": 7,
-      "stage": "r32",
+      "stage": "r16",
       "eliminated": false,
       "live": false
     },
@@ -457,7 +457,7 @@
       "ga": 7,
       "pts": 4,
       "stage": "r32",
-      "eliminated": false,
+      "eliminated": true,
       "live": false
     },
     "AUT": {
