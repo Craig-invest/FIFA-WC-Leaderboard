@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-07-03T19:18:48.136Z",
+  "lastUpdated": "2026-07-03T21:54:03.814Z",
   "demo": false,
   "source": "api",
-  "anyLive": true,
+  "anyLive": false,
   "teams": {
     "MEX": {
       "p": 3,
@@ -181,8 +181,8 @@
       "ga": 2,
       "pts": 4,
       "stage": "r32",
-      "eliminated": false,
-      "live": true
+      "eliminated": true,
+      "live": false
     },
     "TUR": {
       "p": 3,
@@ -312,9 +312,9 @@
       "gf": 5,
       "ga": 3,
       "pts": 5,
-      "stage": "r32",
+      "stage": "r16",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "IRN": {
       "p": 3,
@@ -580,9 +580,5 @@
       "eliminated": true,
       "live": false
     }
-  },
-  "liveFirstSeen": {
-    "AUS": "2026-07-03T18:58:20.174Z",
-    "EGY": "2026-07-03T18:58:20.174Z"
   }
 }
