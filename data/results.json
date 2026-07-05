@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-04T21:45:09.627Z",
+  "lastUpdated": "2026-07-05T02:53:49.090Z",
   "demo": false,
   "source": "api",
   "anyLive": false,
@@ -169,7 +169,7 @@
       "ga": 4,
       "pts": 4,
       "stage": "r16",
-      "eliminated": false,
+      "eliminated": true,
       "live": false
     },
     "AUS": {
@@ -396,7 +396,7 @@
       "gf": 10,
       "ga": 2,
       "pts": 9,
-      "stage": "r16",
+      "stage": "qf",
       "eliminated": false,
       "live": false
     },
