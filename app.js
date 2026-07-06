@@ -85,6 +85,8 @@ function buildPlayer(player, teamsMeta, results) {
 
 function rankPlayers(players) {
   return [...players].sort((A, B) => {
+    // Fully-eliminated players always sink below those still alive.
+    if (A.alive !== B.alive) return A.alive ? -1 : 1;
     const c = compareTeams(B.best, A.best);
     if (c !== 0) return c;
     // Tie on the best team: favour the player who already has a team that's played.
