@@ -238,6 +238,11 @@ body {
 /* Player whose teams haven't kicked off yet — muted slate "yet to play" badge. */
 .st-waiting  { background: rgba(100, 116, 139, 0.12); color: #94a3b8; border-color: rgba(100,116,139,0.3); border-style: dashed; }
 
+/* A player whose last team has been eliminated — fade the whole row. */
+.row.out { opacity: 0.5; }
+.row.out::before { background: var(--faint) !important; }
+.row.out:hover { opacity: 0.65; transform: none; }
+
 /* ---------- Expandable team detail ---------- */
 .teams-detail {
   grid-column: 1 / -1;
