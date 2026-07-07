@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-07-07T17:03:22.636Z",
+  "lastUpdated": "2026-07-07T19:30:18.154Z",
   "demo": false,
   "source": "api",
-  "anyLive": true,
+  "anyLive": false,
   "teams": {
     "MEX": {
       "p": 3,
@@ -313,8 +313,8 @@
       "ga": 3,
       "pts": 5,
       "stage": "r16",
-      "eliminated": false,
-      "live": true
+      "eliminated": true,
+      "live": false
     },
     "IRN": {
       "p": 3,
@@ -444,9 +444,9 @@
       "gf": 8,
       "ga": 1,
       "pts": 9,
-      "stage": "r16",
+      "stage": "qf",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "ALG": {
       "p": 3,
@@ -580,9 +580,5 @@
       "eliminated": true,
       "live": false
     }
-  },
-  "liveFirstSeen": {
-    "EGY": "2026-07-07T17:03:22.636Z",
-    "ARG": "2026-07-07T17:03:22.636Z"
   }
 }
