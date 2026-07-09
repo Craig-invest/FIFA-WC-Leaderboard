@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-09T19:43:05.717Z",
+  "lastUpdated": "2026-07-09T22:12:01.012Z",
   "demo": false,
   "source": "api",
   "anyLive": false,
@@ -121,7 +121,7 @@
       "ga": 3,
       "pts": 7,
       "stage": "qf",
-      "eliminated": false,
+      "eliminated": true,
       "live": false
     },
     "HAI": {
@@ -396,7 +396,7 @@
       "gf": 10,
       "ga": 2,
       "pts": 9,
-      "stage": "qf",
+      "stage": "sf",
       "eliminated": false,
       "live": false
     },
