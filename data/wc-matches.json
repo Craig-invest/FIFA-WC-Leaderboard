@@ -1,7 +1,7 @@
 {
   "demo": false,
   "source": "the-odds-api",
-  "lastUpdated": "2026-07-10T09:31:40.593Z",
+  "lastUpdated": "2026-07-10T14:21:27.046Z",
   "matches": [
     {
       "id": "ko-73",
@@ -491,24 +491,24 @@
       "predictBy": "2026-07-08T19:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.622,
-        "draw": 3.92,
-        "away": 5.442,
+        "home": 1.603,
+        "draw": 3.95,
+        "away": 5.568,
         "totalsLine": 2.5,
-        "over": 1.798,
-        "under": 2.028,
+        "over": 1.776,
+        "under": 2.048,
         "books": 20
       },
       "pick": {
         "probs": {
-          "HOME": 0.584170943028228,
-          "DRAW": 0.2417156299979046,
-          "AWAY": 0.17411342697386734
+          "HOME": 0.5904170937474513,
+          "DRAW": 0.23960470918409227,
+          "AWAY": 0.1699781970684563
         },
-        "overround": 1.0553808242294385,
+        "overround": 1.0565925762649129,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.584170943028228,
+          "prob": 0.5904170937474513,
           "confidence": "Strong"
         },
         "score": {
@@ -520,7 +520,7 @@
         "reason": "Tight game — backing a narrow 1-0 to Spain (the most common score from round 2 on).",
         "drawBoosted": false,
         "groupRound": "KO",
-        "expectedGoals": 2.5601150026136956
+        "expectedGoals": 2.571129707112971
       },
       "groupRound": "KO",
       "drawAdvancesBoth": false
@@ -537,9 +537,9 @@
       "predictBy": "2026-07-09T21:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 4.095,
-        "draw": 3.628,
-        "away": 1.86,
+        "home": 4.045,
+        "draw": 3.625,
+        "away": 1.874,
         "totalsLine": 2.5,
         "over": 1.725,
         "under": 2.065,
@@ -547,14 +547,14 @@
       },
       "pick": {
         "probs": {
-          "HOME": 0.2309290712572687,
-          "DRAW": 0.26065450573277704,
-          "AWAY": 0.5084164230099544
+          "HOME": 0.23395388698545516,
+          "DRAW": 0.2610602683741148,
+          "AWAY": 0.5049858446404301
         },
-        "overround": 1.057468610906033,
+        "overround": 1.0566987871558862,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.5084164230099544,
+          "prob": 0.5049858446404301,
           "confidence": "Lean"
         },
         "score": {
@@ -585,22 +585,22 @@
       "odds": {
         "home": 1.686,
         "draw": 3.528,
-        "away": 5.583,
+        "away": 5.575,
         "totalsLine": 2.5,
         "over": 2.175,
-        "under": 1.655,
+        "under": 1.65,
         "books": 20
       },
       "pick": {
         "probs": {
-          "HOME": 0.5618358393255514,
-          "DRAW": 0.26849637899741485,
-          "AWAY": 0.16966778167703378
+          "HOME": 0.5616990827517891,
+          "DRAW": 0.26843102424022575,
+          "AWAY": 0.169869893007985
         },
-        "overround": 1.0556816932747897,
+        "overround": 1.0559387195292185,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.5618358393255514,
+          "prob": 0.5616990827517891,
           "confidence": "Strong"
         },
         "score": {
@@ -612,7 +612,7 @@
         "reason": "Tight game — backing a narrow 1-0 to Argentina (the most common score from round 2 on).",
         "drawBoosted": false,
         "groupRound": "KO",
-        "expectedGoals": 2.364229765013055
+        "expectedGoals": 2.3627450980392157
       },
       "groupRound": "KO",
       "drawAdvancesBoth": false
