@@ -1,7 +1,7 @@
 {
   "demo": false,
   "source": "the-odds-api",
-  "lastUpdated": "2026-07-10T02:50:39.419Z",
+  "lastUpdated": "2026-07-10T09:31:40.593Z",
   "matches": [
     {
       "id": "ko-73",
@@ -491,24 +491,24 @@
       "predictBy": "2026-07-08T19:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.635,
-        "draw": 3.88,
-        "away": 5.412,
+        "home": 1.622,
+        "draw": 3.92,
+        "away": 5.442,
         "totalsLine": 2.5,
-        "over": 1.788,
-        "under": 2.038,
+        "over": 1.798,
+        "under": 2.028,
         "books": 20
       },
       "pick": {
         "probs": {
-          "HOME": 0.580215291213446,
-          "DRAW": 0.2444979384365939,
-          "AWAY": 0.17528677034996015
+          "HOME": 0.584170943028228,
+          "DRAW": 0.2417156299979046,
+          "AWAY": 0.17411342697386734
         },
-        "overround": 1.0541273288883977,
+        "overround": 1.0553808242294385,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.580215291213446,
+          "prob": 0.584170943028228,
           "confidence": "Strong"
         },
         "score": {
@@ -520,7 +520,7 @@
         "reason": "Tight game — backing a narrow 1-0 to Spain (the most common score from round 2 on).",
         "drawBoosted": false,
         "groupRound": "KO",
-        "expectedGoals": 2.565342394145321
+        "expectedGoals": 2.5601150026136956
       },
       "groupRound": "KO",
       "drawAdvancesBoth": false
@@ -537,24 +537,24 @@
       "predictBy": "2026-07-09T21:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 4.129,
-        "draw": 3.633,
-        "away": 1.853,
+        "home": 4.095,
+        "draw": 3.628,
+        "away": 1.86,
         "totalsLine": 2.5,
         "over": 1.725,
-        "under": 2.07,
+        "under": 2.065,
         "books": 20
       },
       "pick": {
         "probs": {
-          "HOME": 0.22910532230465774,
-          "DRAW": 0.2603842212485361,
-          "AWAY": 0.5105104564468061
+          "HOME": 0.2309290712572687,
+          "DRAW": 0.26065450573277704,
+          "AWAY": 0.5084164230099544
         },
-        "overround": 1.0571094100667346,
+        "overround": 1.057468610906033,
         "outcome": {
           "pick": "AWAY",
-          "prob": 0.5105104564468061,
+          "prob": 0.5084164230099544,
           "confidence": "Lean"
         },
         "score": {
@@ -566,7 +566,7 @@
         "reason": "Tight game — backing a narrow 1-0 to England (the most common score from round 2 on).",
         "drawBoosted": false,
         "groupRound": "KO",
-        "expectedGoals": 2.590909090909091
+        "expectedGoals": 2.5897097625329817
       },
       "groupRound": "KO",
       "drawAdvancesBoth": false
@@ -583,24 +583,24 @@
       "predictBy": "2026-07-10T01:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.684,
-        "draw": 3.533,
-        "away": 5.573,
+        "home": 1.686,
+        "draw": 3.528,
+        "away": 5.583,
         "totalsLine": 2.5,
-        "over": 2.165,
-        "under": 1.66,
+        "over": 2.175,
+        "under": 1.655,
         "books": 20
       },
       "pick": {
         "probs": {
-          "HOME": 0.5621704519423629,
-          "DRAW": 0.26795783783496724,
-          "AWAY": 0.16987171022266986
+          "HOME": 0.5618358393255514,
+          "DRAW": 0.26849637899741485,
+          "AWAY": 0.16966778167703378
         },
-        "overround": 1.0563063675381252,
+        "overround": 1.0556816932747897,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.5621704519423629,
+          "prob": 0.5618358393255514,
           "confidence": "Strong"
         },
         "score": {
@@ -612,7 +612,7 @@
         "reason": "Tight game — backing a narrow 1-0 to Argentina (the most common score from round 2 on).",
         "drawBoosted": false,
         "groupRound": "KO",
-        "expectedGoals": 2.3679738562091504
+        "expectedGoals": 2.364229765013055
       },
       "groupRound": "KO",
       "drawAdvancesBoth": false
