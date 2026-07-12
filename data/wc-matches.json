@@ -1,7 +1,7 @@
 {
   "demo": false,
   "source": "the-odds-api",
-  "lastUpdated": "2026-07-11T18:59:46.483Z",
+  "lastUpdated": "2026-07-12T02:33:57.329Z",
   "matches": [
     {
       "id": "ko-73",
@@ -480,52 +480,6 @@
       "pick": null
     },
     {
-      "id": "e66e4478b739fa0657a7a11235e1fcee",
-      "home": "Norway",
-      "homeFlag": "🇳🇴",
-      "away": "England",
-      "awayFlag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
-      "stage": "Knockout",
-      "group": null,
-      "commenceTime": "2026-07-11T21:00:00Z",
-      "predictBy": "2026-07-09T21:00:00.000Z",
-      "oddsReady": true,
-      "odds": {
-        "home": 3.82,
-        "draw": 3.744,
-        "away": 1.901,
-        "totalsLine": 2.5,
-        "over": 1.662,
-        "under": 2.17,
-        "books": 20
-      },
-      "pick": {
-        "probs": {
-          "HOME": 0.24815325304578842,
-          "DRAW": 0.25319055198582047,
-          "AWAY": 0.49865619496839125
-        },
-        "overround": 1.054913048686648,
-        "outcome": {
-          "pick": "AWAY",
-          "prob": 0.49865619496839125,
-          "confidence": "Lean"
-        },
-        "score": {
-          "home": 0,
-          "away": 1
-        },
-        "rule": "tight_other",
-        "favSide": "AWAY",
-        "reason": "Tight game — backing a narrow 1-0 to England (the most common score from round 2 on).",
-        "drawBoosted": false,
-        "groupRound": "KO",
-        "expectedGoals": 2.632567849686848
-      },
-      "groupRound": "KO",
-      "drawAdvancesBoth": false
-    },
-    {
       "id": "200d9cd5eda092c7eb778cc104cd2fd2",
       "home": "Argentina",
       "homeFlag": "🇦🇷",
@@ -537,36 +491,36 @@
       "predictBy": "2026-07-10T01:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.698,
-        "draw": 3.465,
-        "away": 5.627,
+        "home": 2.471,
+        "draw": 1.93,
+        "away": 9.074,
         "totalsLine": 2.5,
-        "over": 2.287,
-        "under": 1.612,
-        "books": 20
+        "over": 1.593,
+        "under": 2.337,
+        "books": 17
       },
       "pick": {
         "probs": {
-          "HOME": 0.5580971720933251,
-          "DRAW": 0.2734917743764693,
-          "AWAY": 0.16841105353020547
+          "HOME": 0.39175322027006976,
+          "DRAW": 0.5015659105115765,
+          "AWAY": 0.10668086921835382
         },
-        "overround": 1.0552430297337645,
+        "overround": 1.033034151977017,
         "outcome": {
-          "pick": "HOME",
-          "prob": 0.5580971720933251,
-          "confidence": "Strong"
+          "pick": "DRAW",
+          "prob": 0.5015659105115765,
+          "confidence": "Lean"
         },
         "score": {
           "home": 1,
-          "away": 0
+          "away": 1
         },
-        "rule": "tight_other",
+        "rule": "draw",
         "favSide": "HOME",
-        "reason": "Tight game — backing a narrow 1-0 to Argentina (the most common score from round 2 on).",
+        "reason": "Two evenly-matched sides, few goals likely — 1-1 covers the most realistic draws.",
         "drawBoosted": false,
         "groupRound": "KO",
-        "expectedGoals": 2.32687868684278
+        "expectedGoals": 2.689312977099237
       },
       "groupRound": "KO",
       "drawAdvancesBoth": false
@@ -617,24 +571,24 @@
       "predictBy": "2026-07-12T19:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 2.33,
-        "draw": 3.216,
-        "away": 3.147,
+        "home": 2.298,
+        "draw": 3.213,
+        "away": 3.225,
         "totalsLine": 2.5,
-        "over": 1.934,
-        "under": 1.856,
+        "over": 1.924,
+        "under": 1.876,
         "books": 20
       },
       "pick": {
         "probs": {
-          "HOME": 0.4056975912733717,
-          "DRAW": 0.293928914075546,
-          "AWAY": 0.3003734946510823
+          "HOME": 0.41189935034153663,
+          "DRAW": 0.2945984149034706,
+          "AWAY": 0.2935022347549926
         },
-        "overround": 1.0578927718282292,
+        "overround": 1.0564741343066397,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.4056975912733717,
+          "prob": 0.41189935034153663,
           "confidence": "Lean"
         },
         "score": {
@@ -646,7 +600,7 @@
         "reason": "Tight game — backing a narrow 1-0 to France (the most common score from round 2 on).",
         "drawBoosted": false,
         "groupRound": "KO",
-        "expectedGoals": 2.479419525065963
+        "expectedGoals": 2.4873684210526315
       },
       "groupRound": "KO",
       "drawAdvancesBoth": false
