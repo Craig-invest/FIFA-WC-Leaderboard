@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-11T21:37:57.100Z",
+  "lastUpdated": "2026-07-12T02:34:14.174Z",
   "demo": false,
   "source": "api",
   "anyLive": true,
@@ -98,7 +98,7 @@
       "pts": 7,
       "stage": "qf",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "BRA": {
       "p": 3,
@@ -433,8 +433,8 @@
       "ga": 7,
       "pts": 6,
       "stage": "qf",
-      "eliminated": false,
-      "live": true
+      "eliminated": true,
+      "live": false
     },
     "ARG": {
       "p": 3,
@@ -446,7 +446,7 @@
       "pts": 9,
       "stage": "qf",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "ALG": {
       "p": 3,
@@ -540,9 +540,9 @@
       "gf": 6,
       "ga": 2,
       "pts": 7,
-      "stage": "qf",
+      "stage": "sf",
       "eliminated": false,
-      "live": true
+      "live": false
     },
     "CRO": {
       "p": 3,
@@ -582,7 +582,7 @@
     }
   },
   "liveFirstSeen": {
-    "NOR": "2026-07-11T21:37:57.100Z",
-    "ENG": "2026-07-11T21:37:57.100Z"
+    "SUI": "2026-07-12T02:34:14.174Z",
+    "ARG": "2026-07-12T02:34:14.174Z"
   }
 }
