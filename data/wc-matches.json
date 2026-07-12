@@ -1,7 +1,7 @@
 {
   "demo": false,
   "source": "the-odds-api",
-  "lastUpdated": "2026-07-12T02:33:57.329Z",
+  "lastUpdated": "2026-07-12T08:13:36.728Z",
   "matches": [
     {
       "id": "ko-73",
@@ -480,52 +480,6 @@
       "pick": null
     },
     {
-      "id": "200d9cd5eda092c7eb778cc104cd2fd2",
-      "home": "Argentina",
-      "homeFlag": "🇦🇷",
-      "away": "Switzerland",
-      "awayFlag": "🇨🇭",
-      "stage": "Knockout",
-      "group": null,
-      "commenceTime": "2026-07-12T01:00:00Z",
-      "predictBy": "2026-07-10T01:00:00.000Z",
-      "oddsReady": true,
-      "odds": {
-        "home": 2.471,
-        "draw": 1.93,
-        "away": 9.074,
-        "totalsLine": 2.5,
-        "over": 1.593,
-        "under": 2.337,
-        "books": 17
-      },
-      "pick": {
-        "probs": {
-          "HOME": 0.39175322027006976,
-          "DRAW": 0.5015659105115765,
-          "AWAY": 0.10668086921835382
-        },
-        "overround": 1.033034151977017,
-        "outcome": {
-          "pick": "DRAW",
-          "prob": 0.5015659105115765,
-          "confidence": "Lean"
-        },
-        "score": {
-          "home": 1,
-          "away": 1
-        },
-        "rule": "draw",
-        "favSide": "HOME",
-        "reason": "Two evenly-matched sides, few goals likely — 1-1 covers the most realistic draws.",
-        "drawBoosted": false,
-        "groupRound": "KO",
-        "expectedGoals": 2.689312977099237
-      },
-      "groupRound": "KO",
-      "drawAdvancesBoth": false
-    },
-    {
       "id": "ko-101",
       "matchNo": 101,
       "home": "TBD",
@@ -571,24 +525,24 @@
       "predictBy": "2026-07-12T19:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 2.298,
-        "draw": 3.213,
-        "away": 3.225,
+        "home": 2.281,
+        "draw": 3.205,
+        "away": 3.268,
         "totalsLine": 2.5,
-        "over": 1.924,
-        "under": 1.876,
+        "over": 1.888,
+        "under": 1.912,
         "books": 20
       },
       "pick": {
         "probs": {
-          "HOME": 0.41189935034153663,
-          "DRAW": 0.2945984149034706,
-          "AWAY": 0.2935022347549926
+          "HOME": 0.4149927098509587,
+          "DRAW": 0.2953505058252845,
+          "AWAY": 0.2896567843237567
         },
-        "overround": 1.0564741343066397,
+        "overround": 1.0564142411992072,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.41189935034153663,
+          "prob": 0.4149927098509587,
           "confidence": "Lean"
         },
         "score": {
@@ -600,7 +554,53 @@
         "reason": "Tight game — backing a narrow 1-0 to France (the most common score from round 2 on).",
         "drawBoosted": false,
         "groupRound": "KO",
-        "expectedGoals": 2.4873684210526315
+        "expectedGoals": 2.5063157894736845
+      },
+      "groupRound": "KO",
+      "drawAdvancesBoth": false
+    },
+    {
+      "id": "ced22494ae0bbb8cc4f7108bf6f493df",
+      "home": "England",
+      "homeFlag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "away": "Argentina",
+      "awayFlag": "🇦🇷",
+      "stage": "Knockout",
+      "group": null,
+      "commenceTime": "2026-07-15T19:00:00Z",
+      "predictBy": "2026-07-13T19:00:00.000Z",
+      "oddsReady": true,
+      "odds": {
+        "home": 2.501,
+        "draw": 3.016,
+        "away": 3.048,
+        "totalsLine": 2.5,
+        "over": 2.282,
+        "under": 1.622,
+        "books": 20
+      },
+      "pick": {
+        "probs": {
+          "HOME": 0.37738952343856225,
+          "DRAW": 0.3129480099866857,
+          "AWAY": 0.309662466574752
+        },
+        "overround": 1.0594890402131232,
+        "outcome": {
+          "pick": "DRAW",
+          "prob": 0.3129480099866857,
+          "confidence": "Toss-up"
+        },
+        "score": {
+          "home": 1,
+          "away": 1
+        },
+        "rule": "draw",
+        "favSide": "HOME",
+        "reason": "Two evenly-matched sides, few goals likely — 1-1 covers the most realistic draws.",
+        "drawBoosted": false,
+        "groupRound": "KO",
+        "expectedGoals": 2.3309426229508197
       },
       "groupRound": "KO",
       "drawAdvancesBoth": false
