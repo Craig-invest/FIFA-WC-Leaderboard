@@ -1,7 +1,7 @@
 {
   "demo": false,
   "source": "the-odds-api",
-  "lastUpdated": "2026-07-13T09:22:10.300Z",
+  "lastUpdated": "2026-07-13T14:29:35.924Z",
   "matches": [
     {
       "id": "ko-73",
@@ -525,24 +525,24 @@
       "predictBy": "2026-07-12T19:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 2.313,
-        "draw": 3.221,
+        "home": 2.315,
+        "draw": 3.217,
         "away": 3.202,
         "totalsLine": 2.5,
-        "over": 1.868,
-        "under": 1.954,
+        "over": 1.892,
+        "under": 1.918,
         "books": 21
       },
       "pick": {
         "probs": {
-          "HOME": 0.40975864918138194,
-          "DRAW": 0.29424767325567724,
-          "AWAY": 0.2959936775629408
+          "HOME": 0.4093997894106706,
+          "DRAW": 0.2946100442914835,
+          "AWAY": 0.29599016629784586
         },
-        "overround": 1.0551063524917925,
+        "overround": 1.0551188689823006,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.40975864918138194,
+          "prob": 0.4093997894106706,
           "confidence": "Lean"
         },
         "score": {
@@ -554,7 +554,7 @@
         "reason": "Tight game — backing a narrow 1-0 to France (the most common score from round 2 on).",
         "drawBoosted": false,
         "groupRound": "KO",
-        "expectedGoals": 2.522501308215594
+        "expectedGoals": 2.5068241469816273
       },
       "groupRound": "KO",
       "drawAdvancesBoth": false
@@ -571,24 +571,24 @@
       "predictBy": "2026-07-13T19:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 2.595,
-        "draw": 2.96,
-        "away": 3.004,
+        "home": 2.622,
+        "draw": 2.945,
+        "away": 2.993,
         "totalsLine": 2.5,
-        "over": 2.268,
-        "under": 1.628,
+        "over": 2.294,
+        "under": 1.614,
         "books": 21
       },
       "pick": {
         "probs": {
-          "HOME": 0.364891938008291,
-          "DRAW": 0.3198968172741606,
-          "AWAY": 0.3152112447175484
+          "HOME": 0.36148497809264596,
+          "DRAW": 0.3218382385599042,
+          "AWAY": 0.31667678334745
         },
-        "overround": 1.0560837732508646,
+        "overround": 1.0550597572661875,
         "outcome": {
           "pick": "DRAW",
-          "prob": 0.3198968172741606,
+          "prob": 0.3218382385599042,
           "confidence": "Toss-up"
         },
         "score": {
@@ -600,7 +600,7 @@
         "reason": "Two evenly-matched sides, few goals likely — 1-1 covers the most realistic draws.",
         "drawBoosted": false,
         "groupRound": "KO",
-        "expectedGoals": 2.3357289527720737
+        "expectedGoals": 2.3259979529170933
       },
       "groupRound": "KO",
       "drawAdvancesBoth": false
