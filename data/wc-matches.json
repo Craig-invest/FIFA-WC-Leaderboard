@@ -1,7 +1,7 @@
 {
   "demo": false,
   "source": "the-odds-api",
-  "lastUpdated": "2026-07-18T13:09:33.426Z",
+  "lastUpdated": "2026-07-18T19:01:32.156Z",
   "matches": [
     {
       "id": "ko-73",
@@ -542,24 +542,24 @@
       "predictBy": "2026-07-16T21:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 1.851,
-        "draw": 3.969,
-        "away": 3.781,
+        "home": 1.829,
+        "draw": 3.995,
+        "away": 3.87,
         "totalsLine": 3.5,
-        "over": 2.145,
-        "under": 1.722,
+        "over": 2.13,
+        "under": 1.738,
         "books": 21
       },
       "pick": {
         "probs": {
-          "HOME": 0.5112690467602607,
-          "DRAW": 0.23843764312251015,
-          "AWAY": 0.25029331011722894
+          "HOME": 0.5180187386908045,
+          "DRAW": 0.23716051891501416,
+          "AWAY": 0.24482074239418125
         },
-        "overround": 1.0566814434395313,
+        "overround": 1.0554576801360067,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.5112690467602607,
+          "prob": 0.5180187386908045,
           "confidence": "Lean"
         },
         "score": {
@@ -571,7 +571,7 @@
         "reason": "Tight game — backing a narrow 1-0 to France (the most common score from round 2 on).",
         "drawBoosted": false,
         "groupRound": "KO",
-        "expectedGoals": 3.3906128782001552
+        "expectedGoals": 3.3986556359875904
       },
       "groupRound": "KO",
       "drawAdvancesBoth": false
@@ -605,24 +605,24 @@
       "predictBy": "2026-07-17T19:00:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 2.267,
+        "home": 2.269,
         "draw": 2.993,
         "away": 3.552,
         "totalsLine": 2.5,
-        "over": 2.292,
-        "under": 1.636,
+        "over": 2.276,
+        "under": 1.644,
         "books": 21
       },
       "pick": {
         "probs": {
-          "HOME": 0.41742045937179784,
-          "DRAW": 0.3161684535235101,
-          "AWAY": 0.2664110871046919
+          "HOME": 0.41720602999614503,
+          "DRAW": 0.316284825279403,
+          "AWAY": 0.26650914472445186
         },
-        "overround": 1.0567560629370418,
+        "overround": 1.0563672470699328,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.41742045937179784,
+          "prob": 0.41720602999614503,
           "confidence": "Lean"
         },
         "score": {
@@ -634,7 +634,7 @@
         "reason": "Tight game — backing a narrow 1-0 to Spain (the most common score from round 2 on).",
         "drawBoosted": false,
         "groupRound": "KO",
-        "expectedGoals": 2.332993890020367
+        "expectedGoals": 2.3387755102040817
       },
       "groupRound": "KO",
       "drawAdvancesBoth": false
