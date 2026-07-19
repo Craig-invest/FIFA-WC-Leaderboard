@@ -1,7 +1,7 @@
 {
   "demo": false,
   "source": "the-odds-api",
-  "lastUpdated": "2026-07-19T13:13:14.616Z",
+  "lastUpdated": "2026-07-19T19:02:48.394Z",
   "matches": [
     {
       "id": "ko-73",
@@ -555,28 +555,28 @@
       "awayFlag": "🇦🇷",
       "stage": "Knockout",
       "group": null,
-      "commenceTime": "2026-07-19T19:00:00Z",
-      "predictBy": "2026-07-17T19:00:00.000Z",
+      "commenceTime": "2026-07-19T19:10:00Z",
+      "predictBy": "2026-07-17T19:10:00.000Z",
       "oddsReady": true,
       "odds": {
-        "home": 2.274,
-        "draw": 2.99,
-        "away": 3.55,
+        "home": 2.238,
+        "draw": 2.988,
+        "away": 3.638,
         "totalsLine": 2.5,
-        "over": 2.298,
-        "under": 1.624,
+        "over": 2.3,
+        "under": 1.63,
         "books": 21
       },
       "pick": {
         "probs": {
-          "HOME": 0.4164760425731937,
-          "DRAW": 0.3167446557897801,
-          "AWAY": 0.26677930163702607
+          "HOME": 0.42298157788692714,
+          "DRAW": 0.3168115031161121,
+          "AWAY": 0.2602069189969607
         },
-        "overround": 1.0558920392869597,
+        "overround": 1.0563758516569752,
         "outcome": {
           "pick": "HOME",
-          "prob": 0.4164760425731937,
+          "prob": 0.42298157788692714,
           "confidence": "Lean"
         },
         "score": {
@@ -588,7 +588,7 @@
         "reason": "Tight game — backing a narrow 1-0 to Spain (the most common score from round 2 on).",
         "drawBoosted": false,
         "groupRound": "KO",
-        "expectedGoals": 2.328148903620602
+        "expectedGoals": 2.3295165394402035
       },
       "groupRound": "KO",
       "drawAdvancesBoth": false
