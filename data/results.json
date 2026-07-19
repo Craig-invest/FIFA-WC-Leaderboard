@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2026-07-19T19:03:03.765Z",
+  "lastUpdated": "2026-07-19T21:39:42.327Z",
   "demo": false,
   "source": "api",
-  "anyLive": false,
+  "anyLive": true,
   "teams": {
     "MEX": {
       "p": 3,
@@ -350,7 +350,7 @@
       "pts": 7,
       "stage": "final",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "CPV": {
       "p": 3,
@@ -446,7 +446,7 @@
       "pts": 9,
       "stage": "final",
       "eliminated": false,
-      "live": false
+      "live": true
     },
     "ALG": {
       "p": 3,
@@ -580,5 +580,9 @@
       "eliminated": true,
       "live": false
     }
+  },
+  "liveFirstSeen": {
+    "ESP": "2026-07-19T21:39:42.327Z",
+    "ARG": "2026-07-19T21:39:42.327Z"
   }
 }
