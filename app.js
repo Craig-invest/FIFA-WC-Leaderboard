@@ -55,7 +55,8 @@ function countdownToKickoff() {
   return `Kicks off in ${hours} hour${hours === 1 ? "" : "s"}`;
 }
 
-function isOut(t) { return t.eliminated && t.stage !== "champion"; }
+// "out" = truly knocked out; podium finishes (final/bronze) are never treated as out.
+function isOut(t) { return t.eliminated && t.stage !== "champion" && t.stage !== "final" && t.stage !== "bronze"; }
 
 function buildPlayer(player, teamsMeta, results) {
   // Attach result + meta to each of the player's teams.
@@ -98,7 +99,7 @@ function rankPlayers(players) {
 
 function stageBadge(t, isLiveGroup, notPlayed) {
   const meta = STAGE[t.stage] || STAGE.group;
-  const out = t.eliminated && t.stage !== "champion";
+  const out = isOut(t);
   let cls = meta.cls;
   let label = meta.label;
   if (t.stage === "group") {
@@ -107,8 +108,10 @@ function stageBadge(t, isLiveGroup, notPlayed) {
     label = isLiveGroup ? "Group stage" : "Out — groups";
     // None of this player's teams has kicked off yet → muted "yet to play" style.
     if (notPlayed) cls = "st-waiting";
+  } else if (t.stage === "final" && t.eliminated) {
+    label = "Silver medal"; // lost the final → runner-up; keep st-final silver styling
   } else if (out) {
-    // All of this player's teams are eliminated — grey badge regardless of stage.
+    // Knocked out — grey badge.
     cls = "st-group";
     label = `Out — ${meta.label}`;
   }
@@ -119,10 +122,12 @@ function stageBadge(t, isLiveGroup, notPlayed) {
 
 function teamLine(t, isBest) {
   const meta = STAGE[t.stage] || STAGE.group;
-  const out = t.eliminated && t.stage !== "champion";
+  const out = isOut(t);
   const stageLabel = t.stage === "group"
     ? (out ? "Out in groups" : "Group stage")
-    : (out ? `Out — ${meta.label}` : meta.label);
+    : t.stage === "final" && t.eliminated
+      ? "Silver medal"
+      : (out ? `Out — ${meta.label}` : meta.label);
   const liveLabel = t.live ? '<span class="team-live">● LIVE</span> ' : "";
   return `
     <div class="team-line ${isBest ? "is-best" : ""} ${out ? "out" : ""} ${t.live ? "live" : ""}">
