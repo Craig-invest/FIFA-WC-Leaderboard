@@ -15,7 +15,7 @@
  */
 
 // Our internal stage codes, weakest -> strongest.
-export const STAGE_ORDER = ["group", "r32", "r16", "qf", "sf", "final", "champion"];
+export const STAGE_ORDER = ["group", "r32", "r16", "qf", "sf", "bronze", "final", "champion"];
 
 // Strip accents / punctuation / case so "Côte d'Ivoire" matches "Ivory Coast" via aliases.
 export function normalize(s) {
@@ -84,7 +84,7 @@ export function roundToStage(round) {
   if (r.includes("roundof16")) return "r16";
   if (r.includes("quarter")) return "qf";
   if (r.includes("semi")) return "sf";
-  if (r.includes("3rdplace") || r.includes("thirdplace")) return null; // doesn't change our ranking
+  if (r.includes("3rdplace") || r.includes("thirdplace")) return "bronze";
   if (r.includes("final")) return "final";
   return null;
 }
@@ -148,6 +148,20 @@ export function computeStages(fixtures, resolve) {
     if (stage === "group") {
       groupFixtures++;
       if (isFinished(fx)) finishedGroupFixtures++;
+      continue;
+    }
+
+    // 3rd-place match: winner earns bronze medal (not eliminated); loser is 4th.
+    // Don't set both teams to "bronze" via the appearance loop — only the winner
+    // deserves the badge.
+    if (stage === "bronze") {
+      for (const code of [h, a]) if (code) appearsInKnockout.add(code);
+      if (isFinished(fx) && h && a) {
+        const win = winnerOf(fx, resolve);
+        const lose = win === h ? a : win === a ? h : null;
+        if (lose) ensure(lose).eliminated = true;
+        if (win) { ensure(win).stage = "bronze"; ensure(win).eliminated = false; }
+      }
       continue;
     }
 

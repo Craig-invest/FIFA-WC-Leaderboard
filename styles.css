@@ -229,6 +229,7 @@ body {
 
 .st-champion { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: #1a1304; }
 .st-final    { background: rgba(203, 213, 225, 0.15); color: var(--silver); border-color: rgba(203,213,225,0.35); }
+.st-bronze   { background: rgba(217, 119, 6, 0.18); color: #fcd34d; border-color: rgba(217,119,6,0.45); }
 .st-sf       { background: rgba(167, 139, 250, 0.14); color: #c4b5fd; border-color: rgba(167,139,250,0.3); }
 .st-qf       { background: rgba(96, 165, 250, 0.14); color: #93c5fd; border-color: rgba(96,165,250,0.3); }
 .st-r16      { background: rgba(45, 212, 191, 0.13); color: #5eead4; border-color: rgba(45,212,191,0.3); }
