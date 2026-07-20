@@ -38,7 +38,7 @@ eq(roundToStage("Round of 16"), "r16", "round: r16");
 eq(roundToStage("Quarter-finals"), "qf", "round: qf");
 eq(roundToStage("Semi-finals"), "sf", "round: sf");
 eq(roundToStage("Final"), "final", "round: final");
-eq(roundToStage("3rd Place Final"), null, "round: 3rd place ignored");
+eq(roundToStage("3rd Place Final"), "bronze", "round: 3rd place -> bronze");
 
 // --- group stats: Brazil beat SCO 3-0, drew MAR 1-1, beat HAI 2-0 -> 7pts ---
 const gs = computeGroupStats(fixtures, resolve);

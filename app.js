@@ -8,6 +8,7 @@
 const STAGE = {
   champion: { order: 6, label: "Champions",      cls: "st-champion" },
   final:    { order: 5, label: "Final",          cls: "st-final" },
+  bronze:   { order: 4.5, label: "Bronze medal", cls: "st-bronze" },
   sf:       { order: 4, label: "Semi-final",     cls: "st-sf" },
   qf:       { order: 3, label: "Quarter-final",  cls: "st-qf" },
   r16:      { order: 2, label: "Round of 16",    cls: "st-r16" },
@@ -70,8 +71,8 @@ function buildPlayer(player, teamsMeta, results) {
   const active = teams.filter((t) => !isOut(t));
   const best = (active.length ? active : teams).reduce((a, b) => (compareTeams(b, a) > 0 ? b : a));
 
-  // Still "alive" if the best team has not been eliminated.
-  const alive = !best.eliminated || best.stage === "champion";
+  // Still "alive" if the best team hasn't been knocked out, or it's a podium finish.
+  const alive = !best.eliminated || best.stage === "champion" || best.stage === "final" || best.stage === "bronze";
 
   // "live" if any of this player's teams is currently playing.
   const live = teams.some((t) => t.live);
