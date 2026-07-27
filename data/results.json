@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-27T14:28:44.423Z",
+  "lastUpdated": "2026-07-27T16:52:01.991Z",
   "demo": false,
   "source": "api",
   "anyLive": false,
@@ -97,7 +97,7 @@
       "ga": 3,
       "pts": 7,
       "stage": "qf",
-      "eliminated": true,
+      "eliminated": false,
       "live": false
     },
     "BRA": {
@@ -348,7 +348,7 @@
       "gf": 5,
       "ga": 0,
       "pts": 7,
-      "stage": "champion",
+      "stage": "final",
       "eliminated": false,
       "live": false
     },
@@ -361,7 +361,7 @@
       "ga": 2,
       "pts": 3,
       "stage": "r32",
-      "eliminated": true,
+      "eliminated": false,
       "live": false
     },
     "KSA": {
@@ -409,7 +409,7 @@
       "ga": 6,
       "pts": 3,
       "stage": "r32",
-      "eliminated": true,
+      "eliminated": false,
       "live": false
     },
     "IRQ": {
@@ -433,7 +433,7 @@
       "ga": 7,
       "pts": 6,
       "stage": "qf",
-      "eliminated": true,
+      "eliminated": false,
       "live": false
     },
     "ARG": {
@@ -445,7 +445,7 @@
       "ga": 1,
       "pts": 9,
       "stage": "final",
-      "eliminated": true,
+      "eliminated": false,
       "live": false
     },
     "ALG": {
